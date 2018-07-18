@@ -138,14 +138,14 @@ We conclude in \sectionname~\ref{sec:conclusion}.
 \section{Data and cluster discovery} \label{sec:data}
 
 We use astrometric data from the \gaia\ mission (\citealt{Prusti:2016}), data release 2 (\DR{2}; \citealt{Gaia-Collaboration:2018, Lindegren:2018}) to search for distant, comoving multiplets of blue stars.
-We initially select all stars from \gaia\ with $\textrm{parallax} < 1$, $-0.5 < \bprp < 0$, $G < 20$, and Galactic latitude $|b| > 20^\circ$ (see \sectionname~\ref{sec:queries} for database query).
+We initially select all stars from \gaia\ with $\textrm{parallax} < 1$, $-0.5 < \bprp < 0$, $G < 20$, and Galactic latitude $|b| > 20^\circ$ (see Appendix~\ref{sec:queries} for database query).
 We further exclude stars within a $15^\circ$ radius from the LMC, and a $8^\circ$ radius from the SMC --- this leaves just 27,895 stars.
 We then cross-match this catalog to itself with both sky positions and proper motions: we search for pairs of stars that have separations $s < 0.5^\circ$ and proper motion differences $|\Delta \mu| < 0.5~\masyr$.
 We then combine mutually-connected comoving pairs into small groups of stars that are colocated on the sky and comoving in proper motions; We filter out groups that have $<4$ members.
 We cross-match the mean sky positions of the groups to locations of local group galaxies \todo{citation} \citep{Mcconaghie} and Milky Way globular clusters \todo{citation} \citep{Harris} and filter out all groups that lie within 1 degree of these known objects.
 After these filters, just one group of blue, comoving stars remains at $(\textrm{RA}, \textrm{Dec}) \sim (179, -29)^\circ$.
 
-We then query all objects from the \gaia\ \DR{2} catalog within a polygon centered on the nominal position of the group (see above), with a width of $12^\circ$ and a height of $8^\circ$ in the Magellanic stream coordinate system \citep{Nidever:2008} (see \sectionname~\ref{sec:queries} for the database query).
+We then query all objects from the \gaia\ \DR{2} catalog within a polygon centered on the nominal position of the group (see above), with a width of $12^\circ$ and a height of $8^\circ$ in the Magellanic stream coordinate system \citep{Nidever:2008} (see Appendix~\ref{sec:queries} for the database query).
 We cross-match the resulting catalog with \acronym{GALEX} \todo{citation} using a positional crossmatch requiring source separation $<2~\textrm{arcsec}$, and with \acronym{PS1} \todo{citation}\citep{Chambers:XX} using the cross-match provided by the \gaia\ science archive.
 
 \todo{Left off here}
