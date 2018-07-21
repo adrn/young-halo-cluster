@@ -18,7 +18,8 @@
 \newcommand{\project}[1]{\textsl{#1}}
 \newcommand{\package}[1]{\textsl{#1}}
 \newcommand{\gaia}{\textsl{Gaia}}
-\newcommand{\pans}{\textsl{Pan-STARRS}}
+\newcommand{\pans}{\acronym{PS1}}
+\newcommand{\decam}{DECam}
 \newcommand{\DR}[1]{\acronym{DR#1}}
 \newcommand{\todo}[1]{{\color{red} TODO: #1}}
 
@@ -146,7 +147,10 @@ In \sectionname~\ref{sec:results}, we derive estimates for the total stellar mas
 In \sectionname~\ref{sec:discussion}, we discuss implications for future searches for stars associated with the MS, and discrepancies with existing models of the LA.
 We conclude in \sectionname~\ref{sec:conclusion}.
 
-\section{Data and cluster discovery} \label{sec:data}
+\section{Data} \label{sec:data}
+
+\subsection{Cluster discovery with \gaia}
+\label{sec:discovery}
 
 We use astrometric data from the \gaia\ mission (\citealt{Prusti:2016}), data release 2 (\DR{2}; \citealt{Gaia-Collaboration:2018, Lindegren:2018}) to search for distant, comoving multiplets of blue stars.
 We initially select all stars from \gaia\ with parallax $\varpi < 1$, color $-0.5 < (\bprp) < 0$, $G$-band magnitude $G < 20$, and Galactic latitude $|b| > 20^\circ$ (see Appendix~\ref{sec:queries} for database query).
@@ -157,8 +161,8 @@ We cross-match the mean sky positions of the groups to locations of local group 
 After these filters, just one group of blue, comoving stars remains at $(\textrm{RA}, \textrm{Dec}) \sim (179, -29)^\circ$.
 
 We then query all objects from the \gaia\ \DR{2} catalog within a polygon centered on the nominal position of the group (see above), with a width of $12^\circ$ and a height of $8^\circ$ in the Magellanic stream coordinate system \citep{Nidever:2008} (see Appendix~\ref{sec:queries} for the database query).
-We cross-match the resulting catalog with \acronym{GALEX} \todo{citation} using a positional crossmatch requiring source separation $<2~\textrm{arcsec}$, and with \acronym{PS1} \todo{citation}\citep{Chambers:XX} using the cross-match provided by the \gaia\ science archive.
-\figurename~\ref{fig:cmds} shows the \gaia\ color-magnitude diagram (left) and the \acronym{GALEX} NUV minus \acronym{PS1} $g$-band vs. \gaia\ \bprp\ color-color diagram (right) from the cross-matched photometry.
+We cross-match the resulting catalog with \acronym{GALEX} \todo{citation} using a positional crossmatch requiring source separation $<2~\textrm{arcsec}$, and with \pans\ \todo{citation}\citep{Chambers:XX} using the cross-match provided by the \gaia\ science archive.
+\figurename~\ref{fig:cmds} shows the \gaia\ color-magnitude diagram (left) and the \acronym{GALEX} NUV minus \pans\ $g$-band vs. \gaia\ \bprp\ color-color diagram (right) from the cross-matched photometry.
 All magnitudes are corrected for dust extinction using the SFD \citep{Schlegel:1998} dust map.
 The green polygon in the left panel of \figurename~\ref{fig:cmds} highlights the over-density of blue stars that were identified as comoving from the proper motion search described above.
 The red line in right panel of \figurename~\ref{fig:cmds} is an isochrone (from MIST; \citealt{TODO}) for a $50~\textrm{Myr}$, $\feh = -1$ stellar population.
@@ -167,29 +171,48 @@ The red line in right panel of \figurename~\ref{fig:cmds} is an isochrone (from 
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{figures/gaia-galex-cmd.pdf}
-\caption{Color-magnitude and color-color diagrams with \gaia\ ($G$, BP, RP), \acronym{GALEX} (NUV), and \acronym{PS1} ($g$) magnitudes.
+\caption{Color-magnitude and color-color diagrams with \gaia\ ($G$, BP, RP), \acronym{GALEX} (NUV), and \pans\ ($g$) magnitudes.
 Shaded pixels (orange) show regions of high density and points (black markers) are plotted when there are fewer than 8 stars per pixel.
-Green polygon in left panel highlights the over-density of blue, comoving stars identified by the search described in \sectionname~\ref{sec:data}.
+Green polygon in left panel highlights the over-density of blue, comoving stars identified by the search described in \sectionname~\ref{sec:discovery}.
 Red line in right panel shows the zero-age main sequence of a $50~\textrm{Myr}$, $\feh = -1$ stellar population from the MIST isochrone library \citep{TODO}.
 }
 \label{fig:cmds}
 \end{figure}
 
-\todo{Left off here}
+\subsection{Follow-up with \decam}
+\label{sec:decam}
 
-Figure \ref{fig_skypm} shows the spatial and proper motion distribution in the region of interest with the objects in
-a small proper motion selection shown as black and red dots.  The color magnitude diagram (CMD) of the same objects
-is shown in Figure \ref{fig_cmd} and clearly reveals a sequence of objects that follow the shape of a young main-sequence.
-The PS1 photometry of the same region is shown in Figure \ref{fig_isochrone} and as well as young, metal-poor isochrones at fa distance of 25 kpc.  Finally, Figure \ref{fig_gass} shows a position-velocity diagram at the position of the cluster of the \citep[GASS;][]{McClure-Griffiths:2009} \hi data that has been Gaussian decomposed using the technique in \citet{Nidever:2008}.
-The component of the LA II can be seen on the left-hand side of the figure and a similar \hie stream can be seen near the
-position of the cluster.
+\todo{Nidever}
+
+% Figure \ref{fig_skypm} shows the spatial and proper motion distribution in the region of interest with the objects in
+% a small proper motion selection shown as black and red dots.  The color magnitude diagram (CMD) of the same objects
+% is shown in Figure \ref{fig_cmd} and clearly reveals a sequence of objects that follow the shape of a young main-sequence.
+% The PS1 photometry of the same region is shown in Figure \ref{fig_isochrone} and as well as young, metal-poor isochrones at fa distance of 25 kpc.  Finally, Figure \ref{fig_gass} shows a position-velocity diagram at the position of the cluster of the \citep[GASS;][]{McClure-Griffiths:2009} \hi data that has been Gaussian decomposed using the technique in \citet{Nidever:2008}.
+% The component of the LA II can be seen on the left-hand side of the figure and a similar \hie stream can be seen near the
+% position of the cluster.
 % Yumi:
 % Need a sentence or two for dust extinction correction somewhere in the above two paragraphs?
 
-Isochrone: \citep{Fox:2018}
-
 
 \section{Results} \label{sec:results}
+
+\section{Proper motion cleaned}
+\label{sec:pmclean}
+
+\todo{APW}
+
+
+\section{Stellar population characteristics}
+\label{sec:popchars}
+
+\todo{APW}
+
+
+\section{Relation to HI gas}
+\label{sec:higas}
+
+\todo{Nidever}
+
 
 We have used the new Gaia data to detect a young, metal-poor cluster in the halo of the Milky Way at a distance of 25 kpc and a MW z-height of 12 kpc.  The detection of such a young cluster so far from the star-forming disks of any nearby
 galaxy is highly unusual.  However, the proximity of the new cluster to the Leading Arm of the Magellanic Stream suggests
