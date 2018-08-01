@@ -244,7 +244,7 @@ We assume that the measurements for each star, $n$, are independent so that the 
         \label{eq:likelihood}
 \end{align}
 
-We use an ensemble Markov chain Monte Carlo (MCMC) sampler \citep[\texttt{emcee}][]{Goodman:XX, Foreman-Mackey:2013} to generate posterior samples over the parameters $(f, \bs{m}, s)$ using the likelihood defined above (Equation~\ref{eq:likelihood}), and assuming the following prior probability distributions: uniform over the domain $(-5, 5)~\masyr$ for each component of $\bs{m}$, uniform in $f$, and uniform in log-$s$ over the domain $-6 < \ln s < 4$ (with $s$ in units of \masyr).
+We use an ensemble Markov chain Monte Carlo (MCMC) sampler \citep[\texttt{emcee};][]{Goodman:XX, Foreman-Mackey:2013} to generate posterior samples over the parameters $(f, \bs{m}, s)$ using the likelihood defined above (Equation~\ref{eq:likelihood}), and assuming the following prior probability distributions: uniform over the domain $(-5, 5)~\masyr$ for each component of $\bs{m}$, uniform in $f$, and uniform in log-$s$ over the domain $-6 < \ln s < 4$ (with $s$ in units of \masyr).
 We run the sampler with 32 walkers for 256 steps as burn-in, then reset the sampler and run for an additional 512 steps.
 We then thin the resulting chains by taking every 16th sample, leaving a total of 1024 samples; We use these samples to estimate the median posterior parameter values and uncertainties, and to compute, for each star, posterior probabilities of belonging to the cluster mixture component.
 For the young cluster, we find $\bs{m} = (-0.55,  0.44) \pm (0.03, 0.02)~\masyr$, $\ln s = -3.5 \pm 1$, and $f = 0.24 \pm 0.02$.
@@ -252,8 +252,10 @@ The bottom-left panel of the middle panels of \figurename~\ref{fig:pm-members} s
 The proper-motion dispersion is consistent with zero, but is unmeasured; 95\% of the posterior samples have $s < 0.09~\masyr$.
 
 The bottom-right panel of the middle panels of \figurename~\ref{fig:pm-members} shows all stars in the cluster field, but each marker is colored by the probability of (kinematically) belonging to the young cluster.
-The right (large) panel of \figurename~\ref{fig:pm-members} shows the sky positions of all stars with $\textrm{probability} > 0.5$ of belonging to the cluster: The comoving, blue stars are also a clear spatial over-density in this region.
-\figurename~\ref{fig:pm-members-cmd} shows \gaia\ color-magnitude diagrams for
+The right (large) panel of \figurename~\ref{fig:pm-members} shows the sky positions of all stars with $\textrm{probability} > 0.5$ of belonging to the cluster: The comoving, blue stars show a clear spatial over-density in this region.
+
+\figurename~\ref{fig:pm-members-cmd} shows the \gaia\ color-magnitude diagrams for all stars in this sky region (grey background) and stars with $\text{probability} > 0.5$ of belonging to the young cluster (black markers) in the control field (left, \todo{XX} stars) and cluster field (right, \todo{XX} stars).
+The colored lines show $\[\textrm{Fe}/\textrm{H}\] = -1$ isochrones with ages indicated at a distance of \todo{XX} \kpc.
 
 % Notebook: Proper-motion-membership
 \begin{figure}
@@ -267,7 +269,7 @@ The right (large) panel of \figurename~\ref{fig:pm-members} shows the sky positi
 % Notebook: Proper-motion-membership
 \begin{figure}
 \centering
-\includegraphics[width=\textwidth]{figures/pm-members-cmd.pdf}
+\includegraphics[width=0.6\textwidth]{figures/pm-members-cmd.pdf}
 \caption{\todo{APW}
 }
 \label{fig:pm-members-cmd}
