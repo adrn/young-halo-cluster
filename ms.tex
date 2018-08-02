@@ -91,17 +91,17 @@
 \affiliation{Department of Physics, Montana State University, P.O. Box 173840, Bozeman, MT 59717-3840, USA}
 \affiliation{Steward Observatory, University of Arizona, 933 North Cherry Avenue, Tucson AZ, 85721}
 
-\author{Edward Schlafly}
+\author[0000-0002-3569-7421]{Edward F. Schlafly}
+\affiliation{Lawrence Berkeley National Laboratory, One Cyclotron Road, Berkeley, CA 94720, USA}
 
-\author{Douglas Finkbeiner}
-% \affiliation{McWilliams Center for Cosmology, Department of Physics, Carnegie Mellon University, 5000 Forbes Avenue, Pittsburgh, PA 15213, USA}
-% \affiliation{Institute of Astronomy, University of Cambridge, Madingley Road, Cambridge CB3 0HA, UK}
+\author[0000-0003-2808-275X]{Douglas P. Finkbeiner}
+\affiliation{Institute for Theory and Computation, Harvard-Smithsonian Center for Astrophysics, 60 Garden Street, MS-51, Cambridge, MA 02138, USA}
 
-\author{Sergey E. Koposov}
+\author[0000-0003-2644-135X]{Sergey E. Koposov}
 \affiliation{McWilliams Center for Cosmology, Department of Physics, Carnegie Mellon University, 5000 Forbes Avenue, Pittsburgh, PA 15213, USA}
 \affiliation{Institute of Astronomy, University of Cambridge, Madingley Road, Cambridge CB3 0HA, UK}
 
-\author{Vasily Belokurov}
+\author[0000-0002-0038-9584]{Vasily Belokurov}
 \affiliation{Institute of Astronomy, University of Cambridge, Madingley Road, Cambridge CB3 0HA, UK}
 \affiliation{Center for Computational Astrophysics, Flatiron Institute, 162 5th Avenue, New York, NY 10010, USA}
 
@@ -281,8 +281,10 @@ The colored lines show $\[\textrm{Fe}/\textrm{H}\] = -1$ isochrones with ages in
 
 \todo{APW}
 
-Fit isochrone? Or ask Dan Weisz?
-
+\begin{itemize}
+\item Fit isochrone to DECam photometry
+\item Use luminosity function to estimate stellar mass
+\end{itemize}
 
 \section{Relation to HI gas}
 \label{sec:higas}
@@ -354,10 +356,24 @@ of the young cluster.}
 
 \section{Conclusion} \label{sec:conclusion}
 
+We have identified a young, metal-poor stellar association --- named \clustername\ --- that likely formed from gas in the leading arm of the Magellanic gas stream.
+With an assumed metallicity of $\feh = -1$, the age of the association is \todo{XX} at a distance of \todo{XX}.
+If we fit for metallicity, age, and distance, we find weaker constraints on \todo{...}
+
+
 
 \acknowledgments
 
-We thank some people...
+It is a pleasure to thank
+Lauren Anderson (Flatiron),
+Ana Bonaca (Harvard),
+Elena D'Onghia (UW Madison),
+Raja Guhathakurta (UCSC),
+Cliff Johnson (Northwestern),
+Ekta Patel (Arizona)
+Josh Peek (STScI),
+and Erik Tollerud (STScI)
+for useful suggestions and discussion.
 
 This work has made use of data from the European Space Agency (ESA)
 mission {\it Gaia} (\url{https://www.cosmos.esa.int/gaia}), processed by
@@ -390,7 +406,7 @@ WHERE parallax < 1
 \end{verbatim}
 
 \software{
-    \package{Astropy} \citep{astropy},
+    \package{Astropy} \citep{astropy, astropy:2018},
     \package{dustmaps}\footnote{\url{https://github.com/gregreen/dustmaps}},
     \package{emcee} \citep{emcee},
     \package{gala} \citep{gala},
