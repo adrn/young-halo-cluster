@@ -61,6 +61,7 @@
 \newcommand{\lmcsmc}{LMC--SMC}
 \newcommand{\bprp}{\ensuremath{\textrm{BP} - \textrm{RP}}}
 \newcommand{\truepm}{\ensuremath{\tilde{\bs{\mu}}}}
+\newcommand{\isodist}{\ensuremath{25~\kpc}}
 
 %% Reintroduced the \received and \accepted commands from AASTeX v5.2
 % \received{January 1, 2018}
@@ -84,7 +85,7 @@
 \correspondingauthor{Adrian M. Price-Whelan}
 
 \author[0000-0002-1793-3689]{David L. Nidever}
-\affiliation{Department of Physics, Montana State University, P.O. Box 173840, Bozeman, MT 59717-3840, USA}
+\affiliation{Department of Physics, Montana State University, P.O. Box 173840, Bozeman, MT 59717, USA}
 \affiliation{National Optical Astronomy Observatory, 950 North Cherry Ave, Tucson, AZ 85719}
 
 \author[0000-0003-1680-1884]{Yumi Choi}
@@ -255,7 +256,8 @@ The bottom-right panel of the middle panels of \figurename~\ref{fig:pm-members} 
 The right (large) panel of \figurename~\ref{fig:pm-members} shows the sky positions of all stars with $\textrm{probability} > 0.5$ of belonging to the cluster: The comoving, blue stars show a clear spatial over-density in this region.
 
 \figurename~\ref{fig:pm-members-cmd} shows the \gaia\ color-magnitude diagrams for all stars in this sky region (grey background) and stars with $\text{probability} > 0.5$ of belonging to the young cluster (black markers) in the control field (left, 5 stars) and cluster field (right, 65 stars).
-The colored lines show $\[\textrm{Fe}/\textrm{H}\] = -1$ isochrones with ages indicated at a distance of \todo{XX} \kpc.
+The colored lines show $\feh = -1$ isochrones with ages indicated at a distance of \todo{XX} \kpc.
+In the next section, we model the distribution of stars in the \decam\ color-magnitude diagram to determine the characteristics of the stellar population.
 
 % Notebook: Proper-motion-membership
 \begin{figure}
@@ -270,7 +272,9 @@ The colored lines show $\[\textrm{Fe}/\textrm{H}\] = -1$ isochrones with ages in
 \begin{figure}
 \centering
 \includegraphics[width=0.6\textwidth]{figures/pm-members-cmd.pdf}
-\caption{\todo{APW}
+\caption{\gaia\ color-magnitude diagrams for stars in the sky region around \clustername: grey background in both panels shows the distribution for all stars, and black points show stars with $\textrm{probability} > 0.5$ of (kinematically) belonging to \clustername.
+Left panel is for stars in the control fields, right panel is for stars in the cluster field.
+Colored lines show $\feh = -1$ isochrones from the MIST \citep{TODO} isochrone library for the ages indicated at a distance of \isodist.
 }
 \label{fig:pm-members-cmd}
 \end{figure}
