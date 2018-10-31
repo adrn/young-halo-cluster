@@ -55,6 +55,7 @@
 \newcommand{\bprp}{\ensuremath{\textrm{BP} - \textrm{RP}}}
 \newcommand{\truepm}{\ensuremath{\tilde{\bs{\mu}}}}
 \newcommand{\isodist}{\ensuremath{25~\kpc}}
+\newcommand{\eep}{\ensuremath{\acronym{\textrm{EEP}}}}
 
 %% Reintroduced the \received and \accepted commands from AASTeX v5.2
 % \received{January 1, 2018}
@@ -62,7 +63,7 @@
 % \accepted{\today}
 
 \submitjournal{ApJL}
-\shorttitle{A recent star formation event in the Magellanic stream}
+\shorttitle{Recent star formation in the Magellanic Stream}
 \shortauthors{Price-Whelan et al.}
 
 \begin{document}
@@ -212,11 +213,11 @@ Red and blue lines in right panel show the zero-age main sequence of a $50~\text
 % Need a sentence or two for dust extinction correction somewhere in the above two paragraphs?
 
 
-\section{Results} \label{sec:results}
+\section{Methods} \label{sec:methods}
 
 In the subsections below, we perform two independent analyses of the data available for \clustername.
 In \sectionname~\ref{sec:pmclean}, we use astrometric data from \gaia\ \DR{2} to identify members probabilistically, then demonstrate that the high-probability kinematic members appear as a clear young main sequence in the \gaia\ CMD.
-In \sectionname~\ref{sec:popchars}, we use photometric data from \decam\ to again identify members probabilistically, and simultaneously infer the cluster parameters (age, metallicity, distance, etc.).
+In \sectionname~\ref{sec:popmodel}, we use photometric data from \decam\ to again identify members probabilistically, and simultaneously infer the cluster parameters (age, metallicity, distance, etc.).
 We perform these analyses separately because \gaia\ \DR{2} only includes the most massive members of the cluster, but the addition of lower main sequence members apparent in the \decam\ photometry provide a much better constraint on the cluster parameters.
 
 \subsection{Determining kinematic membership}
@@ -282,21 +283,102 @@ Add proper motion vector?}
 \includegraphics[width=0.6\textwidth]{figures/pm-members-cmd.pdf}
 \caption{\gaia\ color-magnitude diagrams for stars in the sky region around \clustername: grey background in both panels shows the distribution for all stars, and black points show stars with $\textrm{probability} > 0.5$ of (kinematically) belonging to \clustername.
 Left panel is for stars in the control fields, right panel is for stars in the cluster field.
-Colored lines show $\feh = -1$ isochrones from the MIST \citep{TODO} isochrone library for the ages indicated at a distance of \isodist.
-}
+Colored lines show $\feh = -1$ isochrones from the \acronym{MIST} \citep{TODO} isochrone library for the ages indicated at a distance of \isodist.}
 \label{fig:pm-members-cmd}
 \end{figure}
 
 
-\subsection{Stellar population characteristics}
+\subsection{Stellar population modeling}
+\label{sec:popmodel}
+
+The deeper photometry from \decam\ provides a clear view of the stellar population of \clustername\ down to stellar masses $M \sim 0.9~\msun$:
+\figurename~\ref{fig:decam-cmd} shows the \decam\ $g$ and $i$ band color-magnitude diagrams for control fields (left) and cluster fields (right) selected from the \decam\ footprint, once again showing the young main sequence (single stellar population in right panel).
+We use the $g$- and $i$-band photometry for individual stars in a sub-section of the cluster field CMD (red dashed outlined region in \figurename~\ref{fig:decam-cmd}) to infer the stellar population parameters of \clustername.
+To summarize our methodology, we generate posterior samplings over the stellar parameters of each individual source under an interim prior (over age, stellar mass, distance, etc.), then use these individual samplings to construct a Bayesian hierarchical model for a two-component mixture of a single stellar population and a background population.
+The results of this modeling are presented in \sectionname~\ref{sec:popchars}.
+
+In detail, we start by using the \texttt{isochrones} package \citep{Morton:XXXX} to generate posterior samplings over stellar parameters for each individual source given its photometry and an interim prior.
+We use the \acronym{MIST} \citep{Choi:2016} isochrone library, and \texttt{isochrones} automatically performs interpolation between the provided grid of stellar isochrones to evaluate predicted stellar parameters at a given location in the CMD.
+The stellar parameters for each source are its ``equal evolutionary point'' number $\eep$ (see \acronym{MIST} documentation; \citealt{WHO}), age $\tau$, metallicity $\feh$, extinction $A_V$, and distance $D$, which can be uniquely mapped to a point in the observed CMD;
+The likelihood of a given set of these parameters, $\boldsymbol{\theta} = (\eep, \tau, \feh, A_V, D)$, is then computed from the photometry and (assumed Gaussian) photometric uncertainties given the predicted photometry.
+
+To generate posterior samples, we must also specify prior probability distributions over the parameters $\boldsymbol{\theta}$.
+The priors for each parameter are summarized in \tablename~\ref{tbl:priors}.
+The bounds on $\eep$ limit the isochrone to evolutionary phases between the zero-age main sequence to the terminal-age main sequence.
+The prior and bounds on $A_V$ are set to prefer small and reasonable values of extinction for this moderately high Galactic latitude region.
+The prior on distance assumes a uniform space density of stars.
+
+As expected, we find that the photometry for individual sources in the lower main sequence are very poorly constrained in all parameters, and the prior tends to pull the posterior samplings to prefer closer, older stellar parameters.
+This is a weakness of our methodology for performing the hierarchical inference: each source is considered independently, even though there is clear structure in the CMD (i.e. \figurename~\ref{fig:decam-cmd}).
+A more correct way to do this would be to infer the stellar parameters of \emph{all} stars, the cluster hyperparameters, and the background simultaneously.
+However, for the 417 stars we are using (in the red box in \figurename~\ref{fig:decam-cmd}), this model would have $\sim$2,000 free parameters, if left unmarginalized.
+We are developing tools to perform star cluster parameter inference in this way (Morton et al., in prep.), but here we adopt a simple hack to allow us to instead perform individual posterior samplings and then combine into a hierarchical inference.
+
+The brightest stars in the cluster have very precise \decam\ photometry, and have precise astrometry from \gaia, and therefore have membership probabilities from the previous section (\sectionname~\ref{sec:pmclean}).
+Given their location in the CMD, these stars must be young, and so also have much better constrained stellar parameters.
+We therefore use the brightest, high-probability \emph{kinematic} member --- XXX --- as an ``anchor'' star:
+We model every other source (i.e. excluding XXX) in the \decam\ selection region by fitting the photometry of it and the anchor star simultaneously, assuming they have the same age, metallicity, distance, and extinction but different \eep\ values.
+Motivated by the possible signature of an (unresolved) binary sequence in the \decam\ CMD, we add one further piece of complexity to the model by allowing the photometry of each non-anchor source to be fit as an unresolved binary star system.
+This adds an additional parameter, the unresolved binary mass ratio $q$, to the list of inferred stellar parameters for each source.
+The details of this model are handled by the \texttt{isochrones} package.
+
+\begin{table}[ht]
+\begin{center}
+    \begin{tabular}{ c | c | c }
+        \toprule
+        Parameter & Prior & Bounds \\
+        \toprule
+        $\eep$ & uniform & $(202, 355)$ \\
+        $\tau$ & uniform & $(10~\textrm{Myr}, 15~\textrm{Gyr})$ \\
+        $\feh$ & uniform & $(-2, 0.5)$ \\
+        $A_V$ & $\propto A_V^{-1}$ & $(0.001, 1)~\textrm{mag}$ \\
+        $D$ & $\propto D^{2}$ & $(1, 100)~\kpc$ \\
+        \toprule
+    \end{tabular}
+\caption{Prior probability distributions for each of the stellar parameters defined in \sectionname~\ref{sec:popmodel}.
+\label{tbl:priors}}
+\end{center}
+\end{table}
+
+In the end, we generate posterior samplings over the parameters $(\boldsymbol{\theta}, q)$ for each of the 417 sources in the selected region of the \decam\ CMD using \texttt{PyMultinest} \citep{TODO}, and store the value of the prior evaluated at the location of each sample.
+We then use these samples and interim prior values to construct our hierarchical model.
+In the hierarchical model, we assume that the stellar parameters of each primary star in the CMD region are either drawn from the cluster, or a background (stellar halo) population.
+For the cluster, we assume the values are drawn from delta functions in age, metallicity, distance, and extinction, with the centroids of the delta functions $\boldsymbol{\alpha} = (\mu_\tau, \mu_{\feh}, \mu_D, \mu_{A_V})$ as hyperparameters of the hierarchical inference. \todo{Double check that we let all 4 of these free}
+For the background model, we assume the same priors as specified in \tablename~\ref{tbl:priors}.
+The one other parameter of this hierarchical model is the global fraction of sources that are likely cluster members, $f$.
+The full XXX of this model for all $K=417$ source ... \todo{write this down}
+\begin{align}
+    p(\boldsymbol{\theta}_K, q_K, \boldsymbol{\alpha}, f \given \{g, i\}_K )
+        &\propto
+        \prod_k^K p(g_k, i_k \given \boldsymbol{\theta}_k, q_k) \,
+            p(\boldsymbol{\theta}_k, q_k \given \boldsymbol{\alpha}, f) \,
+            p(\boldsymbol{\alpha}) \, p(f)
+\end{align}
+(see \citealt{Hogg:2008, Foreman-Mackey:2013, Price-Whelan:2018} for other examples of this trick). \todo{double check references and add}
+\todo{Make a PGM for this model?}
+
+\todo{OK, so now finally we generate samples in alpha, f using emcee, and now we have inferred the cluster parameters - boo ya}
+
+% Notebook: Figure-DECam-CMD
+\begin{figure}
+\centering
+\includegraphics[width=0.6\textwidth]{figures/DECam-cmd.pdf}
+\caption{TODO}
+\label{fig:decam-cmd}
+\end{figure}
+
+
+\section{Results} \label{sec:results}
+
+\subsection{The stellar population of \clustername}
 \label{sec:popchars}
 
-
+\todo{APW}
 
 % TODO:
 % - Stellar mass estimate
 
-\subsection{Relation to HI gas}
+\subsection{Relation to \hi gas}
 \label{sec:higas}
 
 \todo{Nidever}
@@ -307,22 +389,6 @@ that the cluster originated from this metal-poor gas \citep{Fox:2018}.  Previous
 
 % We evaluate the hypothesis that the cluster formed in the Leading Arm.  The mean proper motion values in the Magellanic Stream coordinate system \citep{Nidever:2008} are ($\mu_{\rm MSL}$,$\mu_{\rm MSB}$)=($+$1.X,0.X) mas yr$^{-1}$ which is very similar to the mean values of the LMC and SMC with ($+$1.X,0.X) mas yr$^{-1}$ and ($+$1.X,0.X) mas yr$^{-1}$, respectively.  The simulations of \citet{Besla:2012} also predict proper motions at this position of approximately ($+$1.X,0.X) mas yr$^{-1}$.  The Magellanic Stream simulations give distances of the Leading Arm at this position of $\sim$50 kpc, however, many of these do not include the effects of ram pressure from the hot MW halo which could cause the gas to drop in its orbit to smaller Galactocentric distances (NEED TO DOUBLE-CHECK THIS).  In addition Figure \ref{fig_gass} shows that there is Leading Arm \hi~gas at the position of the position of the cluster with a velocity of \vlsr=70 \kmse.
 
-
-\begin{figure}
-\centering
-\includegraphics[width=8cm]{cmd.png}
-\caption{The Gaia DR2 color magnitude diagram of the region showing the pronounced
-young stellar main sequence.}
-\label{fig_cmd}
-\end{figure}
-
-\begin{figure}
-\centering
-\includegraphics[width=8cm]{isochrone.png}
-\caption{PS1 color magnitude diagrams with young, metal-poor (\feh=-1.0) isochrones overplotted at
-a distance of 25 kpc.}
-\label{fig_isochrone}
-\end{figure}
 
 \begin{figure}
 \centering
@@ -354,14 +420,19 @@ of the young cluster.}
 
 - Sgr young globular clusters: same thing as this? Indication of when Sgr lost its gas?
 
+- Stars have the right metallicity to be SMC gas, I think
+
 - TODO: where would interaction point between LMC gas and MW disk gas be today? ~150–200 Myr ago is almost 1 complete disk rotation. see Bekki:2008
+
 
 \section{Conclusion} \label{sec:conclusion}
 
-We have identified a young, metal-poor stellar association --- named \clustername\ --- that likely formed from gas in the leading arm of the Magellanic gas stream.
-With an assumed metallicity of $\feh = -1$, the age of the association is \todo{XX} at a distance of \todo{XX}.
-If we fit for metallicity, age, and distance, we find weaker constraints on \todo{...}
-
+We have identified a young, metal-poor stellar association in the Galactic halo --- named \clustername --- with an age $\tau \approx 150~\textrm{Myr}$, heliocentric distance $D \approx 30~\kpc$, and metallicity $\feh \approx -1.1$.
+At its present day sky position, and at large distances, all significant quantities of \hi are associated with the leading arm of the Magellanic gas stream and thus it plausibly formed from Magellanic stream gas.
+The age of the cluster is broadly consistent with the time it would have crossed the Galactic midplane, suggesting the possibility that interaction with the Milky Way disk or tidal compression could have triggered this star formation event.
+The discovery of \clustername\ provides a critical distance constraint to the Magellanic stream and will aid future Magellanic system and Milky Way modeling efforts.
+It also provides an opportunity to study star formation in a unique environment, unlike that of the Milky Way disk or any other cluster-forming region.
+The serendipitous discovery of this cluster is a reminder that the combined value of the \gaia\ data with deep, large-area imaging surveys will provide many more [...].
 
 
 \acknowledgments
@@ -421,6 +492,7 @@ WHERE (parallax < 1 OR parallax IS NULL)
     \package{IPython} \citep{ipython},
     \package{matplotlib} \citep{mpl},
     \package{numpy} \citep{numpy},
+    \package{schwimmbad} \citep{schwimmbad},
     \package{scipy} \citep{scipy}
 }
 
