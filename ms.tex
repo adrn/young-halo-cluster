@@ -1,8 +1,5 @@
 % TODO
 % - Sand, Seth, et al. Virgo: blue stars with nothing else
-% - Thank DFM
-% - Thank Dylan and Nick @ SCC
-% - Thank Flatiron
 
 \documentclass[modern]{aastex62}
 \usepackage{amsmath}
@@ -172,19 +169,20 @@ We conclude in \sectionname~\ref{sec:conclusion}.
 \label{sec:discovery}
 
 We use astrometric data from the \gaia\ mission (\citealt{Prusti:2016}), data release 2 (\DR{2}; \citealt{Gaia-Collaboration:2018, Lindegren:2018}) to search for distant, comoving multiplets of blue stars.
-We initially select all stars from \gaia\ with parallax $\varpi < 1$, color $-0.5 < (\bprp) < 0$, $G$-band magnitude $G < 20$, and Galactic latitude $|b| > 20^\circ$ (see Appendix~\ref{sec:queries} for database query).
+Our original intent was to search for small, distant, comoving groups of blue horizontal branch stars to identify new candidate satellites of the Milky Way.
+We therefore initially select all stars from \gaia\ with parallax $\varpi < 1$, color $-0.5 < (\bprp) < 0$, $G$-band magnitude $G < 20$, and Galactic latitude $|b| > 20^\circ$ (see Appendix~\ref{sec:queries} for database query).
 We further exclude stars within a $15^\circ$ radius from the LMC, and a $8^\circ$ radius from the SMC --- 27,895 stars remain after these cuts.
 We then cross-match this catalog to itself with both sky positions and proper motions: we search for pairs of stars that have separations $s < 0.5^\circ$ and proper motion differences $|\Delta \mu| < 0.5~\masyr$.
 We then combine mutually-connected comoving pairs into small groups of stars that are colocated on the sky and comoving in proper motions, and remove groups that have $<4$ members.
 We cross-match the mean sky positions of the groups to locations of local group galaxies \todo{citation} \citep{Mcconaghie} and Milky Way globular clusters \todo{citation} \citep{Harris} and filter out all groups that lie within 1 degree of these known objects.
 After these filters, just one group of blue, comoving stars remains at $(\textrm{RA}, \textrm{Dec}) \sim (179, -29)^\circ$.
 
-We then query all objects from the \gaia\ \DR{2} catalog within a rectangle centered on the nominal position of the group (see above), with a width of $12^\circ$ and a height of $12^\circ$ in the equatorial (ICRS) coordinate system (see Appendix~\ref{sec:queries} for the database query).
+We then query all objects from the \gaia\ \DR{2} catalog within a rectangle centered on the nominal position of this group, with a width of $12^\circ$ and a height of $12^\circ$ in the equatorial (ICRS) coordinate system (see Appendix~\ref{sec:queries} for the database query).
 We cross-match the resulting catalog with \acronym{GALEX} \citep{Martin:2005} using a positional cross-match requiring source separation $<2~\textrm{arcsec}$, and with \pans\ \citep{Chambers:2016} using the cross-match provided by the \gaia\ science archive.
-\figurename~\ref{fig:cmds} shows the \gaia\ color-magnitude diagram (left) and the \acronym{GALEX} NUV minus \pans\ $g$-band vs. \gaia\ \bprp\ color-color diagram (right) from the cross-matched photometry.
-All magnitudes are corrected for dust extinction using the SFD \citep{Schlegel:1998} dust map {\bf (Yumi: Did you use Schlafly's value though?)}.
-The green polygon in the left panel of \figurename~\ref{fig:cmds} highlights the over-density of blue stars that were identified as comoving from the proper motion search described above.
-The lines in the right panel of \figurename~\ref{fig:cmds} show isochrones from the \acronym{MIST} \citep[blue;][]{Choi:2016} and \acronym{PARSEC} \citep[red;][]{Bressan:2012, Marigo:2017} isochrone libraries for a 50 Myr stellar population with metallicity $\feh = -0.5$ (dashed) or $\feh = -1.5$ (solid).
+\figurename~\ref{fig:cmds} shows the \gaia\ color-magnitude diagram (left) and the \acronym{GALEX} NUV minus \pans\ $g$-band versus \gaia\ \bprp\ color-color diagram (right) from the cross-matched photometry.
+All magnitudes are corrected for dust extinction using the SFD \citep{Schlegel:1998, Sclafly:2011} dust map.
+The green polygon in the left panel of \figurename~\ref{fig:cmds} highlights the over-density of blue stars that were identified as comoving from the proper motion search described above: surprisingly, this appears to be a young, distant main sequence, rather than an old population of horizontal branch stars.
+The lines in the right panel of \figurename~\ref{fig:cmds} show isochrones from the \acronym{MIST} \citep[blue;][]{Choi:2016} and \acronym{PARSEC} \citep[red;][]{Bressan:2012, Marigo:2017} isochrone libraries for a 50 Myr stellar population with metallicity $\feh = -0.5$ (dashed) or $\feh = -1.5$ (solid). \todo{Remake this plot with just FeH=-1.}
 
 % Notebook: Figure-CMDs
 \begin{figure}
@@ -216,10 +214,15 @@ Red and blue lines in right panel show the zero-age main sequence of a $50~\text
 
 \section{Results} \label{sec:results}
 
-\section{Determining kinematic membership}
+In the subsections below, we perform two independent analyses of the data available for \clustername.
+In \sectionname~\ref{sec:pmclean}, we use astrometric data from \gaia\ \DR{2} to identify members probabilistically, then demonstrate that the high-probability kinematic members appear as a clear young main sequence in the \gaia\ CMD.
+In \sectionname~\ref{sec:popchars}, we use photometric data from \decam\ to again identify members probabilistically, and simultaneously infer the cluster parameters (age, metallicity, distance, etc.).
+We perform these analyses separately because \gaia\ \DR{2} only includes the most massive members of the cluster, but the addition of lower main sequence members apparent in the \decam\ photometry provide a much better constraint on the cluster parameters.
+
+\subsection{Determining kinematic membership}
 \label{sec:pmclean}
 
-We select probable members of the photometrically-identified young cluster using astrometric data from \gaia.
+We select probable members of \clustername\ by constructing a probabilistic model of the cluster and background population using astrometric data from \gaia.
 We start by selecting all stars with $\bprp_0 < 0.35$ to remove low-mass and old main sequence star contamination in the region.
 \figurename~\ref{fig:pm-members}, left (grey points), shows the sky positions of stars that pass this blue cut in the region around the young cluster.
 The larger solid-line (green) circle indicates the region we define as the cluster area, and the two smaller dashed-line (blue) circles indicate control fields that are combined and used for modeling the background distribution of proper motions.
@@ -227,9 +230,9 @@ The control fields are designed to, together, have the same total area as the cl
 The top-left panel of the middle panels shows the proper motion distribution in the control fields, and top-right panel in the middle shows the proper motion distribution of the cluster field.
 The distinct over-density of stars near $(\mu_\alpha, \mu_\delta) \approx (-0.5, 0.5)~\masyr$\footnote{Throughout this article, we use $\mu_\alpha$ to refer to the proper motion value provided by \gaia, which includes the $\cos\delta$ term.} is the identified comoving association of blue stars.
 
-To model membership of the cluster based on the observed proper motions, $\bs{\mu} = (\mu_\alpha, \mu_\delta)$, we first construct a model for the error-deconvolved proper motion distribution in the control fields using ``extreme deconvolution'' \citep[XD;][]{TODO} with 3 Gaussian components.
-The bottom-left panel of the middle panels of \figurename~\ref{fig:pm-members} shows the three inferred Gaussian components (blue) from running XD, which takes into account the full error distributions for each proper motion measurement (i.e. including covariances), $\mat{C}_\mu$, provided by \gaia\ \DR{2}.
-We fix the parameters of the background model inferred from XD and model the cluster field proper motion distribution using a two-component mixture model with a single, isotropic Gaussian component for the error-deconvolved cluster distribution with mean $\bs{m}$ and isotropic variance $s^2$, and the XD-inferred model for the control field, $p_{\textrm{XD}}$, for the background component.
+To model membership of the cluster based on the observed proper motions, $\bs{\mu} = (\mu_\alpha, \mu_\delta)$, we first construct a model for the error-deconvolved proper motion distribution in the control fields using ``extreme deconvolution'' \citep[XD;][]{TODO} with two Gaussian components.
+The bottom-left panel of the middle panels of \figurename~\ref{fig:pm-members} shows the $2\sigma$ contours of the two inferred Gaussian components (blue) from running XD, which takes into account the full error distributions for each proper motion measurement (i.e. including covariances), $\mat{C}_\mu$, provided by \gaia\ \DR{2}.
+After running XD, we fix the parameters of the background model and model the cluster field proper motion distribution using a two-component mixture model with a single, isotropic Gaussian component for the error-deconvolved cluster distribution with mean $\bs{m}$ and isotropic variance $s^2$, and the XD-inferred model for the control field, $p_{\textrm{XD}}$, for the background component.
 In detail, taking $f$ to be the fraction of blue stars in this region belonging to the young cluster, and \truepm\ to be the true proper motion for a single star,
 \begin{align}
     p(\bs{\mu} \given \truepm, \mat{C}_\mu) &=
@@ -257,10 +260,11 @@ The bottom-left panel of the middle panels of \figurename~\ref{fig:pm-members} s
 The proper-motion dispersion is consistent with zero, but is unmeasured; 95\% of the posterior samples have $s < 0.09~\masyr$.
 
 The bottom-right panel of the middle panels of \figurename~\ref{fig:pm-members} shows all stars in the cluster field, but each marker is colored by the probability of (kinematically) belonging to the young cluster.
-The right (large) panel of \figurename~\ref{fig:pm-members} shows the sky positions of all stars with $\textrm{probability} > 0.5$ of belonging to the cluster: The comoving, blue stars show a clear spatial over-density in this region.
+The right (large) panel of \figurename~\ref{fig:pm-members} shows the sky positions of all stars with $\textrm{probability} > 0.5$ of belonging to the cluster: These comoving, blue stars show a clear spatial over-density in this region.
 
-\figurename~\ref{fig:pm-members-cmd} shows the \gaia\ color-magnitude diagrams for all stars in this sky region (grey background) and stars with $\text{probability} > 0.5$ of belonging to the young cluster (black markers) in the control field (left, 5 stars) and cluster field (right, 65 stars).
-The colored lines show $\feh = -1$ isochrones with ages indicated at a distance of \todo{XX} \kpc.
+To further validate the existence of this cluster, we visualize the \gaia\ color-magnitude diagrams of the high-probability members in both the control and cluster fields (see leftmost panel of \figurename~\ref{fig:pm-members}).
+\figurename~\ref{fig:pm-members-cmd} shows the CMDs for all stars in this sky region (grey background) in both panels, and stars with $\text{probability} > 0.5$ of belonging to the young cluster (black markers) in the control field (left, 5 stars) and cluster field (right, 65 stars).
+The colored lines show $\feh = -1$ isochrones with ages indicated at a distance of 30~\kpc.
 In the next section, we model the distribution of stars in the \decam\ color-magnitude diagram to determine the characteristics of the stellar population.
 
 % Notebook: Proper-motion-membership
@@ -284,17 +288,15 @@ Colored lines show $\feh = -1$ isochrones from the MIST \citep{TODO} isochrone l
 \end{figure}
 
 
-\section{Stellar population characteristics}
+\subsection{Stellar population characteristics}
 \label{sec:popchars}
 
-\todo{APW}
 
-\begin{itemize}
-\item Fit isochrone to DECam photometry
-\item Use luminosity function to estimate stellar mass
-\end{itemize}
 
-\section{Relation to HI gas}
+% TODO:
+% - Stellar mass estimate
+
+\subsection{Relation to HI gas}
 \label{sec:higas}
 
 \todo{Nidever}
@@ -305,14 +307,6 @@ that the cluster originated from this metal-poor gas \citep{Fox:2018}.  Previous
 
 % We evaluate the hypothesis that the cluster formed in the Leading Arm.  The mean proper motion values in the Magellanic Stream coordinate system \citep{Nidever:2008} are ($\mu_{\rm MSL}$,$\mu_{\rm MSB}$)=($+$1.X,0.X) mas yr$^{-1}$ which is very similar to the mean values of the LMC and SMC with ($+$1.X,0.X) mas yr$^{-1}$ and ($+$1.X,0.X) mas yr$^{-1}$, respectively.  The simulations of \citet{Besla:2012} also predict proper motions at this position of approximately ($+$1.X,0.X) mas yr$^{-1}$.  The Magellanic Stream simulations give distances of the Leading Arm at this position of $\sim$50 kpc, however, many of these do not include the effects of ram pressure from the hot MW halo which could cause the gas to drop in its orbit to smaller Galactocentric distances (NEED TO DOUBLE-CHECK THIS).  In addition Figure \ref{fig_gass} shows that there is Leading Arm \hi~gas at the position of the position of the cluster with a velocity of \vlsr=70 \kmse.
 
-
-
-\begin{figure}
-\centering
-\includegraphics[width=12cm]{sky_pm.png}
-\caption{Figure 1}
-\label{fig_skypm}
-\end{figure}
 
 \begin{figure}
 \centering
@@ -376,10 +370,12 @@ It is a pleasure to thank
 Lauren Anderson (Flatiron),
 Ana Bonaca (Harvard),
 Elena D'Onghia (UW Madison),
+Dan Foreman-Mackey (Flatiron),
 Raja Guhathakurta (UCSC),
 Cliff Johnson (Northwestern),
-Ekta Patel (Arizona)
+Ekta Patel (Arizona),
 Josh Peek (STScI),
+Anil Seth (\todo{where?}),
 and Erik Tollerud (STScI)
 for useful suggestions and discussion.
 
@@ -389,6 +385,10 @@ the {\it Gaia} Data Processing and Analysis Consortium (DPAC,
 \url{https://www.cosmos.esa.int/web/gaia/dpac/consortium}). Funding
 for the DPAC has been provided by national institutions, in particular
 the institutions participating in the {\it Gaia} Multilateral Agreement.
+
+\todo{Dylan Simon, Nick Carreiro and SCC at Flatiron}
+
+\todo{Flatiron Institute}
 
 \appendix
 
