@@ -402,12 +402,7 @@ Here we use 64 walkers and run for an initial 128 steps to burn-in the sampler b
 \end{center}
 \end{table}
 
-\todo{Make a PGM for this model?}
-
-We also use the posterior samples from the hierarchical inference to compute the posterior probabilities that each source is a member of the cluster.
-\figurename~\ref{fig:hierarch-iso} shows the \decam\ photometry for all sources with membership probability $> 0.5$ (circle markers).
-Over-plotted (blue, solid lines) are \acronym{MIST} isochrones computed from 128 randomly chosen posterior samples, shifted to the distance of the given sample and extincted given the $A_V$ value of the sample.
-Also plotted is the equal-mass binary sequence (green, dashed line) computed from the median posterior sample, highlighting that the cluster may contain an abundance of binary star systems.
+% TODO: Make a PGM for this model?
 
 % Notebook: Figure-hierarch-results
 \begin{figure}
@@ -417,6 +412,18 @@ Also plotted is the equal-mass binary sequence (green, dashed line) computed fro
 \label{fig:hierarch-corner}
 \end{figure}
 
+
+\section{Results} \label{sec:results}
+
+\subsection{The stellar population of \clustername}
+\label{sec:popchars}
+
+We also use the posterior samples from the hierarchical inference to compute the posterior probabilities that each source is a member of the cluster.
+\figurename~\ref{fig:hierarch-iso} shows the \decam\ photometry for all sources with membership probability $> 0.5$ (circle markers).
+From the stellar population modeling described above (\sectionname~\ref{sec:popmodel}), we find that \clustername\ is indeed young, distant, and metal poor, with median posterior values of age $\tau \approx 130~\textrm{Myr}$, distance $D \approx 29~\kpc$, and metallicity $\feh \approx -1.1$.
+Over-plotted in \figurename~\ref{fig:hierarch-iso} (blue, solid line) is a \acronym{MIST} isochrone with these parameters, shifted to the median distance and extincted given the median $A_V$ value.
+Also plotted is the equal-mass binary sequence (green, dashed line) computed from the median posterior sample, highlighting that the cluster may contain an abundance of binary star systems.
+
 % Notebook: Figure-hierarch-results
 \begin{figure}
 \centering
@@ -425,18 +432,10 @@ Also plotted is the equal-mass binary sequence (green, dashed line) computed fro
 \label{fig:hierarch-iso}
 \end{figure}
 
-
-\section{Results} \label{sec:results}
-
-\subsection{The stellar population of \clustername}
-\label{sec:popchars}
-
-\todo{APW}
-
 % TODO:
 % - Stellar mass estimate
 
-\subsection{Relation to \hi gas}
+\subsection{Relation to the Magellanic stream}
 \label{sec:higas}
 
 \todo{Nidever}
