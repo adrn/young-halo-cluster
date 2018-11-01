@@ -243,27 +243,27 @@ The distinct over-density of stars near $(\mu_\alpha, \mu_\delta) \approx (-0.5,
 
 To model membership of the cluster based on the observed proper motions, $\bs{\mu} = (\mu_\alpha, \mu_\delta)$, we first construct a model for the error-deconvolved proper motion distribution in the control fields using ``extreme deconvolution'' \citep[XD;][]{TODO} with two Gaussian components.
 The bottom-left panel of the middle panels of \figurename~\ref{fig:pm-members} shows the $2\sigma$ contours of the two inferred Gaussian components (blue) from running XD, which takes into account the full error distributions for each proper motion measurement (i.e. including covariances), $\mat{C}_\mu$, provided by \gaia\ \DR{2}.
-After running XD, we fix the parameters of the background model and model the cluster field proper motion distribution using a two-component mixture model with a single, isotropic Gaussian component for the error-deconvolved cluster distribution with mean $\bs{m}$ and isotropic variance $s^2$, and the XD-inferred model for the control field, $p_{\textrm{XD}}$, for the background component.
+After running XD, we fix the parameters of the background model and model the cluster field proper motion distribution using a two-component mixture model with a single, isotropic Gaussian component for the error-deconvolved cluster distribution with mean $\bs{x}$ and isotropic variance $s^2$, and the XD-inferred model for the control field, $p_{\textrm{XD}}$, for the background component.
 In detail, taking $f$ to be the fraction of blue stars in this region belonging to the young cluster, and \truepm\ to be the true proper motion for a single star,
 \begin{align}
     p(\bs{\mu} \given \truepm, \mat{C}_\mu) &=
         \norm(\bs{\mu} \given \truepm, \mat{C}_\mu)\\
-    p(\truepm \given f, \bs{m}, s) &=
-        f \, p_{\textrm{cl}}(\truepm \given \bs{m}, s)
+    p(\truepm \given f, \bs{x}, s) &=
+        f \, p_{\textrm{cl}}(\truepm \given \bs{x}, s)
         + (1-f) \, p_{\textrm{XD}}(\truepm)\\
-    p_{\textrm{cl}}(\truepm \given \bs{m}, s) &=
-        \norm(\truepm \given \bs{m}, s^2 \, \mathbb{I})
+    p_{\textrm{cl}}(\truepm \given \bs{x}, s) &=
+        \norm(\truepm \given \bs{x}, s^2 \, \mathbb{I})
 \end{align}
-where $\norm(\bs{x} \given \bs{m}, \mat{C})$ represents the multidimensional normal distribution with mean $\bs{m}$ and covariance matrix $\mat{C}$, and $\mathbb{I}$ is the identity matrix.
-Because all distributions are Gaussian, the per-star parameters (the true proper motions, \truepm) can be analytically marginalized out so that the per-star likelihood can be expressed as $p(\bs{\mu} \given f, \bs{m}, s, \mat{C}_\mu)$.
-We assume that the measurements for each star, $n$, are independent so that the full likelihood of all $N$ stars given the parameters $(f, \bs{m}, s)$ is
+where $\norm(\bs{y} \given \bs{x}, \mat{C})$ represents the multidimensional normal distribution with mean $\bs{x}$ and covariance matrix $\mat{C}$, and $\mathbb{I}$ is the identity matrix.
+Because all distributions are Gaussian, the per-star parameters (the true proper motions, \truepm) can be analytically marginalized out so that the per-star likelihood can be expressed as $p(\bs{\mu} \given f, \bs{x}, s, \mat{C}_\mu)$.
+We assume that the measurements for each star, $n$, are independent so that the full likelihood of all $N$ stars given the parameters $(f, \bs{x}, s)$ is
 \begin{align}
-    p(\{\bs{\mu}_n\}_N \given \given f, \bs{m}, s, \{\mat{C}_{\mu, n}\}_N) &=
-        \prod_n^N p(\bs{\mu}_n \given f, \bs{m}, s, \mat{C}_{\mu, n}) \quad .
+    p(\{\bs{\mu}_n\}_N \given \given f, \bs{x}, s, \{\mat{C}_{\mu, n}\}_N) &=
+        \prod_n^N p(\bs{\mu}_n \given f, \bs{x}, s, \mat{C}_{\mu, n}) \quad .
         \label{eq:likelihood}
 \end{align}
 
-We use an ensemble Markov chain Monte Carlo (MCMC) sampler \citep[\texttt{emcee};][]{Goodman:XX, Foreman-Mackey:2013} to generate posterior samples over the parameters $(f, \bs{m}, s)$ using the likelihood defined above (\equationname~\ref{eq:likelihood}), and assuming the following prior probability distributions: uniform over the domain $(-5, 5)~\masyr$ for each component of $\bs{m}$, uniform in $f$, and uniform in log-$s$ over the domain $-6 < \ln s < 4$ (with $s$ in units of \masyr).
+We use an ensemble Markov chain Monte Carlo (MCMC) sampler \citep[\texttt{emcee};][]{Goodman:XX, Foreman-Mackey:2013} to generate posterior samples over the parameters $(f, \bs{x}, s)$ using the likelihood defined above (\equationname~\ref{eq:likelihood}), and assuming the following prior probability distributions: uniform over the domain $(-5, 5)~\masyr$ for each component of $\bs{x}$, uniform in $f$, and uniform in log-$s$ over the domain $-6 < \ln s < 4$ (with $s$ in units of \masyr).
 We run the sampler with 32 walkers for 256 steps as burn-in, then reset the sampler and run for an additional 512 steps.
 We then thin the resulting chains by taking every 16th sample, leaving a total of 1024 samples; We use these samples to estimate the median posterior parameter values and uncertainties, and to compute, for each star, posterior probabilities of belonging to the cluster mixture component.
 For the young cluster, we find $\bs{m} = (-0.56,  0.47) \pm (0.04, 0.02)~\masyr$, $\ln s = -3.8 \pm 0.9$, and $f = 0.14 \pm 0.02$.
