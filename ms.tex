@@ -214,6 +214,14 @@ Red and blue lines in right panel show the zero-age main sequence of a $50~\text
 % Yumi:
 % Need a sentence or two for dust extinction correction somewhere in the above two paragraphs?
 
+% Notebook: Figure-DECam-CMD
+\begin{figure}
+\centering
+\includegraphics[width=0.6\textwidth]{figures/DECam-cmd.pdf}
+\caption{TODO}
+\label{fig:decam-cmd}
+\end{figure}
+
 
 \section{Methods} \label{sec:methods}
 
@@ -374,7 +382,7 @@ We then use \texttt{emcee} \citep{Goodman:XX, Foreman-Mackey:2013} to sample fro
         \prod_k^K p(\bs{m}_k \given \bs{\alpha}, f) \quad .
 \end{equation}
 Here we use 64 walkers and run for an initial 128 steps to burn-in the sampler before running for a final 1024 steps.
-
+\figurename~\ref{fig:hierarch-corner} shows a corner plot showing all 1D and 2D marginal posterior probability distributions estimated from the samples.
 
 \begin{table}[ht]
 \begin{center}
@@ -396,14 +404,25 @@ Here we use 64 walkers and run for an initial 128 steps to burn-in the sampler b
 
 \todo{Make a PGM for this model?}
 
-\todo{OK, so now finally we generate samples in alpha, f using emcee, and now we have inferred the cluster parameters - boo ya}
+We also use the posterior samples from the hierarchical inference to compute the posterior probabilities that each source is a member of the cluster.
+\figurename~\ref{fig:hierarch-iso} shows the \decam\ photometry for all sources with membership probability $> 0.5$ (circle markers).
+Over-plotted (blue, solid lines) are \acronym{MIST} isochrones computed from 128 randomly chosen posterior samples, shifted to the distance of the given sample and extincted given the $A_V$ value of the sample.
+Also plotted is the equal-mass binary sequence (green, dashed line) computed from the median posterior sample, highlighting that the cluster may contain an abundance of binary star systems.
 
-% Notebook: Figure-DECam-CMD
+% Notebook: Figure-hierarch-results
 \begin{figure}
 \centering
-\includegraphics[width=0.6\textwidth]{figures/DECam-cmd.pdf}
+\includegraphics[width=0.9\textwidth]{figures/hierarch-corner.pdf}
 \caption{TODO}
-\label{fig:decam-cmd}
+\label{fig:hierarch-corner}
+\end{figure}
+
+% Notebook: Figure-hierarch-results
+\begin{figure}
+\centering
+\includegraphics[width=0.6\textwidth]{figures/hierarch-results.pdf}
+\caption{TODO}
+\label{fig:hierarch-iso}
 \end{figure}
 
 
