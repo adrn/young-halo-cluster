@@ -1,5 +1,6 @@
 % TODO
 % - Sand, Seth, et al. Virgo: blue stars with nothing else
+% - Keywords after abstract
 
 \documentclass[modern]{aastex62}
 \usepackage{amsmath}
@@ -59,20 +60,25 @@
 \newcommand{\eep}{\ensuremath{\acronym{\textrm{EEP}}}}
 \newcommand{\Nisofit}{417}
 
+\newcommand{\clage}{\ensuremath{130~\textrm{Myr}}}
+\newcommand{\clfeh}{\ensuremath{-1.1}}
+\newcommand{\cldist}{\ensuremath{29~\textrm{kpc}}}
+
 %% Reintroduced the \received and \accepted commands from AASTeX v5.2
 % \received{January 1, 2018}
 % \revised{January 7, 2018}
 % \accepted{\today}
 
-\submitjournal{ApJ}
-\shorttitle{Recent star formation in the Magellanic Stream}
+% \submitjournal{ApJ}
+\shorttitle{A recent star formation event in the Magellanic Stream}
 \shortauthors{Price-Whelan et al.}
 
 \begin{document}
 
 % \title{A young star cluster in the Galactic halo: \\
 % Recent star formation associated with the Leading Arm of the Magellanic stream}
-\title{A star formation event in the leading arm of the Magellanic stream triggered by passage through the outer Galactic disk}
+\title{\textbf{Discovery of a disrupting open cluster in the Galactic halo:\\
+       a recent star formation event in the leading arm of the Magellanic stream}}
 
 \author[0000-0003-0872-7098]{Adrian~M.~Price-Whelan}
 \affiliation{Department of Astrophysical Sciences,
@@ -109,14 +115,13 @@
 
 \begin{abstract}
 
-We report the discovery of a young, $\sim 150~\textrm{Myr}$, metal-poor, $[\textrm{Fe}/\textrm{H}] \sim -1.2$, stellar association in the halo of the Milky Way, $(R, z) \sim (24, 16)~\textrm{kpc}$. % TODO: check with new dist.
+We report the discovery of a young $\tau \sim \clage$, metal-poor $[\textrm{Fe}/\textrm{H}] \sim \clfeh$, low-mass $M \sim 1200~\msun$ stellar association in the Milky Way halo, Galactocentric $(R, z) \sim (23, 15)~\textrm{kpc}$.
 The association --- \clustername\ --- is spatially near the leading arm of the gas stream emanating from the Magellanic cloud system, but is located $\approx 60^\circ$ from the Large Magellanic Cloud (LMC) center, on the other side of the Milky Way disk relative to the LMC.
-By assuming that the cluster is co-located with \hi gas in the stream, we directly measure the distance to the Magellanic stream, $d \approx 30~\textrm{kpc}$.
+By assuming that the cluster is co-located with \hi gas in the stream, we directly measure the distance to the Magellanic stream, $D \approx \cldist$.
 At this location relative to the LMC, the measured distance is inconsistent with predictions from models of the LMC/SMC interaction and infall into the Milky Way that do not account for ram pressure and gas interaction with MW disk.
-The estimated age of \clustername\ is consistent with the time of last passage through the Galactic midplane.
-We therefore speculate that this star-formation event was triggered by the last disk midplane passage of the Magellanic stream gas, which occurred at a Galactocentric radius $R \approx XX~\kpc$.
-However, most details of this idea remain a mystery: the Magellanic Stream is low column density, the Milky Way disk at this large radius has low surface density, and the relative velocity of the gas is large.
-Spectroscopic follow-up is needed to confirm its kinematic association with the Magellanic Stream \hi, but either way \todo{this is an interesting thing.}
+The estimated age of \clustername\ is consistent with the time of last passage through the Galactic midplane, and we therefore speculate that this star-formation event was triggered by the last disk midplane passage of the Magellanic stream gas, which occurred at a Galactocentric radius $R \approx 30~\kpc$.
+However, most details of this idea remain a mystery: the Magellanic Stream is low column density, the Milky Way disk at this large radius has low surface density, and the relative velocity of the stream gas and MW gas is large.
+However it formed, the discovery of a young stellar cluster in the Milky Way halo presents an interesting opportunity for study.
 \end{abstract}
 
 \keywords{Galaxy: halo}
@@ -165,6 +170,7 @@ In \sectionname~\ref{sec:data}, we present the initial discovery with \gaia\ \DR
 In \sectionname~\ref{sec:results}, we derive estimates for the total stellar mass of, age of, and distance to the association, and present a plausible formation scenario.
 In \sectionname~\ref{sec:discussion}, we discuss implications for future searches for stars associated with the MS, and discrepancies with existing models of the LA.
 We conclude in \sectionname~\ref{sec:conclusion}.
+
 
 \section{Data} \label{sec:data}
 
@@ -229,6 +235,7 @@ In the subsections below, we perform two independent analyses of the data availa
 In \sectionname~\ref{sec:pmclean}, we use astrometric data from \gaia\ \DR{2} to identify members probabilistically, then demonstrate that the high-probability kinematic members appear as a clear young main sequence in the \gaia\ CMD.
 In \sectionname~\ref{sec:popmodel}, we use photometric data from \decam\ to again identify members probabilistically, and simultaneously infer the cluster parameters (age, metallicity, distance, etc.).
 We perform these analyses separately because \gaia\ \DR{2} only includes the most massive members of the cluster, but the addition of lower main sequence members apparent in the \decam\ photometry provide a much better constraint on the cluster parameters.
+
 
 \subsection{Determining kinematic membership}
 \label{sec:pmclean}
@@ -415,22 +422,22 @@ Here we use 64 walkers and run for an initial 128 steps to burn-in the sampler b
 
 \section{Results} \label{sec:results}
 
-\subsection{The stellar population of \clustername}
+\subsection{The stellar population and physical characteristics of \clustername}
 \label{sec:popchars}
 
 We use the posterior samples from the hierarchical inference described in \sectionname~\ref{sec:popmodel} to compute the posterior probabilities that each source in the \decam\ CMD selection box (red box, \figurename~\ref{fig:decam-cmd}) is a member of the cluster.
 \figurename~\ref{fig:hierarch-iso} shows the \decam\ photometry for all sources with membership probability $> 0.5$ (circle markers).
 Over-plotted in \figurename~\ref{fig:hierarch-iso} (blue, solid line) is a \acronym{MIST} isochrone with median posterior parameters derived from the hierarchical modeling, shifted to the median distance and extincted given the median $A_V$ value.
-We find that \clustername\ is indeed young, distant, and metal poor, with median posterior values of age $\tau \approx 130~\textrm{Myr}$, distance $D \approx 29~\kpc$, and metallicity $\feh \approx -1.1$.
-Also plotted is the equal-mass binary sequence (green, dashed line) computed from the median posterior sample, highlighting that the cluster may contain an abundance of binary star systems.
+We find that \clustername\ is indeed young, distant, and metal poor, with median posterior values of age $\tau \approx \clage$, distance $D \approx \cldist$, and metallicity $\feh \approx \clfeh$.
+Also plotted is the equal-mass binary sequence (green, dashed line) computed from the median posterior sample, highlighting that the cluster may contain a significant number of binary or multiple star systems.
 
 We use the isochrone corresponding to the median posterior sample to estimate the total stellar mass of the cluster.
-By assuming we are 100\% complete to stars with $(g-i) < 0.3)$, and by assuming a Kroupa initial mass function \citep{Kroupa:TODO}, we use the number of observed stars and the isochrone to compute the total mass;
-We find that $M_{\rm tot, *} \approx 1200~\msun$.
+By assuming that the \decam\ imaging is 100\% complete to stars with $(g-i) < 0.3)$ and $g < 22$, and by assuming a Kroupa initial mass function \citep{Kroupa:TODO}, we use the number of observed stars and the isochrone to compute the total mass, $M_{\rm tot, *} \approx 1200~\msun$.
+
 The mass and age of \clustername\ are comparable to Milky Way disk open clusters, but with a much lower metallicity, and a much larger spatial extent.
 For example, the Pleiades has an age $\sim 135~\textrm{Myr}$ \citep{Gossage:2018}, but a physical size $\sim 5~\textrm{pc}$.
-At a distance of $29~\kpc$, \clustername\ spans $\sim 1.5^\circ$, corresponding to a physical size $\sim 760~\textrm{pc}$.
-If it formed unbound, but with a size comparable to the present size of the Pleiades, this corresponds to an expansion velocity $\sim 6~\kms$, which would be detectable with precise radial velocity measurements of stars on either side of \clustername.
+At a distance of $\cldist$, \clustername\ spans $\sim 1.5^\circ$, corresponding to a physical size $\sim 700$--$800~\textrm{pc}$.
+If it formed unbound, but with an initial size comparable to the present size of the Pleiades, this corresponds to an expansion velocity $\sim 6~\kms$, which would be detectable with precise radial velocity measurements of stars on either side of \clustername.
 
 % Notebook: Figure-hierarch-results
 \begin{figure}
@@ -441,7 +448,7 @@ If it formed unbound, but with a size comparable to the present size of the Plei
 \end{figure}
 
 
-\subsection{Relation to the Magellanic stream}
+\subsection{Relation to the Magellanic Stream}
 \label{sec:higas}
 
 \todo{Nidever}
@@ -451,6 +458,8 @@ galaxy is highly unusual.  However, the proximity of the new cluster to the Lead
 that the cluster originated from this metal-poor gas \citep{Fox:2018}.  Previously studies have detected young stars in the Leading Arm and gas in the periphery of the Magellanic Clouds \citep{Casetti-Dinescu:2014, MoniBidin:2017}, however, this is the first time that an entire star cluster has been detected so far from the Clouds.
 
 % We evaluate the hypothesis that the cluster formed in the Leading Arm.  The mean proper motion values in the Magellanic Stream coordinate system \citep{Nidever:2008} are ($\mu_{\rm MSL}$,$\mu_{\rm MSB}$)=($+$1.X,0.X) mas yr$^{-1}$ which is very similar to the mean values of the LMC and SMC with ($+$1.X,0.X) mas yr$^{-1}$ and ($+$1.X,0.X) mas yr$^{-1}$, respectively.  The simulations of \citet{Besla:2012} also predict proper motions at this position of approximately ($+$1.X,0.X) mas yr$^{-1}$.  The Magellanic Stream simulations give distances of the Leading Arm at this position of $\sim$50 kpc, however, many of these do not include the effects of ram pressure from the hot MW halo which could cause the gas to drop in its orbit to smaller Galactocentric distances (NEED TO DOUBLE-CHECK THIS).  In addition Figure \ref{fig_gass} shows that there is Leading Arm \hi~gas at the position of the position of the cluster with a velocity of \vlsr=70 \kmse.
+
+\todo{Radial velocity follow-up is needed for internal motion, and check association with gas}
 
 
 \begin{figure}
@@ -468,6 +477,10 @@ of the young cluster.}
 \label{fig_gass}
 \end{figure}
 
+
+\subsection{The Galactic orbit of \clustername}
+\label{sec:orbit}
+
 \begin{figure}
 \centering
 \includegraphics[width=8cm]{orbits.png}
@@ -477,20 +490,20 @@ of the young cluster.}
 \label{fig_gass}
 \end{figure}
 
-\section{Discussion} \label{sec:discussion}
-
-- Streams or clusters in the halo from star-formation from Sgr or dwarf gas
-
-- Sgr young globular clusters: same thing as this? Indication of when Sgr lost its gas?
-
-- Stars have the right metallicity to be SMC gas, I think
-
-- TODO: where would interaction point between LMC gas and MW disk gas be today? ~150–200 Myr ago is almost 1 complete disk rotation. see Bekki:2008
+% \section{Discussion} \label{sec:discussion}
+%
+% - Streams or clusters in the halo from star-formation from Sgr or dwarf gas
+%
+% - Sgr young globular clusters: same thing as this? Indication of when Sgr lost its gas?
+%
+% - Stars have the right metallicity to be SMC gas, I think
+%
+% - TODO: where would interaction point between LMC gas and MW disk gas be today? ~150–200 Myr ago is almost 1 complete disk rotation. see Bekki:2008
 
 
 \section{Conclusion} \label{sec:conclusion}
 
-We have identified a young, metal-poor stellar association in the Galactic halo --- named \clustername --- with an age $\tau \approx 150~\textrm{Myr}$, heliocentric distance $D \approx 30~\kpc$, and metallicity $\feh \approx -1.1$.
+We have identified a young, metal-poor stellar association in the Galactic halo --- named \clustername --- with an age $\tau \approx \clage$, heliocentric distance $D \approx \cldist$, and metallicity $\feh \approx \clfeh$.
 At its present day sky position, and at large distances, all significant quantities of \hi are associated with the leading arm of the Magellanic gas stream and thus it plausibly formed from Magellanic stream gas.
 The age of the cluster is broadly consistent with the time it would have most recently crossed the Galactic midplane, suggesting the possibility that interaction with the Milky Way disk or tidal compression could have triggered this star formation event.
 The discovery of \clustername\ provides a critical distance constraint to the Magellanic stream and will aid future Magellanic system and Milky Way modeling efforts.
