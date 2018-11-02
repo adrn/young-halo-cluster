@@ -217,7 +217,7 @@ Red and blue lines in right panel show the zero-age main sequence of a $50~\text
 % Notebook: Figure-DECam-CMD
 \begin{figure}
 \centering
-\includegraphics[width=0.6\textwidth]{figures/DECam-cmd.pdf}
+\includegraphics[width=0.8\textwidth]{figures/DECam-cmd.pdf}
 \caption{TODO}
 \label{fig:decam-cmd}
 \end{figure}
@@ -290,7 +290,7 @@ Add proper motion vector?}
 % Notebook: Proper-motion-membership
 \begin{figure}
 \centering
-\includegraphics[width=0.6\textwidth]{figures/pm-members-cmd.pdf}
+\includegraphics[width=0.8\textwidth]{figures/pm-members-cmd.pdf}
 \caption{\gaia\ color-magnitude diagrams for stars in the sky region around \clustername: grey background in both panels shows the distribution for all stars, and black points show stars with $\textrm{probability} > 0.5$ of (kinematically) belonging to \clustername.
 Left panel is for stars in the control fields, right panel is for stars in the cluster field.
 Colored lines show $\feh = -1$ isochrones from the \acronym{MIST} \citep{TODO} isochrone library for the ages indicated at a distance of \isodist.}
@@ -353,7 +353,7 @@ The details of this model are handled by the \texttt{isochrones} package.
 Ultimately we generate posterior samplings over the parameters $(\bs{\theta}, q)$ for each of the \Nisofit\ sources in the selected region of the \decam\ CMD using \texttt{PyMultinest} \citep{TODO}, and store the value of the prior evaluated at the location of each sample.
 We then use these samples and interim prior values to construct our hierarchical model, as described below.
 In the hierarchical model, we assume that the stellar parameters of each primary star in the selected region are either drawn from the cluster, or a background (stellar halo) population.
-For the cluster, we assume the values are drawn from delta functions in age, metallicity, distance, and extinction, with the centroids of the delta functions $\bs{\alpha} = (\mu_\tau, \mu_{\feh}, \mu_D, \mu_{A_V})$ as hyperparameters of the hierarchical inference.
+For the cluster, we assume the values are drawn from delta functions in age, metallicity, distance, and extinction, with the centroids of the delta functions $\bs{\alpha} = (\tau^*, \feh^*, D^*, A_V^*)$ as hyperparameters of the hierarchical inference.
 For the background model, we assume the same priors as specified in \tablename~\ref{tbl:priors}.
 The one additional parameter that must be included in this hierarchical model is the ``mixture weight'': the global fraction of sources that are likely cluster members, $f$.
 To compute the likelihood of the hierarchical model, we use the individual posterior samplings to marginalize over the per-source $k$ stellar parameters $\bs{\theta}_k$ to compute the marginal likelihood $p(\bs{m}_k \given \bs{\alpha}, f)$, where $\bs{m}_k = (g, i)_k$ is the vector of photometric data;
@@ -390,10 +390,10 @@ Here we use 64 walkers and run for an initial 128 steps to burn-in the sampler b
         \toprule
         Parameter & Prior & Bounds \\
         \toprule
-        $\mu_\tau$ & uniform & $(1~\textrm{Myr}, 1~\textrm{Gyr})$ \\
-        $\mu_{\feh}$ & uniform & $(-2, 0)$ \\
-        $\mu_{A_V}$ & uniform & $(0, 1)~\textrm{mag}$ \\
-        $\mu_D$ & uniform & $(1, 100)~\kpc$ \\
+        $\tau^*$ & uniform & $(1~\textrm{Myr}, 1~\textrm{Gyr})$ \\
+        $\feh^*$ & uniform & $(-2, 0)$ \\
+        $A_V^*$ & uniform & $(0, 1)~\textrm{mag}$ \\
+        $D^*$ & uniform & $(1, 100)~\kpc$ \\
         $f$ & uniform & (0, 1) \\
         \toprule
     \end{tabular}
