@@ -407,7 +407,7 @@ Here we use 64 walkers and run for an initial 128 steps to burn-in the sampler b
 % Notebook: Figure-hierarch-results
 \begin{figure}
 \centering
-\includegraphics[width=0.9\textwidth]{figures/hierarch-corner.pdf}
+\includegraphics[width=0.7\textwidth]{figures/hierarch-corner.pdf}
 \caption{TODO}
 \label{fig:hierarch-corner}
 \end{figure}
@@ -418,11 +418,19 @@ Here we use 64 walkers and run for an initial 128 steps to burn-in the sampler b
 \subsection{The stellar population of \clustername}
 \label{sec:popchars}
 
-We also use the posterior samples from the hierarchical inference to compute the posterior probabilities that each source is a member of the cluster.
+We use the posterior samples from the hierarchical inference described in \sectionname~\ref{sec:popmodel} to compute the posterior probabilities that each source in the \decam\ CMD selection box (red box, \figurename~\ref{fig:decam-cmd}) is a member of the cluster.
 \figurename~\ref{fig:hierarch-iso} shows the \decam\ photometry for all sources with membership probability $> 0.5$ (circle markers).
-From the stellar population modeling described above (\sectionname~\ref{sec:popmodel}), we find that \clustername\ is indeed young, distant, and metal poor, with median posterior values of age $\tau \approx 130~\textrm{Myr}$, distance $D \approx 29~\kpc$, and metallicity $\feh \approx -1.1$.
-Over-plotted in \figurename~\ref{fig:hierarch-iso} (blue, solid line) is a \acronym{MIST} isochrone with these parameters, shifted to the median distance and extincted given the median $A_V$ value.
+Over-plotted in \figurename~\ref{fig:hierarch-iso} (blue, solid line) is a \acronym{MIST} isochrone with median posterior parameters derived from the hierarchical modeling, shifted to the median distance and extincted given the median $A_V$ value.
+We find that \clustername\ is indeed young, distant, and metal poor, with median posterior values of age $\tau \approx 130~\textrm{Myr}$, distance $D \approx 29~\kpc$, and metallicity $\feh \approx -1.1$.
 Also plotted is the equal-mass binary sequence (green, dashed line) computed from the median posterior sample, highlighting that the cluster may contain an abundance of binary star systems.
+
+We use the isochrone corresponding to the median posterior sample to estimate the total stellar mass of the cluster.
+By assuming we are 100\% complete to stars with $(g-i) < 0.3)$, and by assuming a Kroupa initial mass function \citep{Kroupa:TODO}, we use the number of observed stars and the isochrone to compute the total mass;
+We find that $M_{\rm tot, *} \approx 1200~\msun$.
+The mass and age of \clustername\ are comparable to Milky Way disk open clusters, but with a much lower metallicity, and a much larger spatial extent.
+For example, the Pleiades has an age $\sim 135~\textrm{Myr}$ \citep{Gossage:2018}, but a physical size $\sim 5~\textrm{pc}$.
+At a distance of $29~\kpc$, \clustername\ spans $\sim 1.5^\circ$, corresponding to a physical size $\sim 760~\textrm{pc}$.
+If it formed unbound, but with a size comparable to the present size of the Pleiades, this corresponds to an expansion velocity $\sim 6~\kms$, which would be detectable with precise radial velocity measurements of stars on either side of \clustername.
 
 % Notebook: Figure-hierarch-results
 \begin{figure}
@@ -432,8 +440,6 @@ Also plotted is the equal-mass binary sequence (green, dashed line) computed fro
 \label{fig:hierarch-iso}
 \end{figure}
 
-% TODO:
-% - Stellar mass estimate
 
 \subsection{Relation to the Magellanic stream}
 \label{sec:higas}
