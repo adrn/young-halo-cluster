@@ -1,6 +1,7 @@
 % TODO
 % - Sand, Seth, et al. Virgo: blue stars with nothing else
 % - Keywords after abstract
+% - Split cluster into 2? Price-Whelan 1a and 1b?
 
 \documentclass[modern]{aastex62}
 \usepackage{amsmath}
@@ -262,12 +263,13 @@ We perform these analyses separately because \gaia\ \DR{2} only includes the mos
 \label{sec:pmclean}
 
 We infer the mean proper motion of \clustername\ by constructing a probabilistic model of the cluster and background populations using astrometric data from \gaia.
-We start by selecting all stars with $\bprp_0 < 0.35$ to remove low-mass and old main sequence star contamination in the region.
+We start by selecting all stars with $(\bprp)_0 < 0.35$ to remove low-mass and old main sequence star contamination in the region.
 \figurename~\ref{fig:pm-members}, left (grey points), shows the sky positions of stars that pass this blue cut in the region around the young cluster.
 The larger solid-line circle indicates the region we define as the cluster area, and the two smaller dashed-line circles indicate control fields that are combined and used for modeling the background distribution of proper motions.
 The control fields are designed to, together, have the same total area as the cluster field.
 The right panel of \figurename~\ref{fig:pm-members} shows the difference of the 2D proper motion distributions in the cluster and summed control fields.
 The distinct over-density of stars near $(\mu_\alpha, \mu_\delta) \approx (-0.5, 0.5)~\masyr$\footnote{Throughout this article, we use $\mu_\alpha$ to refer to the proper motion value provided by \gaia, which includes the $\cos\delta$ term.} is the identified comoving association of blue stars.
+Note that \figurename~\ref{fig:pm-members} is only meant an illustration: The cluster proper motion is determined probabilistically by taking into account the full \gaia\ covariance matrices for each source, as described below.
 
 To measure the mean cluster proper motion, $\bs{\mu} = (\mu_\alpha, \mu_\delta)$, we first construct a model for the error-deconvolved proper motion distribution in the control fields using ``extreme deconvolution'' \citep[XD;][]{Bovy:2011} with two Gaussian components, which takes into account the full error distributions for each proper motion measurement (i.e. including covariances), $\mat{C}_\mu$, provided by \gaia\ \DR{2}.
 After running XD, we fix the parameters of the background model and model the proper motion distribution in the cluster region using a two-component mixture model with a single, isotropic Gaussian component for the error-deconvolved cluster distribution with mean $\bs{x}$ and isotropic variance $s^2$, and the XD-inferred model for the control field, $p_{\textrm{XD}}$, for the background component.
@@ -300,8 +302,11 @@ The proper-motion dispersion is consistent with zero, so is likely unmeasured; 9
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{figures/pm-model.pdf}
-\caption{\todo{APW}
-Add proper motion vector?}
+\caption{\textbf{Left panel}: Sky positions of all \gaia\ sources in this region with $\bprp < 0.35$ (grey markers).
+The circles show the regions used as cluster and control fields in the proper motion inference (\sectionname~\ref{sec:pmclean}).
+The control fields, together, have the same area as the cluster field.
+\textbf{Right panel}: The colored 2D density shows the difference in number of sources per pixel in the cluster field versus the two control fields (see left panel).
+The clear over-density in the cluster field (blue) are stars in \clustername.}
 \label{fig:pm-members}
 \end{figure}
 
@@ -416,19 +421,12 @@ Here we use 64 walkers and run for an initial 128 steps to burn-in the sampler b
 \begin{figure}
 \centering
 \includegraphics[width=0.7\textwidth]{figures/hierarch-corner.pdf}
-\caption{TODO}
+\caption{A corner plot showing marginal posterior probability distributions estimated from the the posterior samples generated from the hierarchical inference of the cluster population parameters.}
 \label{fig:hierarch-corner}
 \end{figure}
 
 
 \section{Results} \label{sec:results}
-
-% TODO: make a table with all inferred parameters!
-% - mean sky position
-% - inferred proper motion
-% - distance
-% - age, metallicity, mass
-% - extinction
 
 \subsection{The stellar population and physical characteristics of \clustername}
 \label{sec:popchars}
@@ -451,9 +449,36 @@ If it formed unbound, but with an initial size comparable to the present size of
 \begin{figure}
 \centering
 \includegraphics[width=0.6\textwidth]{figures/hierarch-results.pdf}
-\caption{TODO}
+\caption{The \decam\ color-magnitude diagram for sources with probabilty $>0.5$ of belonging to \clustername\ (markers).
+The solid line (blue) shows the \acronym{MIST} isochrone for the median posterior sample from the hierarchical inference of the cluster population parameters, shifted to the inferred distance to \clustername, and extincted with the inferred extinction.
+The dashed line (green) shows the same isochrone, shifted $\approx 0.75$ magnitudes brighter, representing the expected location of the equal-mass binary sequence of the cluster.
+}
 \label{fig:hierarch-iso}
 \end{figure}
+
+\begin{table}[ht]
+\begin{center}
+    \begin{tabular}{ r | l | l}
+        \toprule
+        Parameter & Value & Description \\
+        \tableline
+        $\mean{\alpha}$ & $178.8^\circ$ & mean right ascension \\
+        $\mean{\delta}$ & $-29.4^\circ$ & mean declination \\
+        $\mean{D}$ & $29~\kpc$ & mean Heliocentric distance \\
+        $\mean{\mu_\alpha}$ & $-0.56~\masyr$ & mean proper motion in RA\\
+        $\mean{\mu_\delta}$ & $0.47~\masyr$ & mean proper motion in Dec\\
+        \tableline
+        $\tau$ & $130~\textrm{Myr}$ & age \\
+        $M$ & $1200~\msun$ & total mass \\
+        $\feh$ & $-1.1$ & metallicity \\
+        \tableline
+        $A_V$ & $0.3$ & extinction \\
+        \toprule
+    \end{tabular}
+\caption{Inferred parameters for \clustername.
+\label{tbl:clusterparams}}
+\end{center}
+\end{table}
 
 
 \subsection{Relation to the Magellanic stream}
