@@ -241,7 +241,7 @@ Later, we use photometry in the sub-region of the cluster fields identified by t
 % Notebook: Figure-DECam-CMD
 \begin{figure}
 \centering
-\includegraphics[width=0.8\textwidth]{figures/DECam-cmd.pdf}
+\includegraphics[width=0.6\textwidth]{figures/DECam-cmd.pdf}
 \caption{\decam\ $g-i$ versus $g$ color-magnitude diagrams for the \decam\ control fields (left panel) and \decam\ cluster fields (right panel).
 Note the prominent young, distant main sequence in the cluster fields: This is the main sequence of \clustername.
 The sources in the dashed (red) rectangle in the right panel are later used to measure the cluster stellar population parameters.
@@ -258,7 +258,7 @@ Then, in \sectionname~\ref{sec:popmodel}, we use photometric data from \decam\ t
 We perform these analyses separately because \gaia\ \DR{2} only includes the most massive members of the cluster, but the addition of lower main sequence members apparent in the \decam\ photometry provide a much better constraint on the cluster parameters.
 
 
-\subsection{Measuring the mean proper motion of \clustername}
+\subsection{Inferring the mean proper motion}
 \label{sec:pmclean}
 
 We infer the mean proper motion of \clustername\ by constructing a probabilistic model of the cluster and background population using astrometric data from \gaia.
@@ -306,7 +306,7 @@ Add proper motion vector?}
 \end{figure}
 
 
-\subsection{Stellar population modeling}
+\subsection{Inferring the stellar population parameters}
 \label{sec:popmodel}
 
 The deeper photometry from \decam\ provides a clear view of the stellar population of \clustername\ down to stellar masses $M \sim 0.9~\msun$:
@@ -383,7 +383,7 @@ In this work, $K=\Nisofit$ and we adopt $J=2048$.
 \todo{we ignore the $q$!}
 With the marginal likelihood (\equationname~\ref{eq:marglike}), we then need to specify prior probability distributions for the hyperparameters $(\bs{\alpha}, f)$, and we can then generate posterior samples for the hyperparameters;
 We use uniform priors for all of these, as summarized in \tablename~\ref{tbl:hyperpriors}.
-We then use \texttt{emcee} \citep{Goodman:2010, Foreman-Mackey:2013} to sample from the posterior probability distribution for the hyperparameters given all of the photometric data,
+We then use \texttt{emcee} \citep{Goodman:2010, emcee} to sample from the posterior probability distribution for the hyperparameters given all of the photometric data,
 \begin{equation}
     p(\bs{\alpha}, f \given \{\bs{m}_k\}) \propto
         p(\bs{\alpha}) \, p(f) \,
