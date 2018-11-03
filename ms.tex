@@ -184,7 +184,7 @@ We therefore initially select all stars from \gaia\ with parallax $\varpi < 1$, 
 We further exclude stars within a $15^\circ$ radius from the LMC, and a $8^\circ$ radius from the SMC --- 27,895 stars remain after these cuts.
 We then cross-match this catalog to itself with both sky positions and proper motions: we search for pairs of stars that have separations $s < 0.5^\circ$ and proper motion differences $|\Delta \mu| < 0.5~\masyr$.
 We then combine mutually-connected comoving pairs into small groups of stars that are colocated on the sky and comoving in proper motions, and remove groups that have $<4$ members.
-We cross-match the mean sky positions of the groups to locations of local group galaxies \citep{McConnachie:2012} and Milky Way globular clusters \citep[2010 edition;][]{Harris} and filter out all groups that lie within 1 degree of these known objects.
+We cross-match the mean sky positions of the groups to locations of local group galaxies \citep{McConnachie:2012} and Milky Way globular clusters \citep[2010 edition;][]{Harris:1996} and filter out all groups that lie within 1 degree of these known objects.
 After these filters, just one group of blue, comoving stars remains at $(\textrm{RA}, \textrm{Dec}) \sim (179, -29)^\circ$.
 
 We then query all objects from the \gaia\ \DR{2} catalog within a rectangle centered on the nominal position of this group, with a width of $5^\circ$ and a height of $5^\circ$ in the equatorial (ICRS) coordinate system (see Appendix~\ref{sec:queries} for the database query).
@@ -315,9 +315,9 @@ We use the $g$- and $i$-band photometry for individual stars in a sub-section of
 To summarize our methodology, we generate posterior samplings over the stellar parameters of each individual source under an interim prior (over age, stellar mass, distance, etc.), then use these individual samplings to construct a Bayesian hierarchical model for a two-component mixture of a single stellar population and a background population.
 The results of this modeling are presented in \sectionname~\ref{sec:popchars}.
 
-In detail, we start by using the \texttt{isochrones} package \citep{Morton:XXXX} to generate posterior samplings over stellar parameters for each individual source given its photometry and an interim prior.
+In detail, we start by using the \texttt{isochrones} package \citep{Morton:2015} to generate posterior samplings over stellar parameters for each individual source given its photometry and an interim prior.
 We use the \acronym{MIST} \citep{Choi:2016} isochrone library, and \texttt{isochrones} automatically performs interpolation between the provided grid of stellar isochrones to evaluate predicted stellar parameters at a given location in the CMD.
-The stellar parameters for each source are its ``equal evolutionary point'' number $\eep$ (see \acronym{MIST} documentation; \citealt{WHO}), age $\tau$, metallicity $\feh$, extinction $A_V$, and distance $D$, which can be uniquely mapped to a point in the observed CMD;
+The stellar parameters for each source are its ``equal evolutionary point'' number $\eep$ (see \acronym{MIST} documentation\footnote{\url{http://waps.cfa.harvard.edu/MIST/}}), age $\tau$, metallicity $\feh$, extinction $A_V$, and distance $D$, which can be uniquely mapped to a point in the observed CMD;
 The likelihood of a given set of these parameters, $\bs{\theta} = (\eep, \tau, \feh, A_V, D)$, is then computed from the photometry and (assumed Gaussian) photometric uncertainties given the predicted photometry.
 
 To generate posterior samples, we must also specify prior probability distributions over the parameters $\bs{\theta}$.
@@ -371,7 +371,7 @@ This likelihood for a single source $k$ given a set of hyperparameters $(\bs{\al
         p(\bs{m}_k \given \bs{\theta}_k) \,
         p(\bs{\theta}_k \given \bs{\alpha}, f) \quad .
 \end{equation}
-We employ the ``importance sampling trick'' (see, e.g., Appendix of \citealt{Price-Whelan:2018} or \citealt{Hogg:2008, Foreman-Mackey:2013} for other examples) to re-write an approximate form for this marginal likelihood as
+We employ the ``importance sampling trick'' (see, e.g., Appendix of \citealt{Price-Whelan:2018} or \citealt{Hogg:2010, Foreman-Mackey:2014} for other examples) to re-write an approximate form for this marginal likelihood as
 \begin{equation}
     p(\bs{m}_k \given \bs{\alpha}, f) \approx \frac{\mathcal{Z}_k}{J} \,
         \sum_j^J \frac{p(\bs{\theta}_{kj} \given \bs{\alpha}, f)}{p(\bs{\theta}_{kj} \given \bs{\alpha}_0, f)}
@@ -383,7 +383,7 @@ In this work, $K=\Nisofit$ and we adopt $J=2048$.
 \todo{we ignore the $q$!}
 With the marginal likelihood (\equationname~\ref{eq:marglike}), we then need to specify prior probability distributions for the hyperparameters $(\bs{\alpha}, f)$, and we can then generate posterior samples for the hyperparameters;
 We use uniform priors for all of these, as summarized in \tablename~\ref{tbl:hyperpriors}.
-We then use \texttt{emcee} \citep{Goodman:XX, Foreman-Mackey:2013} to sample from the posterior probability distribution for the hyperparameters given all of the photometric data,
+We then use \texttt{emcee} \citep{Goodman:2010, Foreman-Mackey:2013} to sample from the posterior probability distribution for the hyperparameters given all of the photometric data,
 \begin{equation}
     p(\bs{\alpha}, f \given \{\bs{m}_k\}) \propto
         p(\bs{\alpha}) \, p(f) \,
