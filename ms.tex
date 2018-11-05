@@ -116,7 +116,7 @@
 
 \begin{abstract}
 
-We report the discovery of a young $\tau \sim \clage$, low-mass $M \sim 1200~\msun$, metal-poor $[\textrm{Fe}/\textrm{H}] \sim \clfeh$ stellar association in the Milky Way halo, \clustername.
+We report the discovery of a young $\tau \sim \clage$, low-mass $M \sim 1200~\msun$, metal-poor $[\textrm{Fe}/\textrm{H}] \sim \clfeh$ stellar association in the Milky Way halo: \clustername.
 At a Galactocentric (cylindrical) position $(R, z) \sim (23, 15)~\textrm{kpc}$, the association is (on the sky) near the leading arm of the gas stream emanating from the Magellanic cloud system, but is located $\approx 60^\circ$ from the Large Magellanic Cloud (LMC) center, on the other side of the Milky Way disk relative to the LMC.
 By assuming that the cluster is co-located with \hi gas in the stream, we directly measure the distance to the Magellanic stream, $D \approx \cldist$.
 At this location relative to the LMC, the measured distance is inconsistent with predictions from models of the LMC/SMC interaction and infall into the Milky Way that do not account for ram pressure and gas interaction with MW disk.
@@ -134,11 +134,12 @@ However it formed, the discovery of a young stellar cluster in the Milky Way hal
 
 \section{Introduction} \label{sec:intro}
 
-% The halo of the Milky Way is characterized by its old ($\gtrsim 10~\textrm{Gyr}$), metal-poor ($\feh \approx -1.5$) stellar population.
-% This is understood as a signature of the dominant (in stellar mass) progenitor systems that were accreted and disrupted early on in the formation of the Galaxy: massive dwarf galaxies \citep[e.g.,][]{Deason:2015, Fiorentino:2015}.
-% These systems likely came in with significant gas reservoirs, but were quenched and stripped through collisional processes that heated and dispersed the gas \citep[e.g.,][]{Mayer:2006}, thus preventing immediate star formation in the deposited gas.
-% The Milky Way, however, continues to accrete satellite galaxies, as is evidenced by the prominent stellar stream from the Sagittarius dwarf galaxy \citep{Ibata:1994, Majewski:2003}, the presence of the Large and Small Magellanic Clouds (LMC, SMC), and about 50 dwarf satellites within the virial radius of the Galaxy.
-% While Sagittarius was likely stripped of its neutral gas long ago through repeated passage about the Milky Way \citep{Burton:1999, Tepper-Garcia:2018}, the \lmcsmc\ system is associated with $\approx 8\times 10^8~\msun$ of \hi gas \citep{Bruns:2005}, which extends into leading and trailing gas streams that wrap nearly $\approx 200^\circ$ around the sky \citep{Mathewson:1974, Putman:1998, Bruns:2005, Nidever:2010}.
+The halo of the Milky Way is characterized by its old ($\gtrsim 10~\textrm{Gyr}$), metal-poor ($\feh \approx -1.5$) stellar population.
+This is understood as a signature of the dominant (in stellar mass) progenitor systems that were accreted and disrupted early on in the formation of the Galaxy: massive dwarf galaxies \citep[e.g.,][]{Deason:2015, Fiorentino:2015}.
+These systems likely came in with significant gas reservoirs, but were quenched and stripped through collisional processes that heated and dispersed the gas \citep[e.g.,][]{Mayer:2006}, thus preventing immediate star formation in the deposited gas.
+The Milky Way, however, continues to accrete satellite galaxies, as is evidenced by the prominent stellar stream from the Sagittarius dwarf galaxy \citep{Ibata:1994, Majewski:2003}, the presence of the Large and Small Magellanic Clouds (LMC, SMC), and about 50 dwarf satellites within the virial radius of the Galaxy.
+While Sagittarius was likely stripped of its neutral gas long ago through repeated passage about the Milky Way \citep{Burton:1999, Tepper-Garcia:2018}, the \lmcsmc\ system is associated with $\approx 8\times 10^8~\msun$ of \hi gas \citep{Bruns:2005}, which extends into leading and trailing gas streams that wrap nearly $\approx 200^\circ$ around the sky \citep{Mathewson:1974, Putman:1998, Bruns:2005, Nidever:2010}.
+Here, we report the first discovery of a young cluster of co-moving stars in the Milky Way halo that suggests that young stars can form and exist in this otherwise quenched and aging structural component of the Galaxy.
 
 The Magellanic stream (MS) is a large stream of (predominantly) hydrogen gas emanating from the \lmcsmc\ system that contains a significant fraction of the total gas mass associated with the \lmcsmc\ \citep{Bruns:2005} and wraps nearly $\approx 200^\circ$ around the sky \citep{Mathewson:1974, Putman:1998, Bruns:2005, Nidever:2010}.
 The stream was discovered in early surveys of 21 cm emission and has since been studied in great detail by large-area radio sky surveys, and in H$\alpha$ emission \citep{Weiner:1996, Barger:2017}.
@@ -177,8 +178,11 @@ In \sectionname~\ref{sec:results}, we use the \decam\ photometry to infer the ag
 % In \sectionname~\ref{sec:discussion}, we discuss implications for future searches for stars associated with the MS, and discrepancies with existing models of the LA.
 We conclude in \sectionname~\ref{sec:conclusion}.
 
+
+\section{Data} \label{sec:data}
+
 % Notebook: Figure-CMDs
-\begin{figure*}[htb!]
+\begin{figure*}[ht!]
 \centering
 \includegraphics[width=\textwidth]{figures/gaia-cmd-pm.pdf}
 \caption{Color-magnitude diagram, sky positions, and proper motions from \gaia\ \DR{2} for the region around $(\alpha, \delta) \sim (179, -29)^\circ$.
@@ -192,8 +196,6 @@ Black markers again show only sources in the blue CMD selection region (left pan
 }
 \label{fig:cmds}
 \end{figure*}
-
-\section{Data} \label{sec:data}
 
 \subsection{Cluster discovery with \gaia}
 \label{sec:discovery}
@@ -434,7 +436,7 @@ Here we use 64 walkers and run for an initial 128 steps to burn-in the sampler b
 
 \section{Results} \label{sec:results}
 
-\subsection{The stellar population and physical characteristics of \clustername}
+\subsection{Stellar population and physical characteristics}
 \label{sec:popchars}
 
 We use the posterior samples from the hierarchical inference described in \sectionname~\ref{sec:popmodel} to compute the posterior probabilities that each source in the \decam\ CMD selection box (red box, \figurename~\ref{fig:decam-cmd}) is a member of the cluster.
@@ -492,7 +494,7 @@ The dashed line (green) shows the same isochrone, shifted $\approx 0.75$ magnitu
 
 At the sky location and distance of \clustername, i.e. well into the Galactic halo, the only plausible gas reservoirs that could have formed a young cluster are the Magellanic stream, or a previously unknown high velocity cloud (HVC).
 HVCs are thought to either be accreted and therefore lower metallicity than typical present-day Milky Way gas, or ejected from the Milky Way through a ``Galactic fountain''-like process and therefore comparable metallicity to disk gas.
-Both processes clearly occur: the Magellanic stream itself is evidence of gas accretion in to the Milky Way halo, and the well-known Smith Cloud \citep{Smith:1963} is a metal-rich \citep[$\feh \sim 0.5$[]{Fox:2016} HVC that plausibly originated from the Galactic disk \citep[e.g.,][]{Bregman:1980}.
+Both processes clearly occur: the Magellanic stream itself is evidence of gas accretion in to the Milky Way halo, and the well-known Smith Cloud \citep{Smith:1963} is a metal-rich \citep[$\feh \sim 0.5$][]{Fox:2016} HVC that plausibly originated from the Galactic disk \citep[e.g.,][]{Bregman:1980}.
 Given the low metallicity of the stars in \clustername, the gas it formed from was likely extragalactic, as any violent star-forming regions in the Milky Way disk that could have driven gas so far out into the halo have, at present-day, significantly higher metallicity than this cluster.
 
 % TODO: Nidever plots at different velocities?
