@@ -494,13 +494,28 @@ The dashed line (green) shows the same isochrone, shifted $\approx 0.75$ magnitu
 
 At the sky location and distance of \clustername, i.e. well into the Galactic halo, the only plausible gas reservoirs that could have formed a young cluster are the Magellanic stream, or a previously unknown high velocity cloud (HVC).
 HVCs are thought to either be accreted and therefore lower metallicity than typical present-day Milky Way gas, or ejected from the Milky Way through a ``Galactic fountain''-like process and therefore comparable metallicity to disk gas.
-Both processes clearly occur: the Magellanic stream itself is evidence of gas accretion in to the Milky Way halo, and the well-known Smith Cloud \citep{Smith:1963} is a metal-rich \citep[$\feh \sim 0.5$][]{Fox:2016} HVC that plausibly originated from the Galactic disk \citep[e.g.,][]{Bregman:1980}.
+Both processes clearly occur: the Magellanic stream itself is evidence of gas accretion in to the Milky Way halo, and the mysterious Smith Cloud \citep{Smith:1963} is a metal-rich \citep[$\feh \sim 0.5$][]{Fox:2016} HVC that plausibly originated from the Galactic disk \citep[e.g.,][]{Bregman:1980}.
 Given the low metallicity of the stars in \clustername, the gas it formed from was likely extragalactic, as any violent star-forming regions in the Milky Way disk that could have driven gas so far out into the halo have, at present-day, significantly higher metallicity than this cluster.
 
-% TODO: Nidever plots at different velocities?
-Here we take a closer look at the \hi gas in the vicinity of \clustername.
-\figurename~\ref{fig:gass_maps} shows the \hi column density of the catalog of Gaussian centers \citep[producted with the techniques and software from][]{Nidever:2008} from the Galactic All Sky Survey \citep[GASS;][]{McClure-Griffiths:2009,Kalberla:2010} in the region around the Leading Arm of the Magellanic stream, with the location of \clustername\ marked.
-While no bulk metallicity measurements exist for the LA gas, \todo{...recent measurements suggest comparable to SMC?} \citep{Fox:2018}.
+Here we take a closer look at the \hi gas in the vicinity of \clustername\ to assess its possible relation to the Magellanic stream.
+\figurename~\ref{fig:gass_maps} shows the \hi column density of the catalog of Gaussian centers \citep[producted with the techniques and software from][]{Nidever:2008} from the Galactic All Sky Survey \citep[GASS;][]{McClure-Griffiths:2009, Kalberla:2010} in the region around the Leading Arm of the Magellanic stream and plotted in the Magellanic stream coordinate system ($L_{\rm MS}, B_{\rm MS}$).
+The location of \clustername\ marked (red circle), and the three panels show three different velocity slices (indicated on each panel).
+The Magellanic stream gas is most visible and densest at the highest velocities where the LA II feature is found, around $L_{\rm MS} \lesssim 61^\circ$ and $B_{\rm MS} \sim -12^\circ$, but the lower panels (i.e. slower gas) still displays some of the same morphology as LA II.
+Some relatively low density gas remains in the vicinity of \clustername\ in all panels, but is most abundant in the lower velocity slices (middle and bottom panels of \figurename~\ref{fig:gass_maps}).
+
+However, if the cluster did form from the Magellanic stream gas, and the gas interacted with the Milky Way disk, the dynamics of the stars and the gas could have decoupled as soon as the stars formed.
+Given the geometry of the current location of \clustername, in this scenario we would expect a moderate velocity difference to primarily appear in terms of a difference in the tangential velocities of the stars and the gas (which is not measured).
+We therefore take a closer look at the velocity of the gas in the region around $B_{\rm MS} \sim -13^\circ$ to estimate the line of sight velocity of the stars: \figurename~\ref{fig:gasspv} shows the same GASS data but now shown in a position-velocity diagram.
+The longitude of \clustername\ is marked as the vertical (red) line.
+The LA II feature is again visible as the $V_{\textrm{LSR}} > 200~\kms$ filament of gas at $L_{\rm MS} \lesssim 60^\circ$ (and a faint extension near $L_{\rm MS} \sim 65^\circ$), but two other prominent filaments are prominent at lower velocities $V_{\textrm{LSR}} \sim 60~\kms$ and $V_{\textrm{LSR}} \sim 100~\kms$ from $L_{\rm MS} \lesssim 65^\circ$.
+Therefore, ignoring the disk gas (around $V_{\textrm{LSR}}=-20$--$20~\kms$), it seems that there are three qualitatively different velocities that the gas (and plausibly \clustername) could have: $V_{\textrm{LSR}} \approx (60, 110, 230)~\kms$.
+The origin of these other filaments is not known:
+Did the low velocity filaments originate in the Magellanic stream, but were decelerated through interactions with Milky Way gas? \todo{Is that right? I don't see much discussion of these features in other papers}.
+The ....
+
+While no bulk metallicity measurements exist for the LA gas, recent measurements of oxygen and silicon abundances suggest that the gas is comparable to the SMC \citep{Fox:2018}.
+...
+
 Given its extragalactic origin, its proximity to the Magellanic stream suggests that \clustername\ could have formed from this gas.
 Previously studies have detected young stars in the Leading Arm and gas in the periphery of the Magellanic Clouds \citep{Casetti-Dinescu:2014, Moni-Bidin:2017}, however, this is the first time that an entire star cluster has been detected so far from the Clouds.
 
@@ -510,14 +525,6 @@ Previously studies have detected young stars in the Leading Arm and gas in the p
 
 \todo{Radial velocity follow-up is needed for internal motion, and check association with gas}
 
-
-\begin{figure}
-\centering
-\includegraphics[width=8cm]{figures/gass_vlsrmlon.pdf}
-\caption{The position-velocity diagram of GASS Gaussian centers.}
-\label{fig:gasspv}
-\end{figure}
-
 \begin{figure}
 \centering
 %\includegraphics[width=8cm]{gass_mlatmlon.pdf}
@@ -525,6 +532,13 @@ Previously studies have detected young stars in the Leading Arm and gas in the p
 \caption{GASS \hi column density in the region of LA II at three different velocities.
 The red circle marks the position of the young cluster.}
 \label{fig:gass_maps}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=8cm]{figures/gass_vlsrmlon.pdf}
+\caption{The position-velocity diagram of GASS Gaussian centers.}
+\label{fig:gasspv}
 \end{figure}
 
 
