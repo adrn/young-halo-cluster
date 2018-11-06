@@ -559,7 +559,11 @@ If we adopt these velocity measurements as the line-of-sight (LOS) velocity of \
 We compute Galactic orbits of the cluster using each of the three values of the line-of-sight velocity from the LA II region filaments.
 \figurename~\ref{fig:orbits} shows these three orbits computed by integrating the position of \clustername\ backwards in time:
 The two panels of \figurename~\ref{fig:orbits} show the Galactocentric Cartesian trajectories of \clustername\ over the last $260~\textrm{Myr}$ by assuming each of the three plausible line-of-sight velocities discussed above (as labeled in the right panel).
-Also shown is the present-day location of the LMC (open black circle), the present-day location of \clustername\ (filled black circle), the past orbit of the LMC over the same period, and the projected future orbit of the LMC (dashed line).
+To compute the orbits, we use a three-component Milky Way mass model consisting of a disk \citep{Miyamoto:1975}, a bulge \citep{Hernquist:1990}, and a spherical dark matter halo \citep{Navarro:1996}.
+The parameters of this model are set to match the circular velocity profile and disk properties of \citet{Bovy:2015}, and is implemented in the \texttt{gala} package \citep{gala} as the \texttt{MilkyWayPotential}.
+We note that we do not include the LMC/SMC as a component of our mass model.
+
+Also shown in \figurename~\ref{fig:orbits} is the present-day location of the LMC (open black circle), the present-day location of \clustername\ (filled black circle), the past orbit of the LMC over the same period, and the projected future orbit of the LMC (dashed line).
 For the two lower LOS velocity cases, the orbit of \clustername\ crosses the midplane of the Galactic disk at a time comparable to the age of the cluster (i.e. when the color is darkest, corresponding to a time $\approx -130~\textrm{Myr}$).
 
 However, note that while the orbits of \clustername\ and the LMC are generally in the same orbital plane and have the same sense about the Galaxy, none of the orbits closely approach or cross the orbit of the LMC.
