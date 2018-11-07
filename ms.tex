@@ -3,6 +3,10 @@
 % - Split cluster into 2? Price-Whelan 1a and 1b?
 % - discuss Blanco 1: high latitude, similar age, high binary fraction
 % - Make a PGM for this model?
+% - release data for the candidate members!
+% - You refer to the prior on EEP as "uniform."  While on the surface this is what it looks like in 'isochrones', that is not quite correct (and would be erroneous).  Rather, the effective prior on EEP p(E) is transformed from a Salpeter-IMF mass prior, where p(E) = p(M) * |dM/dEEP|.  Not sure the most succinct way to communicate this, but Table 1 is incorrect as is.
+% - I think Figure 6 would benefit from showing the non-cluster members as well, maybe with a low alpha, to demonstrate how the model picks out the sequence like a charm.
+
 
 % \documentclass[modern]{aastex62}
 \documentclass[twocolumn]{aastex62}
@@ -21,7 +25,7 @@
 \newcommand{\todo}[1]{{\color{red} TODO: #1}}
 \newcommand{\bs}[1]{\boldsymbol{#1}}
 
-\newcommand{\articlename}{\textsl{Letter}}
+\newcommand{\articlename}{\textsl{Article}}
 \newcommand{\sectionname}{Section}
 \newcommand{\equationname}{Equation}
 
@@ -106,6 +110,8 @@
 \author[0000-0002-8537-5711]{Timothy~Morton} % TODO: check orcID
 \affiliation{Department of Astrophysical Sciences,
              Princeton University, Princeton, NJ 08544, USA}
+\affiliation{Department of Astronomy, University of Florida, 211 Bryant Space Science Center, P.O Box 112055, Gainesville, FL 32611-2055 USA}
+\affiliation{Center for Computational Astrophysics, Flatiron Institute, 162 5th Avenue, New York, NY 10010, USA}
 
 \author[0000-0003-2644-135X]{Sergey E. Koposov}
 \affiliation{McWilliams Center for Cosmology, Department of Physics, Carnegie Mellon University, 5000 Forbes Avenue, Pittsburgh, PA 15213, USA}
@@ -603,6 +609,8 @@ for useful suggestions and discussion.
 
 D.L.N thanks Peter Kalberla for making the GASS datacubes available in Magellanic Stream coordinates.
 
+The DECam results are based on observations at Cerro Tololo Inter-American Observatory, National Optical Astronomy Observatory (NOAO Prop. ID: 2018A-0251; PI: Finkbeiner), which is operated by the Association of Universities for Research in Astronomy (AURA) under a cooperative agreement with the National Science Foundation.
+
 This work has made use of data from the European Space Agency (ESA)
 mission {\it Gaia} (\url{https://www.cosmos.esa.int/gaia}), processed by
 the {\it Gaia} Data Processing and Analysis Consortium (DPAC,
@@ -643,6 +651,7 @@ WHERE (parallax < 1 OR parallax IS NULL)
     \package{emcee} \citep{emcee, emcee:ascl},
     \package{gala} \citep{gala},
     \package{IPython} \citep{ipython},
+    \package{isochrones} \citep{Morton:2015},
     \package{matplotlib} \citep{mpl},
     \package{numpy} \citep{numpy},
     \package{PyMultinest} \citep{Buchner:2014},
