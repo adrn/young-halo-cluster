@@ -5,7 +5,6 @@
 % - Make a PGM for this model?
 % - release data for the candidate members!
 % - You refer to the prior on EEP as "uniform."  While on the surface this is what it looks like in 'isochrones', that is not quite correct (and would be erroneous).  Rather, the effective prior on EEP p(E) is transformed from a Salpeter-IMF mass prior, where p(E) = p(M) * |dM/dEEP|.  Not sure the most succinct way to communicate this, but Table 1 is incorrect as is.
-% - I think Figure 6 would benefit from showing the non-cluster members as well, maybe with a low alpha, to demonstrate how the model picks out the sequence like a charm.
 
 
 % \documentclass[modern]{aastex62}
@@ -449,7 +448,7 @@ Here we use 64 walkers and run for an initial 128 steps to burn-in the sampler b
 \begin{figure}[htb]
 \centering
 \includegraphics[width=0.45\textwidth]{figures/hierarch-results.pdf}
-\caption{The \decam\ color-magnitude diagram for sources with probabilty $>0.5$ of belonging to \clustername\ (markers).
+\caption{The \decam\ color-magnitude diagram for sources with probability $>0.5$ of belonging to \clustername\ (dark, larger markers), and sources with probability $<0.5$ (lighter, smaller markers).
 The solid line (blue) shows the \acronym{MIST} isochrone for the median posterior sample from the hierarchical inference of the cluster population parameters, shifted to the inferred distance to \clustername, and extincted with the inferred extinction.
 The dashed line (green) shows the same isochrone, shifted $\approx 0.75$ magnitudes brighter, representing the expected location of the equal-mass binary sequence of the cluster.
 }
