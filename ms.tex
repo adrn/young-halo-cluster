@@ -1,9 +1,7 @@
-% TODO
-% - Sand, Seth, et al. Virgo: blue stars with nothing else
+% TODO: after submission
 % - Split cluster into 2? Price-Whelan 1a and 1b?
 % - discuss Blanco 1: high latitude, similar age, high binary fraction
 % - Make a PGM for this model?
-% - release data for the candidate members!
 
 % \documentclass[modern]{aastex62}
 \documentclass[twocolumn]{aastex62}
@@ -324,6 +322,7 @@ We run the sampler with 32 walkers for 256 steps as burn-in, then reset the samp
 We then thin the resulting chains by taking every 16th sample, leaving a total of 1024 samples; We use these samples to estimate the median posterior parameter values and uncertainties,
 For the young cluster, we find $\bs{x} = (-0.56,  0.47) \pm (0.04, 0.02)~\masyr$, $\ln s = -3.8 \pm 0.9$, and $f = 0.14 \pm 0.02$.
 The proper-motion dispersion is consistent with zero, and is likely unmeasured; 95\% of the posterior samples have $s < 0.09~\masyr$.
+\tablename~\ref{tbl:gaiadata} contains a subset of the \gaia\ \DR{2} data for stars in the cluster field, with kinematic membership probabilities determined from this modeling procedure.
 
 
 \subsection{Inferring the stellar population parameters}
@@ -625,6 +624,7 @@ the institutions participating in the {\it Gaia} Multilateral Agreement.
 We thank the Scientific Computing Core at the Flatiron Institute, and especially Dylan Simon and Nick Carriero, for technical support and access to the Flatiron Institute cluster computing resources, which enabled this work.
 We thank the Center for Computational Astrophysics and especially David Spergel for support, access to computational resources, and space to conduct this work.
 
+\clearpage
 
 \appendix
 
@@ -648,6 +648,49 @@ WHERE (parallax < 1 OR parallax IS NULL)
     AND ra > 177 AND ra < 182
     AND dec > -31.3 AND dec < -26.3
 \end{verbatim}
+
+\section{Data}
+\label{sec:data}
+
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{c | c | c | c | c | c | c | c | c}
+        \multicolumn{9}{c}{\textbf{Catalog of \gaia\ sources and kinematic probability}}\\
+        \texttt{source\_id} & \texttt{ra} & \texttt{dec} & \texttt{pmra} & \texttt{pmdec} & \texttt{G0} & \texttt{BP0} & \texttt{RP0} & \texttt{member\_prob} \\
+        \tableline
+        3462048793708019200 & 184.799 & -34.971 &  0.09 & -1.61 & 19.79 & 19.915 & 19.61 & 0.00 \\
+        3462056696448285440 & 184.511 & -34.988 & -4.24 & -1.32 & 20.80 & 20.498 & 20.31 & 0.09 \\
+        3462062670747949312 & 184.426 & -34.816 & -0.56 & -2.77 & 20.33 & 20.363 & 20.06 & 0.00 \\
+        3462062709402484224 & 184.407 & -34.809 & -7.50 & -3.16 & 20.67 & 20.437 & 20.09 & 0.01 \\
+        3462065904858152832 & 184.705 & -34.783 &  0.91 & -1.95 & 20.64 & 20.625 & 20.37 & 0.12 \\
+        \multicolumn{9}{c}{...}\\
+        \multicolumn{9}{c}{\textit{(5983 rows)}}
+    \end{tabular}
+    \caption{Select \gaia\ \DR{2} data and membership probabilities computed for all stars in the cluster region (see \figurename~\ref{fig:pm-members}).}
+    \label{tbl:gaiadata}
+\end{table}
+
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{c | c | c | c | c | c | c | c | c | c}
+        \multicolumn{10}{c}{\textbf{Catalog of \decam\ photometry for point sources}}\\
+        \texttt{name} & \texttt{ra} & \texttt{dec} & \texttt{g} & \texttt{g\_err} & \texttt{i} & \texttt{i\_err} & \texttt{control\_mask} & \texttt{cluster\_mask} & \texttt{member\_mask} \\
+        \tableline
+        J115311.06-283133.4 & 178.296 & -28.525 & 24.09 & 0.46 & 23.99 & 0.33 & True & False & False \\
+        J115403.33-283553.8 & 178.513 & -28.598 & 25.27 & 0.29 & 22.70 & 0.04 & True & False & False \\
+        J115424.21-283749.6 & 178.600 & -28.630 & 24.61 & 0.25 & 23.83 & 0.28 & True & False & False \\
+        J115413.93-283343.6 & 178.558 & -28.562 & 25.37 & 0.41 & 22.76 & 0.05 & True & False & False \\
+        J115419.62-283635.8 & 178.581 & -28.609 & 24.20 & 0.13 & 21.89 & 0.02 & True & False & False \\
+        \multicolumn{10}{c}{...}\\
+        \multicolumn{10}{c}{\textit{(51932 rows)}}
+    \end{tabular}
+    \caption{\decam\ photometry and sky positions for point sources in the observed \decam\ field.
+    The boolean columns \texttt{control\_mask} and \texttt{cluster\_mask} are True when a given source is in the control or cluster CCDs, respectively (see \figurename~\ref{fig:decam-field}).
+    The boolean column \texttt{member\_mask} is True when the source has a photometric membership probability $>0.5$ of belonging to the cluster stellar population (see \sectionname~\ref{sec:popmodel}).
+    }
+    \label{tbl:decamdata}
+\end{table}
+
 
 \software{
     \package{Astropy} \citep{astropy, astropy:2018},
