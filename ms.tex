@@ -217,8 +217,9 @@ We cross-match the mean sky positions of the groups to locations of local group 
 After these filters, just one group of blue, comoving stars remains at $(\textrm{RA}, \textrm{Dec}) \sim (179, -29)^\circ$.
 
 We then query all objects from the \gaia\ \DR{2} catalog within a rectangle centered on the nominal position of this group, with a width of $5^\circ$ and a height of $5^\circ$ in the equatorial (ICRS) coordinate system (see Appendix~\ref{sec:queries} for the database query).
-\figurename~\ref{fig:cmds} shows the \gaia\ data for this region.
-The left panel of \figurename~\ref{fig:cmds} shows the \gaia\ color-magnitude diagram, with the blue over-density highlighted by the polygon (blue) and under-plotted with a $100~\textrm{Myr}$, $\feh = -1.1$ \acronym{MIST} isochrone \citep[red line;][]{Dotter:2016, Choi:2016, Paxton:2011, Paxton:2013, Paxton:2015}: Surprisingly, this appears to be a young, distant main sequence, rather than an old population of horizontal branch stars.
+\figurename~\ref{fig:cmds} shows the \gaia\ data for this region:
+The left panel shows the \gaia\ color-magnitude diagram, with the blue over-density highlighted by the polygon (blue) and under-plotted with a $100~\textrm{Myr}$, $\feh = -1.1$ \acronym{MIST} isochrone \citep[red line;][]{Dotter:2016, Choi:2016, Paxton:2011, Paxton:2013, Paxton:2015}.
+Surprisingly, this group appears to be a young, distant main sequence, rather than an old population of horizontal branch stars.
 The middle and right panels of \figurename~\ref{fig:cmds} show sky positions and proper motions, respectively, of all stars in this sky region (grey background density), and only stars in the CMD selection polygon as black markers.
 
 The \gaia\ data demonstrate the presence of a young, distant, spatially-clustered, and co-moving stellar over-density --- named \clustername\ --- but the \gaia\ photometry is too shallow to resolve anything but the brightest main sequence stars.
@@ -228,6 +229,26 @@ In the next section, we describe deeper \decam\ imaging obtained over a portion 
 
 \subsection{Follow-up with \decam}
 \label{sec:decam}
+
+% Notebook: Figure-DECam-CMD
+\begin{figure}[t!]
+\centering
+\includegraphics[width=0.45\textwidth]{figures/DECam-field.pdf}
+\caption{The sky region around \clustername, showing the same \gaia\ CMD-selected sources as in \figurename~\ref{fig:cmds} (black markers), and point sources identified from \decam\ $g$-band follow up (blue and red markers).
+Red markers show sources in the \decam\ field used as control sources, and blue markers show sources used as cluster member candidates.}
+\label{fig:decam-field}
+\end{figure}
+
+% Notebook: Figure-DECam-CMD
+\begin{figure}[t!]
+\centering
+\includegraphics[width=0.45\textwidth]{figures/DECam-cmd.pdf}
+\caption{\decam\ $g-i$ versus $g$ color-magnitude diagrams for the \decam\ control fields (left panel) and \decam\ cluster fields (right panel).
+Note the prominent young, distant main sequence in the cluster fields: This is the main sequence of \clustername.
+The sources in the dashed (red) rectangle in the right panel are later used to measure the cluster stellar population parameters.
+}
+\label{fig:decam-cmd}
+\end{figure}
 
 We obtained \decam\ $u$-, $g$-, and $i$-band imaging of a single field centered on a portion of the cluster discovered using the \gaia\ data (see previous section).  Observations were obtained with the Dark Energy Camera (DECam) on the CTIO 4m Blanco telescope on UT 2018 May 20 with 3$\times$300s
 exposures in $u-$, $g-$, and $i$-band.  The NOAO Community Pipeline (CP; \citealt{Valdes:2014}; Valdes et al., in preparation) InstCal images, which have the instrumental signature removed, were downloaded from the NOAO Archive\footnote{\url{http://archive.noao.edu}} for further processing.  Forced PSF photometry was performed with the PHOTRED pipeline \citep{Nidever:2017} which uses the DAOPHOT ALLSTAR \citep{Stetson:1987} and ALLFRAME \citep{Stetson:1994} suite of programs.  The photometry was calibrated using Pan-STARRS1 \citep[PS1;][]{Chambers:2016} photometry for
@@ -244,26 +265,6 @@ We find that the $u$-band data were too shallow to be useful for this work, so r
 The blue comoving group, \clustername, identified in \sectionname~\ref{sec:discovery} using \gaia\ data alone shows up as a clear young main sequence in the cluster fields (right panel of \figurename~\ref{fig:decam-cmd}).
 Later, we use photometry in the sub-region of the cluster fields identified by the dashed rectangle to infer the cluster parameters.
 
- % Notebook: Figure-DECam-CMD
- \begin{figure}
- \centering
- \includegraphics[width=0.45\textwidth]{figures/DECam-field.pdf}
- \caption{The sky region around \clustername, showing the same \gaia\ CMD-selected sources as in \figurename~\ref{fig:cmds} (black markers), and point sources identified from \decam\ $g$-band follow up (blue and red markers).
- Red markers show sources in the \decam\ field used as control sources, and blue markers show sources used as cluster member candidates.}
- \label{fig:decam-field}
- \end{figure}
-
-% Notebook: Figure-DECam-CMD
-\begin{figure}
-\centering
-\includegraphics[width=0.45\textwidth]{figures/DECam-cmd.pdf}
-\caption{\decam\ $g-i$ versus $g$ color-magnitude diagrams for the \decam\ control fields (left panel) and \decam\ cluster fields (right panel).
-Note the prominent young, distant main sequence in the cluster fields: This is the main sequence of \clustername.
-The sources in the dashed (red) rectangle in the right panel are later used to measure the cluster stellar population parameters.
-}
-\label{fig:decam-cmd}
-\end{figure}
-
 
 \section{Methods} \label{sec:methods}
 
@@ -277,9 +278,9 @@ We perform these analyses separately because \gaia\ \DR{2} only includes the mos
 \label{sec:pmclean}
 
 % Notebook: Proper-motion-membership
-\begin{figure*}[ht!]
+\begin{figure*}[t!]
 \centering
-\includegraphics[width=\textwidth]{figures/pm-model.pdf}
+\includegraphics[width=0.9\textwidth]{figures/pm-model.pdf}
 \caption{\textbf{Left panel}: Sky positions of all \gaia\ sources in this region with $\bprp < 0.35$ (grey markers).
 The circles show the regions used as cluster and control fields in the proper motion inference (\sectionname~\ref{sec:pmclean}).
 The control fields, together, have the same area as the cluster field.
@@ -515,7 +516,9 @@ The red circle marks the position of \clustername.}
 \begin{figure}[t]
 \centering
 \includegraphics[width=8cm]{figures/gass_vlsrmlon.pdf}
-\caption{The position-velocity diagram of GASS Gaussian centers.}
+\caption{The position-velocity diagram of GASS \hi Gaussian centers in the same region as \figurename~\ref{fig:gass_maps}, showing the line-of-sight velocity (in the local standard of rest frame) of gas near \clustername.
+Note that the densest gas at the longitude of \clustername\ (vertical line) appears to be associated with the lower velocity filaments seen at lower longitudes $L_{\textrm{MS}} \lesssim 60^\circ$, which may be decelerated gas associated with the Magellanic stream.
+}
 \label{fig:gasspv}
 \end{figure}
 
