@@ -68,6 +68,10 @@
 \newcommand{\clfeh}{\ensuremath{-1.1}}
 \newcommand{\cldist}{\ensuremath{29~\textrm{kpc}}}
 
+
+% Edits
+\newcommand{\yumi}[1]{{\ \color{purple}{\textbf{Yumi: #1}\ }}}
+
 %% Reintroduced the \received and \accepted commands from AASTeX v5.2
 % \received{January 1, 2018}
 % \revised{January 7, 2018}
@@ -170,7 +174,7 @@ However, the LA features deviate from the predicted orbit of the \lmcsmc, implyi
 \caption{Color-magnitude diagram, sky positions, and proper motions from \gaia\ \DR{2} for the region around $(\alpha, \delta) \sim (179, -29)^\circ$.
 \textbf{Left panel}: \gaia\ color-magnitude diagram (CMD) for all sources with $G < 20$ and sky position within 3 degrees of $(\alpha, \delta) = (179.5, -28.8)^\circ$.
 Red line shows a $100~\textrm{Myr}$, $\feh = -1.1$ \acronym{MIST} isochrone shifted to a distance of $30~\kpc$.
-Shaded pixels (orange) show regions of high density and points (black markers) are plotted when there are fewer than 8 stars per pixel.
+Shaded pixels (orange) show regions of high density and points (black markers) are plotted when there are fewer than 8 stars per pixel. \yumi{It seems you made extinction correction on this CMD. If so, please describe it in the text.}
 \textbf{Middle panel}: Sky positions for all sources in the shown sky region (grey 2D histogram).
 Black markers show only sources in the blue selection polygon shown in the CMD (left panel).
 \textbf{Right panel}: Proper motions for all sources in the shown sky region (grey 2D histogram).
@@ -289,11 +293,11 @@ The clear over-density in the cluster field (blue) are stars in \clustername.}
 \label{fig:pm-members}
 \end{figure*}
 
-We infer the mean proper motion of \clustername\ by constructing a probabilistic model of the cluster and background populations using astrometric data from \gaia.
+We measure the mean proper motion of \clustername\ by constructing a probabilistic model of the cluster and background populations using astrometric data from \gaia.
 We start by selecting all stars with $(\bprp)_0 < 0.35$ to remove low-mass and old main sequence star contamination in the region.
 \figurename~\ref{fig:pm-members}, left (grey points), shows the sky positions of stars that pass this blue cut in the region around the young cluster.
 The larger solid-line circle indicates the region we define as the cluster area, and the two smaller dashed-line circles indicate control fields that are combined and used for modeling the background distribution of proper motions.
-The control fields are designed to, together, have the same total area as the cluster field.
+The control fields are designed to, together, have the same total area as the cluster field. \yumi{Any changes if you pick different control fields?}
 The right panel of \figurename~\ref{fig:pm-members} shows the difference of the 2D proper motion distributions in the cluster and summed control fields.
 The distinct over-density of stars near $(\mu_\alpha, \mu_\delta) \approx (-0.5, 0.5)~\masyr$ is the identified comoving association of blue stars.\footnote{Throughout this article, we use $\mu_\alpha$ to refer to the proper motion value provided by \gaia, which includes the $\cos\delta$ term.}
 Note that \figurename~\ref{fig:pm-members} is only meant an illustration: The cluster proper motion is determined probabilistically by taking into account the full \gaia\ covariance matrices for each source, as described below.
