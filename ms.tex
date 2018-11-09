@@ -4,7 +4,6 @@
 % - discuss Blanco 1: high latitude, similar age, high binary fraction
 % - Make a PGM for this model?
 % - release data for the candidate members!
-% - You refer to the prior on EEP as "uniform."  While on the surface this is what it looks like in 'isochrones', that is not quite correct (and would be erroneous).  Rather, the effective prior on EEP p(E) is transformed from a Salpeter-IMF mass prior, where p(E) = p(M) * |dM/dEEP|.  Not sure the most succinct way to communicate this, but Table 1 is incorrect as is.
 
 % \documentclass[modern]{aastex62}
 \documentclass[twocolumn]{aastex62}
@@ -82,12 +81,13 @@
 
 % \title{A young star cluster in the Galactic halo: \\
 % Recent star formation associated with the Leading Arm of the Magellanic stream}
-\title{\textbf{Discovery of a disrupting open cluster in the Milky Way halo:\\
+\title{\textbf{Discovery of a disrupting open cluster far into the Milky Way halo:\\
        a recent star formation event in the leading arm of the Magellanic stream?}}
 
 \author[0000-0003-0872-7098]{Adrian~M.~Price-Whelan}
 \affiliation{Department of Astrophysical Sciences,
-             Princeton University, Princeton, NJ 08544, USA}
+             Princeton University,
+             4 Ivy Lane, Princeton, NJ 08544, USA}
 \email{adrn@astro.princeton.edu}
 \correspondingauthor{Adrian M. Price-Whelan}
 
@@ -105,14 +105,15 @@
 \author[0000-0003-2808-275X]{Douglas~P.~Finkbeiner}
 \affiliation{Institute for Theory and Computation, Harvard-Smithsonian Center for Astrophysics, 60 Garden Street, Cambridge, MA 02138, USA}
 
-\author[0000-0002-8537-5711]{Timothy~Morton} % TODO: check orcID
+\author[0000-0002-8537-5711]{Timothy~Morton}
 \affiliation{Department of Astrophysical Sciences,
-             Princeton University, Princeton, NJ 08544, USA}
+             Princeton University,
+             4 Ivy Lane, Princeton, NJ 08544, USA}
 \affiliation{Department of Astronomy, University of Florida, 211 Bryant Space Science Center, P.O Box 112055, Gainesville, FL 32611-2055 USA}
 \affiliation{Center for Computational Astrophysics, Flatiron Institute, 162 5th Avenue, New York, NY 10010, USA}
 
 \author[0000-0003-2644-135X]{Sergey E. Koposov}
-\affiliation{McWilliams Center for Cosmology, Department of Physics, Carnegie Mellon University, 5000 Forbes Avenue, Pittsburgh, PA 15213, USA}
+\affiliation{McWilliams Center for Cosmology, Carnegie Mellon University, 5000 Forbes Avenue, Pittsburgh, PA 15213, USA}
 \affiliation{Institute of Astronomy, University of Cambridge, Madingley Road, Cambridge CB3 0HA, UK}
 
 \author[0000-0002-0038-9584]{Vasily Belokurov}
@@ -341,7 +342,7 @@ The likelihood of a given set of these parameters, $\bs{\theta} = (\eep, \tau, \
 
 To generate posterior samples, we must also specify prior probability distributions over the parameters $\bs{\theta}$.
 The priors for each parameter are summarized in \tablename~\ref{tbl:priors}.
-The bounds on $\eep$ limit the isochrone to evolutionary phases between the zero-age main sequence to the terminal-age main sequence.
+The bounds on $\eep$ limit the isochrone to evolutionary phases between the zero-age main sequence to the terminal-age main sequence, but this prior is actually computed using the stellar mass computed from the isochrone parameters (see caption of \tablename~\ref{tbl:priors}).
 The prior and bounds on $A_V$ are set to prefer small and reasonable values of extinction for this moderately high Galactic latitude region.
 The prior on distance assumes a uniform space density of stars.
 
@@ -351,14 +352,15 @@ The prior on distance assumes a uniform space density of stars.
         \toprule
         Parameter & Prior & Bounds \\
         \toprule
-        $\eep$ & uniform & $(202, 355)$ \\
         $\tau$ & uniform & $(10~\textrm{Myr}, 15~\textrm{Gyr})$ \\
         $\feh$ & uniform & $(-2, 0.5)$ \\
+        $\eep$ & (see caption) & $(202, 355)$ \\
         $A_V$ & $\propto A_V^{-1}$ & $(0.001, 1)~\textrm{mag}$ \\
         $D$ & $\propto D^{2}$ & $(1, 100)~\kpc$ \\
         \toprule
     \end{tabular}
 \caption{Prior probability distributions for each of the stellar parameters defined in \sectionname~\ref{sec:popmodel}, used for the independent (per star) posterior samplings.
+The prior on \eep\ is computed by calculating the stellar mass, $m$, corresponding to a given point in the isochrone parameter space, $(\eep, \tau, \feh)$, and computing the probability from a Salpeter \citep{Salpeter:1955} mass prior such that $p(\eep) = p(m)\,\left|\frac{\dd m}{\dd \eep}\right|$, following the prescription used in \texttt{isochrones} \citep{Morton:2015}.
 \label{tbl:priors}}
 \end{center}
 \end{table}
@@ -536,12 +538,12 @@ This is also apparent in a position-velocity diagram of the same range of longit
 Here, the longitude of \clustername\ is marked as the vertical (red) line.
 The LA II feature is again visible as the $V_{\textrm{LSR}} > 200~\kms$ filament of gas at $L_{\rm MS} \lesssim 60^\circ$ (and a faint extension near $L_{\rm MS} \sim 65^\circ$), but two other prominent filaments with similar morphologies are apparent at lower velocities $V_{\textrm{LSR}} \sim 60~\kms$ and $V_{\textrm{LSR}} \sim 100~\kms$ from $L_{\rm MS} \lesssim 65^\circ$.
 
-The entire region shown in \figurename~\ref{fig:gass_maps} is on the other side of the Galactic disk with respect to the Magellanic clouds, meaning that all of the gas in this region has passed through the Galactic midplane.
-The similar filamentary structure in the high and lower velocity gas therefore raises the question: Did the low velocity filaments originate in the Magellanic stream, but were decelerated through interactions with Milky Way gas? \todo{Is this an accepted explanation? I don't see much discussion of these features in other papers}
+The entire region shown in \figurename~\ref{fig:gass_maps} is on the other side of the Galactic disk with respect to the Magellanic clouds, meaning that all of the Magellanic stream gas in this region has passed through the Galactic midplane.
+The similar filamentary structure in the high and lower velocity gas therefore raises the question: Did the low velocity filaments originate in the Magellanic stream, but were decelerated through interactions with Milky Way gas?
 This presents a possible formation scenario for \clustername.
 If the cluster formed from the Magellanic stream gas, and some of the gas interacted with the Milky Way disk, the dynamics of the stars and the gas that interacted would have decoupled as soon as the stars formed.
 Given the geometry of the current location of \clustername\ (i.e. our viewing angle from the solar position), in this scenario we would expect a moderate velocity difference between the gas that interacted and stars to primarily appear as a difference in the tangential velocities of the stars and the gas (which is not measured).
-We can therefore use the line-of-sight velocity of the gas as a proxy for the line-of-sight velocity of the stars in \clustername\ to study the Galactic orbit of the cluster, as discussed in the next section.
+We can therefore use the line-of-sight velocity of the gas as a proxy for the line-of-sight velocity of the stars in \clustername\ to study the Galactic orbit of the cluster, as discussed in the next section, and because we do not yet have radial velocity information for the stars.
 
 
 \subsection{The Galactic orbit of \clustername}
