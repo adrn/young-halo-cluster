@@ -6,7 +6,6 @@
 % - release data for the candidate members!
 % - You refer to the prior on EEP as "uniform."  While on the surface this is what it looks like in 'isochrones', that is not quite correct (and would be erroneous).  Rather, the effective prior on EEP p(E) is transformed from a Salpeter-IMF mass prior, where p(E) = p(M) * |dM/dEEP|.  Not sure the most succinct way to communicate this, but Table 1 is incorrect as is.
 
-
 % \documentclass[modern]{aastex62}
 \documentclass[twocolumn]{aastex62}
 \usepackage{amsmath}
@@ -104,7 +103,7 @@
 \affiliation{Lawrence Berkeley National Laboratory, One Cyclotron Road, Berkeley, CA 94720, USA}
 
 \author[0000-0003-2808-275X]{Douglas~P.~Finkbeiner}
-\affiliation{Institute for Theory and Computation, Harvard-Smithsonian Center for Astrophysics, 60 Garden Street, MS-51, Cambridge, MA 02138, USA}
+\affiliation{Institute for Theory and Computation, Harvard-Smithsonian Center for Astrophysics, 60 Garden Street, Cambridge, MA 02138, USA}
 
 \author[0000-0002-8537-5711]{Timothy~Morton} % TODO: check orcID
 \affiliation{Department of Astrophysical Sciences,
@@ -163,6 +162,22 @@ Recent hydrodynamical simulations of the MCs on the first infall to the Milky Wa
 Whatever the origin of the gas, it is clear that tidal stripping by the Milky Way is required to form the leading arm \citep{Nidever:2008, Besla:2012}.
 However, the LA features deviate from the predicted orbit of the \lmcsmc, implying that ram pressure or interactions with gas in the outer Milky Way disk may have removed orbital energy from the LA gas \citep[e.g.,][]{Bekki:2008}.
 
+% Notebook: Figure-CMDs
+\begin{figure*}[ht!]
+\centering
+\includegraphics[width=\textwidth]{figures/gaia-cmd-pm.pdf}
+\caption{Color-magnitude diagram, sky positions, and proper motions from \gaia\ \DR{2} for the region around $(\alpha, \delta) \sim (179, -29)^\circ$.
+\textbf{Left panel}: \gaia\ color-magnitude diagram (CMD) for all sources with $G < 20$ and sky position within 3 degrees of $(\alpha, \delta) = (179.5, -28.8)^\circ$.
+Red line shows a $100~\textrm{Myr}$, $\feh = -1.1$ \acronym{MIST} isochrone shifted to a distance of $30~\kpc$.
+Shaded pixels (orange) show regions of high density and points (black markers) are plotted when there are fewer than 8 stars per pixel.
+\textbf{Middle panel}: Sky positions for all sources in the shown sky region (grey 2D histogram).
+Black markers show only sources in the blue selection polygon shown in the CMD (left panel).
+\textbf{Right panel}: Proper motions for all sources in the shown sky region (grey 2D histogram).
+Black markers again show only sources in the blue CMD selection region (left panel).
+}
+\label{fig:cmds}
+\end{figure*}
+
 Streams formed from tidally stripped material --- such as the Sagittarius or Palomar 5 \citep{Odenkirchen:2001} stellar streams, or gas streams such as the MS --- encode information about the orbital history and future trajectory of their progenitor system \citep[e.g.,][]{Johnston:1999}.
 For this reason, streams of debris are of interest for constraining the dark matter distribution around the Galaxy, as well as for providing a fossil record of the Milky Way's accretion history \citep{Johnston:1998, Bullock:2005}.
 Several groups have attempted to use the MS to constrain both the infall history of the \lmcsmc\ and the dark matter halo of the Milky Way (see recent review by \citealt{DOnghia:2016}).
@@ -187,22 +202,6 @@ We conclude in \sectionname~\ref{sec:conclusion}.
 
 
 \section{Data} \label{sec:data}
-
-% Notebook: Figure-CMDs
-\begin{figure*}[ht!]
-\centering
-\includegraphics[width=\textwidth]{figures/gaia-cmd-pm.pdf}
-\caption{Color-magnitude diagram, sky positions, and proper motions from \gaia\ \DR{2} for the region around $(\alpha, \delta) \sim (179, -29)^\circ$.
-\textbf{Left panel}: \gaia\ color-magnitude diagram (CMD) for all sources with $G < 20$ and sky position within 3 degrees of $(\alpha, \delta) = (179.5, -28.8)^\circ$.
-Red line shows a $100~\textrm{Myr}$, $\feh = -1.1$ \acronym{MIST} isochrone shifted to a distance of $30~\kpc$.
-Shaded pixels (orange) show regions of high density and points (black markers) are plotted when there are fewer than 8 stars per pixel.
-\textbf{Middle panel}: Sky positions for all sources in the shown sky region (grey 2D histogram).
-Black markers show only sources in the blue selection polygon shown in the CMD (left panel).
-\textbf{Right panel}: Proper motions for all sources in the shown sky region (grey 2D histogram).
-Black markers again show only sources in the blue CMD selection region (left panel).
-}
-\label{fig:cmds}
-\end{figure*}
 
 \subsection{Cluster discovery with \gaia}
 \label{sec:discovery}
