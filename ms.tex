@@ -83,8 +83,9 @@
 
 % \title{A young star cluster in the Galactic halo: \\
 % Recent star formation associated with the Leading Arm of the Magellanic stream}
-\title{\textbf{Discovery of a disrupting open cluster far into the Milky Way halo:\\
-       a recent star formation event in the leading arm of the Magellanic stream?}}
+\title{\textbf{
+Discovery of a disrupting open cluster far into the Milky Way halo:\\
+a recent star formation event in the leading arm of the Magellanic stream?}}
 
 \author[0000-0003-0872-7098]{Adrian~M.~Price-Whelan}
 \affiliation{Department of Astrophysical Sciences,
@@ -125,12 +126,12 @@
 
 \begin{abstract}
 
-We report the discovery of a young ($\tau \sim \clage$), low-mass ($M \sim 1200~\msun$), metal-poor ($[\textrm{Fe}/\textrm{H}] \sim \clfeh$) stellar association in the Milky Way halo: \clustername.
-At a Galactocentric (cylindrical) position $(R, z) \sim (23, 15)~\textrm{kpc}$, the association is (on the sky) near the leading arm of the gas stream emanating from the Magellanic cloud system, but is located $\approx 60^\circ$ from the Large Magellanic Cloud (LMC) center, on the other side of the Milky Way disk relative to the LMC.
+We report the discovery of a young ($\tau \sim \clage$), low-mass ($M \sim 1200~\msun$), metal-poor ($\feh \sim \clfeh$) stellar association in the Milky Way halo: \clustername.
+At a Galactocentric cylindrical position $(R, z) \sim (23, 15)~\textrm{kpc}$, the association is (on the sky) near the leading arm of the gas stream emanating from the Magellanic cloud system, but is located $\approx 60^\circ$ from the Large Magellanic Cloud (LMC) center, on the other side of the Milky Way disk relative to the LMC.
 By assuming that the cluster is co-located with \hi gas in the stream, we directly measure the distance to the Magellanic stream, $D \approx \cldist$.
 At this location relative to the LMC, the measured distance is inconsistent with predictions from models of the LMC/SMC interaction and infall into the Milky Way that do not account for ram pressure and gas interaction with Milky Way disk.
 The estimated age of \clustername\ is consistent with the time of last passage of the leading arm gas through the Galactic midplane, and we therefore speculate that this star-formation event was triggered by the last disk midplane passage, which occurred at a Galactocentric radius $R \approx 30~\kpc$.
-However, most details of this idea remain a mystery: the Magellanic stream is low column density, the Milky Way disk at this large radius has low gas surface density, and the relative velocity of the leading arm gas and Milky Way gas is large. However it formed, the discovery of a young stellar cluster in the Milky Way halo presents an interesting opportunity for study.
+However, most details of this idea remain a mystery: the Magellanic stream has low column density, the Milky Way disk at this large radius has low gas density, and the relative velocity of the leading arm gas and Milky Way gas is large. However it formed, the discovery of a young stellar cluster in the Milky Way halo presents an interesting opportunity for study.
 \end{abstract}
 
 \keywords{
@@ -141,38 +142,56 @@ However, most details of this idea remain a mystery: the Magellanic stream is lo
 
 
 \section{Introduction} \label{sec:intro}
-%Yumi: Intro can be condensed and go into the point quickly.
-The halo of the Milky Way is characterized by its old ($\gtrsim 10~\textrm{Gyr}$), metal-poor ($\feh \approx -1.5$) stellar population.
-This is understood as a signature of the dominant (in stellar mass) progenitor systems that were accreted and disrupted early on in the formation of the Galaxy: massive dwarf galaxies \citep[e.g.,][]{Deason:2015, Fiorentino:2015}.
-These systems likely came in with significant gas reservoirs, but were quenched and stripped through collisional processes that heated and dispersed the gas \citep[e.g.,][]{Mayer:2006}, thus preventing immediate star formation in the deposited gas.
+
+The halo of the Milky Way is typically characterized by its old ($\gtrsim 10~\textrm{Gyr}$), metal-poor ($\feh \approx -1.5$) stellar population.
+This is understood as a signature of the dominant (in stellar mass) progenitor systems that were accreted early on in the formation of the Galaxy \citep[massive dwarf galaxies][]{Deason:2015, Fiorentino:2015}.
+It is thought that these systems came in with significant gas reservoirs, but were quenched and stripped through collisional processes that heated and dispersed the gas \citep[e.g.,][]{Mayer:2006}, thus preventing immediate star formation in the deposited gas.
 The Milky Way, however, continues to accrete satellite galaxies, as is evidenced by the prominent stellar stream from the Sagittarius dwarf galaxy \citep{Ibata:1994, Majewski:2003}, the presence of the Large and Small Magellanic Clouds (LMC and SMC), and about 50 dwarf satellites within the virial radius of the Galaxy.
-While Sagittarius was likely stripped of its neutral gas long ago through repeated passage about the Milky Way \citep{Burton:1999, Tepper-Garcia:2018}, the \lmcsmc\ system is associated with $\approx 8\times 10^8~\msun$ of \hi gas \citep{Bruns:2005}, which extends into leading and trailing gas streams that wrap nearly $\approx 200^\circ$ around the sky \citep{Mathewson:1974, Putman:1998, Bruns:2005, Nidever:2010}.
-Here, we report the first discovery of a young cluster of co-moving stars in the Milky Way halo that suggests that young stars can form and exist in this otherwise quenched and aging structural component of the Galaxy.
+While Sagittarius was likely stripped of its neutral gas long ago through repeated passage about the Milky Way \citep{Burton:1999, Tepper-Garcia:2018}, the \lmcsmc\ system is associated with $\approx 8\times 10^8~\msun$ of \hi gas \citep{Bruns:2005}, which extends into leading and trailing gas streams \citep{Mathewson:1974, Putman:1998, Bruns:2005, Nidever:2010}.
+Here, we report the first discovery of a young cluster of co-moving stars in the Milky Way halo that appears to be associated with this \lmcsmc\ gas stream, which suggests that young stars can form from tidally stripped gas during low-mass mergers and may therefore exist throughout the otherwise aging stellar halo of our Galaxy.
 
-% Yumi: this paragraph needs to be clear. The MS is the trailing gas and the LA is the leading gas. Both together is 200 degrees long.
-The Magellanic stream (MS) is a large stream of (predominantly) hydrogen gas emanating from the \lmcsmc\ system that contains a significant fraction of the total gas mass associated with the \lmcsmc\ \citep{Bruns:2005} and wraps nearly $\approx 200^\circ$ around the sky \citep{Mathewson:1974, Putman:1998, Bruns:2005, Nidever:2010}.
-The stream was discovered in early surveys of 21 cm emission and has since been studied in great detail by large-area radio sky surveys, and in H$\alpha$ emission \citep{Weiner:1996, Barger:2017}.
-With increased resolution, surveys have found small-scale structure and gas fragmentation \citep[e.g.,][]{Nidever:2008, For:2014} and a large-scale bifurcation, with %semi-distinct ``strands'' that lead back to the LMC and broader system, respectively \citep[e.g.,][]{Morras:1983, Putman:2003}.
-kinematically \citep{Nidever:2008} and chemically \citep{Fox:2013} distinct ``strands'' that lead back to the LMC and the SMC, respectively.
-As surveys push deeper to lower column densities, extensions of the stream have been found both in the trailing region \citep{Nidever:2010}, but also in the leading arm, which has been found to connect to regions of low-column-density gas ($N\sim 10^{18}$--$10^{19}~\textrm{cm}^{-2}$) on the other side of the Galactic disk \citep{Putman:1998, Nidever:2008}.
-The leading arm (LA) has been decomposed into three or four distinct ``features'' named LA1--4 \citep{Bruns:2005, Nidever:2008, Venzmer:2012} with total HI mass $\sim 4 \times10^7~\msun$ \citep{Venzmer:2012}.
+The Magellanic stream (MS), including gas in the leading arm (LA), is a large stream of predominantly hydrogen gas emanating from the \lmcsmc\ system that contains a significant fraction of the total gas mass associated with the \lmcsmc\ \citep{Bruns:2005} and wraps nearly $\approx 200^\circ$ around the sky \citep{Mathewson:1974, Putman:1998, Bruns:2005, Nidever:2010}.
+The trailing MS has been studied in great detail by large-area and high-resolution radio sky surveys: Recent surveys have found small-scale structure and gas fragmentation \citep[e.g.,][]{Nidever:2008, For:2014} and a large-scale bifurcation, with kinematically \citep{Nidever:2008} and chemically \citep{Fox:2013} distinct ``strands'' that lead back to the LMC and the SMC.
+The LA gas has been found to connect to regions of low-column-density gas ($N\sim 10^{18}$--$10^{19}~\textrm{cm}^{-2}$) on the other side of the Galactic disk \citep{Putman:1998, Nidever:2008}, and has been decomposed into distinct gas features named LA1--4 \citep{Bruns:2005, Nidever:2008, Venzmer:2012}.
+%that contain a small fraction of the total MS mass \citep[$\sim 4 \times10^7~\msun$;][]{Venzmer:2012}.
 
-The origin and formation of the LA features in the MS is still uncertain.
-Initial studies of the LA argued that the features closest to the \lmcsmc\ can be traced back to the SMC, thus implying that the gas in the LA was stripped from the SMC \citep{Putman:1998}.
-In later work, it has instead been argued that outer features of the LMC appear to lead directly into the LA-1 feature \citep{Nidever:2008}, implying an LMC origin for the leading arm.
-Recent chemical abundance measurements along several sightlines passing through the LA again suggested the SMC origin \citep{Fox:2018, Richter:2018}.
-Recent hydrodynamical simulations of the MCs on the first infall to the Milky Way, however, showed that the repeated encounters between the MCs strip gas not only from the SMC, but also from the LMC, and this tidally stripped gas creates filamentary gas structures both in the LA and the MS \citep{Pardy:2018}.
+The origin and formation of the LA features of the MS is still uncertain.
+Initial studies of the LA argued that the features closest to the \lmcsmc\ can be traced back to the SMC \citep{Putman:1998}, but it has also been argued that outer features of the LMC appear to lead directly into the LA1 feature, implying an LMC origin \citep{Nidever:2008}.
+Recent chemical abundance measurements along several sight-lines passing through the LA again suggested the SMC origin \citep{Fox:2018, Richter:2018}.
 Whatever the origin of the gas, it is clear that tidal stripping by the Milky Way is required to form the LA \citep{Nidever:2008, Besla:2012}.
-However, the LA features deviate from the predicted orbit of the \lmcsmc, implying that ram pressure or interactions with gas in the outer Milky Way disk may have removed orbital energy from the LA gas \citep[e.g.,][]{Bekki:2008}.
+However, the LA features deviate from the predicted orbit of the \lmcsmc, implying that ram pressure or interactions with gas in the outer Milky Way disk (from the recent disk plane passage) may have removed orbital energy from the LA gas \citep[e.g.,][]{Bekki:2008}.
+
+% Streams formed from tidally stripped material --- such as the Sagittarius or Palomar 5 \citep{Odenkirchen:2001} stellar streams, or gas streams such as the MS --- encode information about the orbital history and future trajectory of their progenitor system \citep[e.g.,][]{Johnston:1999}.
+% For this reason, streams of debris are of interest for constraining the dark matter distribution around the Galaxy, as well as for providing a fossil record of the Milky Way's accretion history \citep{Johnston:1998, Bullock:2005}.
+% Early models for the formation of the MS invoke ram pressure and tidal stripping to explain the sky distribution and extent of the MS, and typically require that the \lmcsmc\ system complete several orbits around the Galaxy in order to strip enough material \citep[e.g.,][]{Murai:1980, Gardiner:1994, Mastropietro:2005}.
+% However, later
+The gas in the MS therefore encodes information about the orbital history and future trajectory of the \lmcsmc, and about interactions between this gas and the Milky Way.
+Combined with recent proper motion measurements of the LMC \citep{Kallivayalil:2006} and improved models for the \lmcsmc\ that suggest they are on their first passage through the Galaxy \citep{Besla:2007, Besla:2010, Besla:2012}, several groups have used the MS to constrain properties of both the interaction history of the \lmcsmc\ and the dark matter halo of the Milky Way (see recent review by \citealt{DOnghia:2016}).
+In general, these new models for the formation of the MS rely on past interactions between the LMC and SMC to preprocess the Magellanic gas distribution before infall and eventual stripping by the tidal field of the Milky Way \citep{Besla:2012, Diaz:2012};
+More recent hydrodynamical simulations of the MCs showed that the repeated encounters between the MCs strip gas not only from the SMC, but also from the LMC, and this tidally stripped gas can create filamentary gas structures both in the LA and the MS \citep{Pardy:2018}.
+
+One critical difficulty in using the MS to further improve models of the \lmcsmc\ interaction and infall is the lack of distance information along the MS.
+No significant over-density of stars have been found associated with the trailing MS \citep{Guhathakurta:1998}, thus leaving distance and tangential velocity information largely unknown.
+While a small number of young OB stars have been found in the vicinity of the LA gas \citep{Casetti-Dinescu:2014, Zhang:2017}, given their sparsity and concentration near the Galactic plane, it is difficult to unambiguously associate them with the MS (they could instead be runaway OB stars from the Milky Way disk).
+
+In this \articlename, we report the discovery of a young stellar cluster at the far edge of the LA-2 feature ($L_{\textrm{MS}} \sim 65^\circ$) that is located far into the Galactic halo ($D \sim \cldist$) and therefore plausibly formed from gas in the leading arm of the Magellanic stream as it crossed the Galactic disk.
+This provides the first precise distance measurement to the MS leading arm to be compared with simulations of the \lmcsmc\ in the Milky Way, and provides an opportunity to study recent star formation in a unique environment.
+The discovery of \clustername\ will enable new modeling efforts that track the infall of the \lmcsmc, the tidal stripping of Magellanic gas, and the interaction of this gas with the Milky Way.
+
+In \sectionname~\ref{sec:data}, we present the initial discovery with \gaia\ \DR{2} and follow-up observations with \decam\ to obtain deeper photometry of the region around the association.
+In \sectionname~\ref{sec:results}, we use the \gaia\ data to measure the kinematics, and \decam\ photometry to infer the age, metallicity, and distance to \clustername, and discuss plausible formation scenarios.
+% In \sectionname~\ref{sec:discussion}, we discuss implications for future searches for stars associated with the MS, and discrepancies with existing models of the LA.
+We conclude in \sectionname~\ref{sec:conclusion}.
+
 
 % Notebook: Figure-CMDs
-\begin{figure*}[ht!]
+\begin{figure*}[t!]
 \centering
 \includegraphics[width=\textwidth]{figures/gaia-cmd-pm.pdf}
 \caption{Color-magnitude diagram, sky positions, and proper motions from \gaia\ \DR{2} for the region around $(\alpha, \delta) \sim (179, -29)^\circ$.
-\textbf{Left panel}: \gaia\ color-magnitude diagram (CMD) for all sources with $G < 20$ and sky position within 3 degrees of $(\alpha, \delta) = (179.5, -28.8)^\circ$.
+\textbf{Left panel}: \gaia\ color-magnitude diagram (CMD) for all sources with $G < 20$ and sky position within 3 degrees of $(\alpha, \delta) = (179.5, -28.8)^\circ$, extinction corrected following \citet{Danielski:2018}.
 Red line shows a $100~\textrm{Myr}$, $\feh = -1.1$ \acronym{MIST} isochrone shifted to a distance of $30~\kpc$.
-Shaded pixels (orange) show regions of high density and points (black markers) are plotted when there are fewer than 8 stars per pixel. \yumi{It seems you made extinction correction on this CMD. If so, please describe it in the text.}
+Shaded pixels (orange) show regions of high density and points (black markers) are plotted when there are fewer than 8 stars per pixel.
 \textbf{Middle panel}: Sky positions for all sources in the shown sky region (grey 2D histogram).
 Black markers show only sources in the blue selection polygon shown in the CMD (left panel).
 \textbf{Right panel}: Proper motions for all sources in the shown sky region (grey 2D histogram).
@@ -180,29 +199,6 @@ Black markers again show only sources in the blue CMD selection region (left pan
 }
 \label{fig:cmds}
 \end{figure*}
-
-Streams formed from tidally stripped material --- such as the Sagittarius or Palomar 5 \citep{Odenkirchen:2001} stellar streams, or gas streams such as the MS --- encode information about the orbital history and future trajectory of their progenitor system \citep[e.g.,][]{Johnston:1999}.
-For this reason, streams of debris are of interest for constraining the dark matter distribution around the Galaxy, as well as for providing a fossil record of the Milky Way's accretion history \citep{Johnston:1998, Bullock:2005}.
-Several groups have attempted to use the MS to constrain both the infall history of the \lmcsmc\ and the dark matter halo of the Milky Way (see recent review by \citealt{DOnghia:2016}).
-Early models for the formation of the MS invoke ram pressure and tidal stripping to explain the sky distribution and extent of the MS, and typically require that the \lmcsmc\ system complete several orbits around the Galaxy in order to strip enough material \citep[e.g.,][]{Murai:1980, Gardiner:1994, Mastropietro:2005}.
-However, later measurements of the proper motion of the LMC (\citealt{Kallivayalil:2006}, later confirmed by \gaia\ \citealt{van-der-Marel:2016}) and improved models for the infall dynamics \citep{Besla:2007} suggest instead that the \lmcsmc\ system could be on its first passage through the Galaxy \citep{Besla:2010, Besla:2012}.
-In addition, the orbit of the LMC implied by the new proper motion measurement appears to be offset by $\approx 10^\circ$ from the trailing MS \citep{Besla:2010}.
-Put together, these recent revelations have led to new models for the formation of the MS that largely rely on past interactions between the LMC and SMC to preprocess the gas distribution before infall and eventual stripping by the tidal field of the Milky Way \citep{Besla:2012, Diaz:2012}.
-
-One critical difficulty in using the MS to constrain models of the \lmcsmc\ interaction and infall is the lack of distance information along the stream.
-No significant over-density of stars have been found associated with the trailing portion of the MS \citep{Guhathakurta:1998}, thus leaving distance and tangential velocity information largely unknown.
-Recently, a small number of young OB stars have been found in the vicinity of the leading arm gas, with radial velocities consistent with having formed from the leading MS \citep{Casetti-Dinescu:2014, Zhang:2017}.
-However, given their sparsity and concentration near the Galactic plane, it is difficult to unambiguously associate them with the MS: these could instead be runaway OB stars from the Milky Way disk.
-
-In this \articlename, we report the discovery of a clustered association of young stars at the far edge of the LA-2 feature ($L_{\textrm{MS}} \sim 65^\circ$) that is unambiguously located far into the Galactic halo ($D \sim \cldist$) and therefore plausibly formed from gas in the leading arm of the Magellanic stream as it crossed the Galactic disk.
-This provides a clear distance measurement to the leading arm of the MS to be compared with models of \lmcsmc\ interaction and infall into the Milky Way, and also provides an opportunity to study recent star formation in a regime unlike that of the Milky Way.
-The discovery of \clustername\ will enable new modeling efforts that track the infall of the LMC-SMC, the tidal stripping of Magellanic gas, and the interaction of this gas with the Milky Way.
-
-In \sectionname~\ref{sec:data}, we present the initial discovery with \gaia\ \DR{2} and follow-up observations with \decam\ to obtain deeper photometry of the region around the association.
-In \sectionname~\ref{sec:results}, we use the \decam\ photometry to infer the age, metallicity, and distance to \clustername, and discuss plausible formation scenarios for this cluster.
-% In \sectionname~\ref{sec:discussion}, we discuss implications for future searches for stars associated with the MS, and discrepancies with existing models of the LA.
-We conclude in \sectionname~\ref{sec:conclusion}.
-
 
 \section{Data} \label{sec:data}
 
@@ -220,7 +216,7 @@ After these filters, just one group of blue, comoving stars remains at $(\textrm
 
 We then query all objects from the \gaia\ \DR{2} catalog within a rectangle centered on the nominal position of this group, with a width of $5^\circ$ and a height of $5^\circ$ in the equatorial (ICRS) coordinate system (see Appendix~\ref{sec:queries} for the database query).
 \figurename~\ref{fig:cmds} shows the \gaia\ data for this region:
-The left panel shows the \gaia\ color-magnitude diagram, with the blue over-density highlighted by the polygon (blue) and under-plotted with a $100~\textrm{Myr}$, $\feh = -1.1$ \acronym{MIST} isochrone \citep[red line;][]{Dotter:2016, Choi:2016, Paxton:2011, Paxton:2013, Paxton:2015}.
+The left panel shows the \gaia\ color-magnitude diagram, extinction corrected following the procedure used in \citet{Danielski:2018}, with the blue over-density highlighted by the polygon (blue) and under-plotted with a $100~\textrm{Myr}$, $\feh = -1.1$ \acronym{MIST} isochrone \citep[red line;][]{Dotter:2016, Choi:2016, Paxton:2011, Paxton:2013, Paxton:2015}.
 Surprisingly, this group appears to be a young, distant main sequence, rather than an old population of horizontal branch stars.
 The middle and right panels of \figurename~\ref{fig:cmds} show sky positions and proper motions, respectively, of all stars in this sky region (grey background density), and only stars in the CMD selection polygon as black markers.
 
@@ -587,7 +583,7 @@ For one, with a precision $\sigma_v \lesssim 2~\kms$, the internal kinematics of
 But even low-precision velocity measurements would either confirm the association between \clustername\ and one of the three LA II-region gas filaments, or would challenge this scenario.
 
 
-\section{Conclusion} \label{sec:conclusion}
+\section{Conclusions} \label{sec:conclusion}
 
 We have identified a young, metal-poor stellar association in the Galactic halo --- named \clustername\ --- with an age $\tau \approx \clage$, heliocentric distance $D \approx \cldist$, and metallicity $\feh \approx \clfeh$.
 At its present day sky position, and at large distances, all significant quantities of \hi are associated with the leading arm of the Magellanic gas stream and thus it plausibly formed from Magellanic stream gas.
@@ -654,7 +650,7 @@ WHERE (parallax < 1 OR parallax IS NULL)
 \end{verbatim}
 
 \section{Data}
-\label{sec:data}
+\label{sec:datatables}
 
 \begin{table}[h!]
     \centering
