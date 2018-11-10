@@ -273,9 +273,6 @@ Then, in \sectionname~\ref{sec:popmodel}, we use photometric data from \decam\ t
 We perform these analyses separately because \gaia\ \DR{2} only includes the most massive members of the cluster, but the addition of lower main sequence members apparent in the \decam\ photometry provide a much better constraint on the cluster parameters.
 
 
-\subsection{Inferring the mean proper motion}
-\label{sec:pmclean}
-
 % Notebook: Proper-motion-membership
 \begin{figure*}[t!]
 \centering
@@ -287,6 +284,9 @@ The control fields, together, have the same area as the cluster field.
 The clear over-density in the cluster field (blue) are stars in \clustername.}
 \label{fig:pm-members}
 \end{figure*}
+
+\subsection{Inferring the mean proper motion}
+\label{sec:pmclean}
 
 We measure the mean proper motion of \clustername\ by constructing a probabilistic model of the cluster and background populations using astrometric data from \gaia.
 We start by selecting all stars with $(\bprp)_0 < 0.35$ to remove low-mass and old main sequence star contamination in the region.
@@ -606,6 +606,7 @@ Dan Foreman-Mackey (Flatiron),
 Raja Guhathakurta (UCSC),
 Cliff Johnson (Northwestern),
 Ekta Patel (Arizona),
+Sarah Pearson (Flatiron),
 Josh Peek (STScI),
 Anil Seth (Utah),
 and Erik Tollerud (STScI)
