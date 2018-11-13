@@ -291,13 +291,13 @@ We measure the mean proper motion of \clustername\ by constructing a probabilist
 We start by selecting all stars with $(\bprp)_0 < 0.35$ to remove low-mass and old main sequence star contamination in the region.
 \figurename~\ref{fig:pm-members}, left (grey points), shows the sky positions of stars that pass this blue cut in the region around the young cluster.
 The larger solid-line circle indicates the region we define as the cluster area, and the two smaller dashed-line circles indicate control fields that are combined and used for modeling the background distribution of proper motions.
-The control fields are designed to, together, have the same total area as the cluster field, and were chosen to have similar latitudes as the cluster field in the Magellanic stream coordinate system \citep{Nidever:2008}.
+The control fields are designed to, together, have the same total area as the cluster field, and were chosen to have similar latitudes as the cluster field in the Magellanic stream coordinate system \citep{Nidever:2008}. \yumi{by assuming a smooth background stellar density at similar latitudes?}
 The right panel of \figurename~\ref{fig:pm-members} shows the difference of the 2D proper motion distributions in the cluster and summed control fields.
 The distinct over-density of stars near $(\mu_\alpha, \mu_\delta) \approx (-0.5, 0.5)~\masyr$ is the identified comoving association of blue stars.\footnote{Throughout this article, we use $\mu_\alpha$ to refer to the proper motion value provided by \gaia, which includes the $\cos\delta$ term.}
 Note that \figurename~\ref{fig:pm-members} is only meant as an illustration: The cluster proper motion is determined probabilistically by taking into account the full \gaia\ covariance matrices for each source, as described below.
 
 To measure the cluster (mean) proper motion, we first construct a model for the error-deconvolved proper motion distribution in the control fields using ``extreme deconvolution'' \citep[XD;][]{Bovy:2011} with two Gaussian components. XD takes into account the full error distributions for each proper motion measurement $\bs{\mu} = (\mu_\alpha, \mu_\delta)$, including covariances $\mat{C}_\mu$, provided by \gaia\ \DR{2}.
-After running XD, we fix the parameters of the background model and model the proper motion distribution in the cluster region using a two-component mixture model with a single, isotropic Gaussian component for the error-deconvolved cluster distribution with mean $\bs{x}$ and isotropic variance $s^2$, and the XD-inferred model for the control field, $p_{\textrm{XD}}$, for the background component.
+After running XD, we fix the parameters of the background model \yumi{you meant the model for the control fields? If so, please clarify that background model equals control fields model.} and model the proper motion distribution in the cluster region using a two-component mixture model with a single, isotropic Gaussian component for the error-deconvolved cluster distribution with mean $\bs{x}$ and isotropic variance $s^2$, and the XD-inferred model for the control field, $p_{\textrm{XD}}$, for the background component.
 In detail, taking $f$ to be the fraction of blue stars in this region belonging to the young cluster, and \truepm\ to be the true proper motion for a single star,
 \begin{align}
     p(\bs{\mu} \given \truepm, \mat{C}_\mu) &=
@@ -318,8 +318,8 @@ We assume that the measurements for each star, $n$, are independent so that the 
 \end{align}
 
 We use an ensemble Markov chain Monte Carlo (MCMC) sampler \citep[\texttt{emcee};][]{emcee, Goodman:2010} to generate posterior samples over the parameters $(f, \bs{x}, s)$ using the likelihood defined above (\equationname~\ref{eq:likelihood}), and assuming the following prior probability distributions: uniform over the domain $(-5, 5)~\masyr$ for each component of $\bs{x}$, uniform in $f$, and uniform in log-$s$ over the domain $-6 < \ln s < 4$ (with $s$ in units of \masyr).
-We run the sampler with 32 walkers for 256 steps as burn-in, then reset the sampler and run for an additional 512 steps.
-We then thin the resulting chains by taking every 16th sample, leaving a total of 1024 samples; We use these samples to estimate the median posterior parameter values and uncertainties,
+We run the sampler with 32 walkers for 256 steps as burn-in, then reset the sampler and run for an additional 512 steps. \yumi{why this number of walkers and steps? depends on number of fitting parameters and autocorrelation time?}
+We then thin \yumi{thin? out of my own curiosity: why thinning is needed?} the resulting chains by taking every 16th sample, leaving a total of 1024 samples; We use these samples to estimate the median posterior parameter values and uncertainties,
 For the young cluster, we find $\bs{x} = (-0.56,  0.47) \pm (0.04, 0.02)~\masyr$, $\ln s = -3.8 \pm 0.9$, and $f = 0.14 \pm 0.02$.
 The proper-motion dispersion is consistent with zero, and is likely unmeasured, because of the proper motion uncertainties; 95\% of the posterior samples have $s < 0.09~\masyr$.
 \tablename~\ref{tbl:gaiadata} contains a subset of the \gaia\ \DR{2} data for stars in the cluster field, with kinematic membership probabilities determined from this modeling procedure.
