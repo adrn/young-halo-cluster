@@ -338,12 +338,12 @@ If you prefer to skip the details, the results of this modeling are presented in
 In detail, we start by using the \texttt{isochrones} package \citep{Morton:2015} to generate posterior samplings over stellar parameters for each individual source given its photometry and an interim prior.
 We use the \acronym{MIST} \citep{Dotter:2016, Choi:2016, Paxton:2011, Paxton:2013, Paxton:2015} isochrone grid, and \texttt{isochrones} automatically performs interpolation between the provided grid of stellar isochrones to predict photometry given a set of stellar parameters.
 Here, the stellar parameters for each source are its ``equal evolutionary point'' number $\eep$ (see \acronym{MIST} documentation\footnote{\url{http://waps.cfa.harvard.edu/MIST/}}), age $\tau$, metallicity $\feh$, extinction $A_V$, and distance $D$, which can be uniquely mapped to a point in the observed CMD;
-The likelihood of a given set of these parameters, $\bs{\theta} = (\eep, \tau, \feh, A_V, D)$, is then computed from the photometry and (assumed Gaussian) photometric uncertainties given the predicted photometry.
+The likelihood of a given set of these parameters, $\bs{\theta} = (\eep, \tau, \feh, A_V, D)$, is then computed from the photometry and (assumed Gaussian) photometric uncertainties given the predicted photometry. \yumi{is it easy to use real photometric uncertainties instead of assuming Gaussian? If not, we can wait what the referee will say.}
 
 To generate posterior samples, we must also specify prior probability distributions over the parameters $\bs{\theta}$.
 The priors for each parameter are summarized in \tablename~\ref{tbl:priors}.
 The bounds on $\eep$ limit the isochrone to evolutionary phases between the zero-age main sequence to the terminal-age main sequence, but this prior is actually computed using the stellar mass computed from the isochrone parameters (see caption of \tablename~\ref{tbl:priors}).
-The prior and bounds on $A_V$ are set to prefer small and reasonable values of extinction for this moderately high Galactic latitude region.
+The prior and bounds on $A_V$ are set to prefer small and reasonable values of extinction for this moderately high Galactic latitude region. \yumi{Av is known to follow a log-normal distribution.}
 The prior on distance assumes a uniform space density of stars.
 
 \begin{table}[htb]
@@ -370,10 +370,10 @@ We find that the photometry for individual sources in the lower main sequence ar
 This is a weakness of our methodology for performing the hierarchical inference: Each source is considered independently, even though there is clear structure in the CMD (i.e. \figurename~\ref{fig:decam-cmd}), and inferring isochronal parameters for individual lower main sequence stars is a fundamentally degenerate problem.
 A more correct way to do this would be to infer the stellar parameters of \emph{all} stars, the cluster hyperparameters, and the background simultaneously.
 However, for the \Nisofit\ stars we are using (in the red box in \figurename~\ref{fig:decam-cmd}), this model would have $\sim$2,000 free parameters if left unmarginalized.
-We are developing tools to perform star cluster parameter inference in this way (Morton et al., in prep.), but here we adopt a simple hack to allow us to instead perform individual posterior samplings and then combine those samplings into a hierarchical inference.
+We are developing tools to perform star cluster parameter inference in this way (Morton et al., in prep.), but here we adopt a simple hack to allow us to instead perform individual posterior samplings and then combine those samplings into a hierarchical inference. \yumi{I like this fancy way. But it would be helpful for readers (potential users of this method) if you can briefly describe the strength of this methodology over the standard isochrone fitting for a star cluster?}
 
 The brightest stars in the cluster have very precise \decam\ photometry, and have precise astrometry from \gaia.
-Given their location in the CMD, these stars must be young, and so also have much better constrained stellar parameters.
+Given their location in the CMD, these stars must be young, and so also have much better constrained stellar parameters. \yumi{I am not convinced by that bright stars have better constrained stellar parameters. Their color and magnitude are sensitive to dust and effective temperature, but their age}
 We therefore use the brightest \emph{kinematic} member of \clustername\ as an ``anchor'' star:
 We model every other source in the \decam\ selection region (i.e. excluding this one) by fitting the photometry of it and the anchor star simultaneously, assuming they have the same age, metallicity, distance, and extinction but different \eep\ values.
 Motivated by the possible signature of an (unresolved) binary sequence in the \decam\ CMD, we add one further piece of complexity to the model by allowing the photometry of each non-anchor source to be fit as an unresolved binary star system.
