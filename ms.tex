@@ -1,7 +1,17 @@
+% TODO: before submission
+% - Sergey's comment about the distance prior: to summarize, uniform space density could be very bad if the contaminants are field BHB / WDs.
+% - Arrows in Figure 7 and 8 to point out LA II and "low velocity filaments"
+% - On Figure 8, show ranges of velocities used in Figure 7
+% - Add note to results taht we focus on the larger component of the cluster, but clearly other young stars around, including another small clump. Need more photometric follow-up too!
+% - Draw inferred proper motion as a vector on Figure 1, middle panel
+
 % TODO: after submission?
 % - Split cluster into 2? Price-Whelan 1a and 1b?
 % - discuss Blanco 1: high latitude, similar age, high binary fraction
 % - Make a PGM for this model?
+% - With the PM model, go back and apply it to all stars, not just the blue cut. Gets to Sergey / others request to search for evolved stars
+% - Is the cluster elongated along its orbit?
+
 
 % \documentclass[modern]{aastex62}
 \documentclass[twocolumn]{aastex62}
@@ -382,7 +392,7 @@ We are developing tools to perform star cluster parameter inference in this way 
 
 The brightest stars in the cluster have very precise \decam\ photometry, and have precise astrometry from \gaia.
 Given their location in the CMD, these stars must be young.
-We therefore use the brightest \emph{kinematic} member of \clustername\ as an ``anchor'' star:
+We therefore use the brightest \emph{kinematic} member of \clustername\ as an ``anchor'' star: \todo{Specify which star this is! Catalog name?}
 We model every other source in the \decam\ selection region (i.e. excluding this one) by fitting the photometry of it and the anchor star simultaneously, assuming they have the same age, metallicity, distance, and extinction but different \eep\ values.
 Motivated by the possible signature of an (unresolved) binary sequence in the \decam\ CMD, we add one further piece of complexity to the model by allowing the photometry of each non-anchor source to be fit as an unresolved binary star system.
 This adds an additional parameter, the unresolved binary mass ratio $q$, to the list of inferred stellar parameters for each source, but, for this work, we ignore the binary companions and implicitly marginalize over $q$ in what follows.
@@ -481,6 +491,7 @@ The mass and age of \clustername\ are comparable to Milky Way disk open clusters
 For example, the Pleiades has an age $\sim 135~\textrm{Myr}$ \citep{Gossage:2018}, but a physical size $\sim 5~\textrm{pc}$.
 At a distance of $\cldist$, \clustername\ spans $\sim 1.5^\circ$, corresponding to a physical size $\sim 700$--$800~\textrm{pc}$.
 If it formed unbound, but with an initial size comparable to the present size of the Pleiades, this corresponds to an expansion velocity $\sim 6~\kms$, which would be detectable with precise radial velocity measurements of stars on either side of \clustername.
+\todo{Compare the size with systems in http://adsabs.harvard.edu/abs/2017MNRAS.472.2975M - (see eg their fig 4, 6)}
 
 \begin{table}[htb]
 \begin{center}
@@ -529,6 +540,7 @@ The red circle marks the position of \clustername.}
 \caption{The position-velocity diagram of GASS \hi Gaussian centers in the same region as \figurename~\ref{fig:gass_maps}, showing the line-of-sight velocity (in the local standard of rest frame) of gas near \clustername.
 Here the colorbar shows the gas density in units of $10^{18}~\textrm{atoms}~\textrm{cm}^{-2}\,\textrm{deg}$.
 Note that the densest gas at the longitude of \clustername\ (vertical line) appears to be associated with the lower velocity filaments seen at lower longitudes $L_{\textrm{MS}} \lesssim 60^\circ$, which may be decelerated gas associated with the Magellanic stream.
+\todo{Somewhere state that this is a slice in Mag. latitude}
 }
 \label{fig:gasspv}
 \end{figure}
@@ -575,7 +587,8 @@ The past and future orbit of the LMC are shown as the colored line and dashed li
 \label{fig:orbits}
 \end{figure*}
 
-Ignoring the disk gas (between $V_{\textrm{LSR}} \sim -20$--$20~\kms$ in \figurename~\ref{fig:gasspv}), it seems that there are three qualitatively different line-of-sight velocities that the gas (and plausibly \clustername) could have: $V_{\textrm{LSR}} \approx (60, 110, 230)~\kms$.
+Since the gas distribution in \figurename~\ref{fig:gasspv} shows excess at velocities $V_{\textrm{LSR}} \approx (60, 110, 230)~\km$ near the location of the cluster (ignoring the disk gas between $V_{\textrm{LSR}} \sim -20$--$20~\kms$), it seems that there are three qualitatively different line-of-sight velocities that the gas (and plausibly \clustername) could have.
+%: $V_{\textrm{LSR}} \approx (60, 110, 230)~\kms$.
 If we adopt these velocity measurements as the line-of-sight (LOS) velocity of \clustername, we have measurements of all 6 phase-space components and can compute orbits for the cluster.
 We compute Galactic orbits of the cluster using each of the three values of the line-of-sight velocity from the LA II region filaments.
 \figurename~\ref{fig:orbits} shows these three orbits computed by integrating the position of \clustername\ backwards in time:
@@ -629,6 +642,8 @@ and Erik Tollerud (STScI)
 for useful suggestions and discussion.
 
 D.L.N thanks Peter Kalberla for making the GASS datacubes available in Magellanic Stream coordinates.
+
+SK is supported by National Science Foundation grant AST-1813881.
 
 The DECam results are based on observations at Cerro Tololo Inter-American Observatory, National Optical Astronomy Observatory (NOAO Prop. ID: 2018A-0251; PI: Finkbeiner), which is operated by the Association of Universities for Research in Astronomy (AURA) under a cooperative agreement with the National Science Foundation.
 
