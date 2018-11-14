@@ -1,9 +1,4 @@
 % TODO: before submission
-% - Sergey's comment about the distance prior: to summarize, uniform space density could be very bad if the contaminants are field BHB / WDs.
-% - Arrows in Figure 7 and 8 to point out LA II and "low velocity filaments"
-% - On Figure 8, show ranges of velocities used in Figure 7
-% - Add note to results taht we focus on the larger component of the cluster, but clearly other young stars around, including another small clump. Need more photometric follow-up too!
-% - Draw inferred proper motion as a vector on Figure 1, middle panel
 
 % TODO: after submission?
 % - Split cluster into 2? Price-Whelan 1a and 1b?
@@ -11,6 +6,8 @@
 % - Make a PGM for this model?
 % - With the PM model, go back and apply it to all stars, not just the blue cut. Gets to Sergey / others request to search for evolved stars
 % - Is the cluster elongated along its orbit?
+% - Describe the strength of the hierarchical cluster params methodology
+% - Sergey's comment about the distance prior: to summarize, uniform space density could be very bad if the contaminants are field BHB / WDs.
 
 
 % \documentclass[modern]{aastex62}
@@ -207,6 +204,8 @@ Red line shows a $100~\textrm{Myr}$, $\feh = -1.1$ \acronym{MIST} isochrone shif
 Shaded pixels (grey 2D histogram) show the density of all sources in the CMD for this sky region, and points (black markers) show only sources in the blue selection polygon shown.
 \textbf{Middle panel}: Sky positions for all sources in the shown sky region (grey 2D histogram).
 Black markers show only sources in the blue selection polygon shown in the CMD (left panel).
+Arrow (green) indicates the inferred proper motion direction (\sectionname~\ref{sec:pmclean}).
+Subcomponents of the cluster (a and b) are indicated.
 \textbf{Right panel}: Proper motions for all sources in the shown sky region (grey 2D histogram).
 Black markers again show only sources in the blue CMD selection region (left panel).
 }
@@ -225,7 +224,7 @@ We further exclude stars within a $15^\circ$ radius from the LMC, and a $8^\circ
 We then cross-match this catalog to itself with both sky positions and proper motions: we search for pairs of stars that have separations $s < 0.5^\circ$ and proper motion differences $|\Delta \mu| < 0.5~\masyr$.
 We then combine mutually-connected comoving pairs into small groups of stars that are colocated on the sky and comoving in proper motions, and remove groups that have $<4$ members.
 We cross-match the mean sky positions of the groups to locations of local group galaxies \citep{McConnachie:2012} and Milky Way globular clusters \citep[2010 edition;][]{Harris:1996} and filter out all groups that lie within 1 degree of these known objects.
-After these filters, just one group of blue, comoving stars remains at $(\textrm{RA}, \textrm{Dec}) \sim (179, -29)^\circ$.
+After these filters, one group of comoving stars remains at $(\textrm{RA}, \textrm{Dec}) \sim (179, -29)^\circ$.
 
 We then query all objects from the \gaia\ \DR{2} catalog within a rectangle centered on the nominal position of this group, with a width of $5^\circ$ and a height of $5^\circ$ in the equatorial (ICRS) coordinate system (see Appendix~\ref{sec:queries} for the database query).
 \figurename~\ref{fig:cmds} shows the \gaia\ data for this region:
@@ -234,10 +233,9 @@ Surprisingly, this group appears to be a young, distant main sequence, rather th
 The middle and right panels of \figurename~\ref{fig:cmds} show sky positions and proper motions, respectively, of all stars in this sky region (grey background density), and only stars in the CMD selection polygon as black markers.
 
 The \gaia\ data demonstrate the presence of a young, distant, spatially-clustered, and co-moving stellar over-density --- named \clustername\ --- but the \gaia\ photometry is too shallow to resolve anything but the brightest main sequence stars.
+The spatial morphology of the cluster is large on the sky, and interestingly substructured with at least two subcomponents (labeled a and b in \figurename~\ref{fig:cmds}) that are indistinguishable in terms of their proper motions and uncertainties.
 With the \gaia\ data alone, the distance, age, and metallicity of the cluster therefore cannot be determined, as these quantities are degenerate where the main sequence is nearly vertical.
 In the next section, we describe deeper \decam\ imaging obtained over a portion of the cluster.
-
-\clearpage
 
 \subsection{Follow-up with \decam}
 \label{sec:decam}
@@ -251,7 +249,7 @@ Red markers show sources in the \decam\ field used as control sources, and blue 
 \label{fig:decam-field}
 \end{figure}
 
-We obtained \decam\ $u$-, $g$-, and $i$-band imaging of a single field centered on a portion of the cluster discovered using the \gaia\ data (see previous section).  Observations were obtained with the Dark Energy Camera (DECam) on the CTIO 4m Blanco telescope on UT 2018 May 20 with 3$\times$300s
+We obtained \decam\ $u$-, $g$-, and $i$-band imaging of a single field centered on the ``a'' spatial component of the cluster (see \figurename~\ref{fig:cmds}) discovered using the \gaia\ data (see previous section).  Observations were obtained with the Dark Energy Camera (DECam) on the CTIO 4m Blanco telescope on UT 2018 May 20 with 3$\times$300s
 exposures in $u-$, $g-$, and $i$-band.  The NOAO Community Pipeline (CP; \citealt{Valdes:2014}; Valdes et al., in preparation) InstCal images, which have the instrumental signature removed, were downloaded from the NOAO Archive\footnote{\url{http://archive.noao.edu}} for further processing.  Forced PSF photometry was performed with the PHOTRED pipeline \citep{Nidever:2017} which uses the DAOPHOT ALLSTAR \citep{Stetson:1987} and ALLFRAME \citep{Stetson:1994} suite of programs.  The photometry was calibrated using Pan-STARRS1 \citep[PS1;][]{Chambers:2016} photometry for global zero-point and color-terms in each band.
 
 \figurename~\ref{fig:decam-field} shows the sky positions of the \gaia\ CMD-selected sources (black markers; see same in middle panel, \figurename~\ref{fig:cmds}), along with point sources identified in the $g$-band data obtained with \decam: sources in control fields are shown as red markers, and sources in cluster fields are shown as blue markers.
@@ -344,6 +342,7 @@ The proper-motion dispersion is consistent with zero, and is likely unmeasured, 
 
 While the \gaia\ data provide exquisite astrometric data for the brightest members of \clustername, constraints on the stellar population from the \gaia\ data alone are limited by degeneracies in the mapping from the color-magnitude diagram to stellar parameters.
 To measure the cluster population parameters, we therefore use the deeper photometry from \decam, which provides a clear view of the main sequence of \clustername\ down to stellar masses $M \sim 0.9~\msun$.
+We note that this analysis and the subsequent discussion only considers subregion (a) of \clustername, which dominates the total mass and number of stars in the cluster.
 \figurename~\ref{fig:decam-cmd} shows the \decam\ $g$ and $i$ band color-magnitude diagrams for control fields (left) and cluster fields (right) selected from the \decam\ footprint, once again showing the young main sequence (coherent stellar population in right panel).
 We use the $g$- and $i$-band photometry for individual stars in a sub-section of the cluster field CMD (red dashed outlined region in \figurename~\ref{fig:decam-cmd}) to infer the stellar population parameters of \clustername.
 To summarize our methodology, we first generate independent posterior samplings over the stellar parameters of each individual source under an interim prior (over age, stellar mass, distance, etc.), then use these individual samplings to construct a Bayesian hierarchical model for a two-component mixture model of the cluster and a background population.
@@ -389,10 +388,11 @@ However, for the \Nisofit\ stars we are using (in the red box in \figurename~\re
 We are developing tools to perform star cluster parameter inference in this way (Morton et al., in prep.), but here we adopt a simple hack to allow us to instead perform individual posterior samplings and then combine those samplings into a hierarchical inference.
 % \yumi{I like this fancy way. But it would be helpful for readers (potential users of this method) if you can briefly describe the strength of this methodology over the standard isochrone fitting for a star cluster?}
 % What is standard isochrone fitting?
+% Added to the TODO's for after submission
 
 The brightest stars in the cluster have very precise \decam\ photometry, and have precise astrometry from \gaia.
 Given their location in the CMD, these stars must be young.
-We therefore use the brightest \emph{kinematic} member of \clustername\ as an ``anchor'' star: \todo{Specify which star this is! Catalog name?}
+We therefore use the brightest \emph{kinematic} member of \clustername\ --- \gaia\ source ID 3480046557809199616 --- as an ``anchor'' star:
 We model every other source in the \decam\ selection region (i.e. excluding this one) by fitting the photometry of it and the anchor star simultaneously, assuming they have the same age, metallicity, distance, and extinction but different \eep\ values.
 Motivated by the possible signature of an (unresolved) binary sequence in the \decam\ CMD, we add one further piece of complexity to the model by allowing the photometry of each non-anchor source to be fit as an unresolved binary star system.
 This adds an additional parameter, the unresolved binary mass ratio $q$, to the list of inferred stellar parameters for each source, but, for this work, we ignore the binary companions and implicitly marginalize over $q$ in what follows.
@@ -481,6 +481,7 @@ We use the posterior samples from the hierarchical inference described in \secti
 Over-plotted in \figurename~\ref{fig:hierarch-iso} (blue, solid line) is a \acronym{MIST} isochrone with the median posterior parameters derived from the hierarchical modeling, shifted to the median distance and extincted given the median $A_V$ value.
 We find that \clustername\ is indeed young, distant, and metal poor, with median posterior values of age $\tau \approx \clage$, distance $D \approx \cldist$, and metallicity $\feh \approx \clfeh$ (see also \tablename~\ref{tbl:clusterparams} for a summary).
 We find that the inferred extinction, $A_V \approx 0.33$, is somewhat larger than the value $A_{V, {\rm SFD}} \approx 0.2$ from the SFD dust map \citep{Schlegel:1998}.
+We note again that, with the \decam\ photometry, we are limited to studying the subcomponent a of \clustername\ --- follow-up imaging of component b (see \figurename~\ref{fig:cmds}) would enable a similar analysis for the full cluster.
 
 Also plotted in \figurename~\ref{fig:hierarch-iso} is the equal-mass binary sequence (green, dashed line) computed from the median posterior sample: The abundance of sources between the nominal isochrone and the binary sequence highlights the fact that the cluster may contain a significant number of binary or multiple star systems, but we leave a detailed study of multiplicity to future work.
 
@@ -503,8 +504,8 @@ If it formed unbound, but with an initial size comparable to the present size of
         $\mean{\alpha}$ & $178.8^\circ$ & right ascension \\
         $\mean{\delta}$ & $-29.4^\circ$ & declination \\
         $\mean{D}$ & $28.9 \pm 0.1~\kpc$ & Heliocentric distance \\
-        $\mean{\mu_\alpha}$ & $-0.56 \pm TODO~\masyr$ & proper motion in RA\\
-        $\mean{\mu_\delta}$ & $0.47 \pm TODO~\masyr$ & proper motion in Dec\\
+        $\mean{\mu_\alpha}$ & $-0.56 \pm 0.04~\masyr$ & proper motion in RA\\
+        $\mean{\mu_\delta}$ & $0.47 \pm 0.02~\masyr$ & proper motion in Dec\\
         \tableline
         $\tau$ & $130 \pm 6~\textrm{Myr}$ & age \\
         $M$ & $1200~\msun$ & total stellar mass \\
@@ -528,19 +529,20 @@ Formal precisions on all inferred parameters are very small, typically one to a 
 %\includegraphics[width=8cm]{gass_mlatmlon.pdf}
 \includegraphics[width=8cm]{figures/gass_maps_v3.pdf}
 \caption{GASS \hi column density in the region of LA II, shown in three different velocity slices (corresponding to and indicated in each panel).
+The colored rectangles under each velocity label correspond to the colored ranges in \figurename~\ref{fig:gasspv}.
 The coordinate system is the Magellanic stream spherical coordinate system defined in \cite{Nidever:2008}, and the units of $L_{\rm MS}$ and $B_{\rm MS}$ are degrees.
-The colorbar shows the column density of \hi in units of $10^{19}~\textrm{atoms}~\textrm{cm}^{-2}$.
-The red circle marks the position of \clustername.}
+The horizontal colorbar shows the column density of \hi in units of $10^{19}~\textrm{atoms}~\textrm{cm}^{-2}$.
+The open circle (green) marks the position of \clustername, and the feature commonly attributed to the LA is indicated in the top panel.}
 \label{fig:gass_maps}
 \end{figure}
 
 \begin{figure}[t]
 \centering
 \includegraphics[width=8cm]{figures/gass_vlsrmlon.pdf}
-\caption{The position-velocity diagram of GASS \hi Gaussian centers in the same region as \figurename~\ref{fig:gass_maps}, showing the line-of-sight velocity (in the local standard of rest frame) of gas near \clustername.
+\caption{The position-velocity diagram of GASS \hi Gaussian centers in a slice of Magellanic latitudes (indicated) in the same region as \figurename~\ref{fig:gass_maps}, showing the line-of-sight velocity (in the local standard of rest frame) of gas near \clustername.
+The colored rectangles (red, orange, yellow) indicate the three velocity slices used in \figurename~\ref{fig:gass_maps}.
 Here the colorbar shows the gas density in units of $10^{18}~\textrm{atoms}~\textrm{cm}^{-2}\,\textrm{deg}$.
 Note that the densest gas at the longitude of \clustername\ (vertical line) appears to be associated with the lower velocity filaments seen at lower longitudes $L_{\textrm{MS}} \lesssim 60^\circ$, which may be decelerated gas associated with the Magellanic stream.
-\todo{Somewhere state that this is a slice in Mag. latitude}
 }
 \label{fig:gasspv}
 \end{figure}
@@ -557,8 +559,8 @@ In the outskirts of the SMC, the metallicity distribution of the youngest stars 
 
 We next look at the kinematics of high velocity gas in this region.
 \figurename~\ref{fig:gass_maps} shows the \hi column density of the catalog of Gaussian centers \citep[producted with the techniques and software from][]{Nidever:2008} from the Galactic All Sky Survey \citep[GASS;][]{McClure-Griffiths:2009, Kalberla:2010} in the region around the LA and plotted in the MS coordinate system \citep[$L_{\rm MS}, B_{\rm MS}$;][]{Nidever:2008}.
-The location of \clustername\ is marked (red circle), and the three panels show three different velocity slices (indicated on each panel).
-The MS gas is most visible and densest at the highest velocities where the LA II feature is found, around $L_{\rm MS} \lesssim 61^\circ$ and $B_{\rm MS} \sim -12^\circ$, but the lower panels (i.e. slower gas) still displays some of the same morphology as the highest velocity slice. \yumi{I was confused when I read this for the first time. You might want to mention earlier that HI velocities in the LA is measured to be larger than 150 kmc/s. Otherwise, the reader who are not familiar with the LA would misinterpret that the highest gas density around \clustername\ is found in the bottom panel.}
+The location of \clustername\ is marked (green circle), and the three panels show three different velocity slices (indicated on each panel).
+The MS gas is most visible and densest at the highest velocities where the LA II feature is found, around $L_{\rm MS} \lesssim 61^\circ$ and $B_{\rm MS} \sim -12^\circ$, but the lower panels (i.e. slower gas) still displays some of the same morphology as the highest velocity slice. 
 
 This is also apparent in a position-velocity diagram of the same range of longitudes:
 \figurename~\ref{fig:gasspv} shows the velocity of gas in this region (all longitudes, but near $B_{\rm MS} \sim -13^\circ$) as a function of $L_{\rm MS}$.
