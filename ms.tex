@@ -169,7 +169,7 @@ However, the LA features deviate from the predicted orbit of the \lmcsmc, implyi
 The gas in the MS therefore encodes information about the orbital history and future trajectory of the \lmcsmc, and about interactions between this gas and the Milky Way.
 Combined with recent proper motion measurements of the LMC \citep{Kallivayalil:2006, Kallivayalil:2013} and improved models for the \lmcsmc\ that suggest they are on their first passage through the Galaxy \citep{Besla:2007, Besla:2010, Besla:2012}, several groups have used the MS to constrain properties of both the interaction history of the \lmcsmc\ and the dark matter halo of the Milky Way (see recent review by \citealt{DOnghia:2016}).
 In general, these new models for the formation of the MS rely on past interactions between the LMC and SMC to preprocess the Magellanic gas distribution before infall and eventual stripping by the tidal field of the Milky Way \citep{Besla:2012, Diaz:2012};
-More recent hydrodynamical simulations of the MCs showed that the repeated encounters between the MCs strip gas not only from the SMC, but also from the LMC, and this tidally stripped gas can create filamentary gas structures both in the LA and the MS \citep{Pardy:2018}.
+More recent hydrodynamical simulations of the MCs showed that the repeated encounters even after the infall between the MCs strip gas not only from the SMC, but also from the LMC, and this tidally stripped gas can create filamentary gas structures both in the leading and trailing MS \citep{Pardy:2018}. Many observational studies \citep[e.g.,][]{Olsen:2011, Noel:2013, Mackey:2016, Carrera:2017, Choi:2018a, Choi:2018b, Zivick:2018, Belokurov:2019} have been made in the Magellanic system that are available to provide strong constraints on modeling the interaction history of the \lmcsmc\ in detail.  
 
 One critical difficulty in using the MS to further improve models of the \lmcsmc\ interaction and infall is the lack of distance information along the MS.
 No significant over-density of stars have been found associated with the trailing MS \citep{Guhathakurta:1998}, thus leaving distance and tangential velocity information largely unknown.
@@ -280,7 +280,7 @@ The parameters derived from this analysis are summarized in \tablename~\ref{tbl:
 The circles show the regions used as cluster and control fields in the proper motion inference (\sectionname~\ref{sec:pmclean}).
 The control fields, together, have the same area as the cluster field.
 \textbf{Right panel}: The colored 2D density shows the difference in number of sources per pixel in the cluster field versus the two control fields (see left panel).
-The clear over-density in the cluster field (blue) are stars in \clustername.}
+The clear over-density in the cluster field (blue) are stars in \clustername. \yumi{can you add the mean proper motion vector of the cluster on this figure or figure 1?}}
 \label{fig:pm-members}
 \end{figure*}
 
@@ -373,7 +373,7 @@ However, for the \Nisofit\ stars we are using (in the red box in \figurename~\re
 We are developing tools to perform star cluster parameter inference in this way (Morton et al., in prep.), but here we adopt a simple hack to allow us to instead perform individual posterior samplings and then combine those samplings into a hierarchical inference. \yumi{I like this fancy way. But it would be helpful for readers (potential users of this method) if you can briefly describe the strength of this methodology over the standard isochrone fitting for a star cluster?}
 
 The brightest stars in the cluster have very precise \decam\ photometry, and have precise astrometry from \gaia.
-Given their location in the CMD, these stars must be young, and so also have much better constrained stellar parameters. \yumi{I am not convinced by that bright stars have better constrained stellar parameters. Their color and magnitude are sensitive to dust and effective temperature, but their age}
+Given their location in the CMD, these stars must be young, and so also have much better constrained stellar parameters. \yumi{I am not convinced by that bright stars have better constrained stellar parameters. Their color and magnitude are sensitive to dust and effective temperature, but their age and metallicity would not constrained better than fainter stars. I suggest to remove the second half of the previous sentence.}
 We therefore use the brightest \emph{kinematic} member of \clustername\ as an ``anchor'' star:
 We model every other source in the \decam\ selection region (i.e. excluding this one) by fitting the photometry of it and the anchor star simultaneously, assuming they have the same age, metallicity, distance, and extinction but different \eep\ values.
 Motivated by the possible signature of an (unresolved) binary sequence in the \decam\ CMD, we add one further piece of complexity to the model by allowing the photometry of each non-anchor source to be fit as an unresolved binary star system.
@@ -409,7 +409,7 @@ We use \texttt{emcee} \citep{emcee, Goodman:2010} to sample from the posterior p
 \begin{equation}
     p(\bs{\alpha}, f \given \{\bs{m}_n\}) \propto
         p(\bs{\alpha}) \, p(f) \,
-        \prod_n^N p(\bs{m}_n \given \bs{\alpha}, f) \quad .
+        \prod_n^N p(\bs{m}_n \given \bs{\alpha}, f) \quad.
 \end{equation}
 Here we use 64 walkers and run for an initial 128 steps to burn-in the sampler before running for a final 1024 steps.
 \figurename~\ref{fig:hierarch-corner} shows a corner plot with all 1D and 2D marginal posterior probability distributions estimated from the samples.
@@ -460,7 +460,7 @@ The dashed line (green) shows the same isochrone, shifted $\approx 0.75$ magnitu
 
 We use the posterior samples from the hierarchical inference described in \sectionname~\ref{sec:popmodel} to compute the posterior probabilities that each source in the \decam\ CMD selection box (red box, \figurename~\ref{fig:decam-cmd}) is a member of the cluster.
 \figurename~\ref{fig:hierarch-iso} shows the \decam\ photometry for all sources with membership probability $> 0.5$ (circle markers).
-Over-plotted in \figurename~\ref{fig:hierarch-iso} (blue, solid line) is a \acronym{MIST} isochrone with the median posterior parameters derived from the hierarchical modeling, shifted to the median distance and extincted given the median $A_V$ value.
+Over-plotted in \figurename~\ref{fig:hierarch-iso} (blue, solid line) is a \acronym{MIST} isochrone with the median posterior parameters derived from the hierarchical modeling, shifted to the median distance and extincted given the median $A_V$ value. \yumi{How our Av is different from Schlegel map (https://irsa.ipac.caltech.edu/cgi-bin/bgTools/nph-bgExec)? Their Av is about 0.2. Are we consistent with them within uncertainty?}
 We find that \clustername\ is indeed young, distant, and metal poor, with median posterior values of age $\tau \approx \clage$, distance $D \approx \cldist$, and metallicity $\feh \approx \clfeh$ (see also \tablename~\ref{tbl:clusterparams} for a summary).
 Also plotted in \figurename~\ref{fig:hierarch-iso} is the equal-mass binary sequence (green, dashed line) computed from the median posterior sample: The abundance of sources between the nominal isochrone and the binary sequence highlights the fact that the cluster may contain a significant number of binary or multiple star systems, but we leave a detailed study of multiplicity to future work.
 
@@ -494,7 +494,7 @@ If it formed unbound, but with an initial size comparable to the present size of
         $A_V$ & $0.3$ & extinction \\
         \toprule
     \end{tabular}
-\caption{This table summarizes the measured or inferred kinematic and stellar population parameters of the young halo stellar cluster \clustername.
+\caption{This table summarizes the measured or inferred kinematic and stellar population parameters of the young halo stellar cluster \clustername. \yumi{please include uncertainties.}
 \label{tbl:clusterparams}}
 \end{center}
 \end{table}
@@ -524,30 +524,30 @@ Note that the densest gas at the longitude of \clustername\ (vertical line) appe
 \label{fig:gasspv}
 \end{figure}
 
-At the sky location and distance of \clustername, i.e. well into the Galactic halo, the only plausible gas reservoirs that could have formed a young cluster are the Magellanic stream, or a previously unknown high velocity cloud (HVC).
+At the sky location and distance of \clustername, i.e. well into the Galactic halo, the only plausible gas reservoirs that could have formed a young cluster are the MS, or a previously unknown high velocity cloud (HVC).
 HVCs are thought to either be accreted and therefore lower metallicity than typical present-day Milky Way gas, or ejected from the Milky Way through a ``Galactic fountain''-like process and therefore comparable metallicity to disk gas.
-Both processes clearly occur: the Magellanic stream itself is evidence of gas accretion in to the Milky Way halo, and the mysterious Smith Cloud \citep{Smith:1963} is a metal-rich \citep[$\feh \sim 0.5$][]{Fox:2016} HVC that plausibly originated from the Galactic disk \citep[e.g.,][]{Bregman:1980}.
+Both processes clearly occur: the MS itself is evidence of gas accretion into the Milky Way halo, and the mysterious Smith Cloud \citep{Smith:1963} is a metal-rich \citep[$\feh \sim 0.5$][]{Fox:2016} HVC that plausibly originated from the Galactic disk \citep[e.g.,][]{Bregman:1980}.
 Given the low metallicity of the stars in \clustername, the gas it formed from was likely extragalactic, as any violent star-forming regions in the Milky Way disk that could have driven gas so far out into the halo have, at present-day, significantly higher metallicity than this cluster.
 
-We therefore take a closer look at the \hi gas in the vicinity of \clustername\ to assess its possible relation to the Magellanic stream.
-While no bulk metallicity measurements exist for the Magellanic stream Leading Arm gas, recent measurements of oxygen and silicon abundances suggest that the gas has a comparable abundance pattern to the SMC gas \citep{Fox:2018, Richter:2018}.
+We therefore take a closer look at the \hi gas in the vicinity of \clustername\ to assess its possible relation to the MS.
+While no bulk metallicity measurements exist for the LA gas, recent measurements of oxygen and silicon abundances suggest that the gas has a comparable abundance pattern to the SMC gas \citep{Fox:2018, Richter:2018}.
 If \clustername\ formed from this gas, we would then expect that the stellar metallicity should be similar to young stars in the SMC.
 In the outskirts of the SMC, the metallicity distribution of the youngest stars ($\textrm{age} < 2~\textrm{Gyr}$) has a peak around $\feh \sim -1$ and a spread of $\sigma_{\feh} \sim 0.2~\textrm{dex}$, which at least means that the metallicity of \clustername\ ($\feh \approx -1.1$) is consistent with young SMC stars \citep{Dobbie:2014}.
 
 We next look at the kinematics of high velocity gas in this region.
-\figurename~\ref{fig:gass_maps} shows the \hi column density of the catalog of Gaussian centers \citep[producted with the techniques and software from][]{Nidever:2008} from the Galactic All Sky Survey \citep[GASS;][]{McClure-Griffiths:2009, Kalberla:2010} in the region around the Leading Arm of the Magellanic stream and plotted in the Magellanic stream coordinate system \citep[$L_{\rm MS}, B_{\rm MS}$;][]{Nidever:2008}.
+\figurename~\ref{fig:gass_maps} shows the \hi column density of the catalog of Gaussian centers \citep[producted with the techniques and software from][]{Nidever:2008} from the Galactic All Sky Survey \citep[GASS;][]{McClure-Griffiths:2009, Kalberla:2010} in the region around the LA and plotted in the MS coordinate system \citep[$L_{\rm MS}, B_{\rm MS}$;][]{Nidever:2008}.
 The location of \clustername\ is marked (red circle), and the three panels show three different velocity slices (indicated on each panel).
-The Magellanic stream gas is most visible and densest at the highest velocities where the LA II feature is found, around $L_{\rm MS} \lesssim 61^\circ$ and $B_{\rm MS} \sim -12^\circ$, but the lower panels (i.e. slower gas) still displays some of the same morphology as the highest velocity slice.
+The MS gas is most visible and densest at the highest velocities where the LA II feature is found, around $L_{\rm MS} \lesssim 61^\circ$ and $B_{\rm MS} \sim -12^\circ$, but the lower panels (i.e. slower gas) still displays some of the same morphology as the highest velocity slice. \yumi{I was confused when I read this for the first time. You might want to mention earlier that HI velocities in the LA is measured to be larger than 150 kmc/s. Otherwise, the reader who are not familiar with the LA would misinterpret that the highest gas density around \clustername\ is found in the bottom panel.}
 
 This is also apparent in a position-velocity diagram of the same range of longitudes:
 \figurename~\ref{fig:gasspv} shows the velocity of gas in this region (all longitudes, but near $B_{\rm MS} \sim -13^\circ$) as a function of $L_{\rm MS}$.
 Here, the longitude of \clustername\ is marked as the vertical (red) line.
 The LA II feature is again visible as the $V_{\textrm{LSR}} > 200~\kms$ filament of gas at $L_{\rm MS} \lesssim 60^\circ$ (and a faint extension near $L_{\rm MS} \sim 65^\circ$), but two other prominent filaments with similar morphologies are apparent at lower velocities $V_{\textrm{LSR}} \sim 60~\kms$ and $V_{\textrm{LSR}} \sim 100~\kms$ from $L_{\rm MS} \lesssim 65^\circ$.
 
-The entire region shown in \figurename~\ref{fig:gass_maps} is on the other side of the Galactic disk with respect to the Magellanic clouds, meaning that all of the Magellanic stream gas in this region has passed through the Galactic midplane.
-The similar filamentary structure in the high and lower velocity gas therefore raises the question: Did the low velocity filaments originate in the Magellanic stream, but were decelerated through interactions with Milky Way gas?
+The entire region shown in \figurename~\ref{fig:gass_maps} is on the other side of the Galactic disk with respect to the Magellanic clouds, meaning that all of the MS gas in this region has passed through the Galactic midplane.
+The similar filamentary structure in the high and lower velocity gas therefore raises the question: Did the low velocity filaments originate in the MS, but were decelerated through interactions with Milky Way gas?
 This presents a possible formation scenario for \clustername.
-If the cluster formed from the Magellanic stream gas, and some of the gas interacted with the Milky Way disk, the dynamics of the stars and the gas that interacted would have decoupled as soon as the stars formed.
+If the cluster formed from the LA gas, and some of the gas interacted with the Milky Way disk, the dynamics of the stars and the gas that interacted would have decoupled as soon as the stars formed.
 Given the geometry of the current location of \clustername\ (i.e. our viewing angle from the solar position), in this scenario we would expect a moderate velocity difference between the gas that interacted and stars to primarily appear as a difference in the tangential velocities of the stars and the gas (which is not measured).
 We can therefore use the line-of-sight velocity of the gas as a proxy for the line-of-sight velocity of the stars in \clustername\ to study the Galactic orbit of the cluster, as discussed in the next section, and because we do not yet have radial velocity information for the stars.
 
@@ -558,7 +558,7 @@ We can therefore use the line-of-sight velocity of the gas as a proxy for the li
 \begin{figure*}[ht!]
 \centering
 \includegraphics[width=0.9\textwidth]{figures/orbits.pdf}
-\caption{The past orbit of \clustername in Galactocentric Cartesian coordinates, computed by assuming a line-of-sight velocity equal to each of three different possible gas  filaments in the LA II region of the Magellanic stream (as indicated in right panel).
+\caption{The past orbit of \clustername in Galactocentric Cartesian coordinates, computed by assuming a line-of-sight velocity equal to each of three different possible gas  filaments in the LA II region of the MS (as indicated in right panel).
 In these coordinates, the Sun is at $(x, y, z) = (-8.1, 0, 0)~\kpc$, and the present-day locations of \clustername\ (filled black marker) and the LMC (open black marker) are indicated.
 The time at each point in the orbits is indicated by the colorbar, with the darkest regions corresponding to $t = -130~\textrm{Myr}$, the inferred age of \clustername.
 The past and future orbit of the LMC are shown as the colored line and dashed line, respectively.
@@ -592,12 +592,12 @@ But even low-precision velocity measurements would either confirm the associatio
 \section{Conclusions} \label{sec:conclusion}
 
 We have identified a young, metal-poor stellar association in the Galactic halo --- named \clustername\ --- with an age $\tau \approx \clage$, heliocentric distance $D \approx \cldist$, and metallicity $\feh \approx \clfeh$.
-At its present day sky position, and at large distances, all significant quantities of \hi are associated with the leading arm of the Magellanic gas stream and thus it plausibly formed from Magellanic stream gas.
+At its present-day sky position, and at large distances, all significant quantities of \hi are associated with the LA and thus it plausibly formed from MS gas.
 The age of the cluster is broadly consistent with the time it would have most recently crossed the Galactic midplane, suggesting the possibility that interaction with the Milky Way disk or tidal compression could have triggered this star formation event.
-Previously studies have detected young stars in the Leading Arm and gas in the periphery of the Magellanic Clouds \citep{Casetti-Dinescu:2014, Moni-Bidin:2017}, however, this is the first time that an entire star cluster has been detected so far from the Clouds.
+Previous studies have detected young stars in the LA and in the periphery of the LMC \citep{Casetti-Dinescu:2014, Moni-Bidin:2017}, however, this is the first time that an entire young star cluster has been detected so far.% from the Clouds.
 
-The discovery of \clustername\ provides a critical distance constraint to the Magellanic stream and will aid future Magellanic system and Milky Way modeling efforts.
-It also provides an opportunity to study star formation in a unique environment, unlike that of the Milky Way disk or any other cluster-forming region.
+The discovery of \clustername\ provides a critical distance constraint to the LA and will aid future Magellanic system and Milky Way modeling efforts.
+It also provides an opportunity to study star formation in a unique environment (i.e., low gas density and low metallicity), unlike that of the Milky Way disk or any other cluster-forming region.
 The serendipitous discovery of this cluster is a reminder that the combined value of the \gaia\ data with deep, large-area imaging surveys provides a wealth of information about our Galaxy and stellar halo.
 
 
@@ -700,6 +700,7 @@ WHERE (parallax < 1 OR parallax IS NULL)
     \label{tbl:decamdata}
 \end{table}
 
+\facility{Blanco (DECam)}
 
 \software{
     \package{Astropy} \citep{astropy, astropy:2018},
@@ -715,7 +716,6 @@ WHERE (parallax < 1 OR parallax IS NULL)
     \package{scipy} \citep{scipy}
 }
 
-\facility{Blanco (DECam)}
 
 \bibliographystyle{aasjournal}
 \bibliography{ms}
