@@ -7,6 +7,7 @@
 % - Is the cluster elongated along its orbit?
 % - Describe the strength of the hierarchical cluster params methodology
 % - Sergey's comment about the distance prior: to summarize, uniform space density could be very bad if the contaminants are field BHB / WDs.
+% - https://ui.adsabs.harvard.edu/#abs/2008ApJ...673L.143M/abstract
 
 
 % \documentclass[modern]{aastex62}
@@ -74,6 +75,7 @@
 
 
 % Edits
+\newcommand{\changes}[1]{{\ \color{red}{\textbf{#1}\ }}}
 \newcommand{\yumi}[1]{{\ \color{purple}{\textbf{Yumi: #1}\ }}}
 
 %% Reintroduced the \received and \accepted commands from AASTeX v5.2
@@ -132,13 +134,14 @@ a recent star formation event in the leading arm of the Magellanic stream?}}
 
 \begin{abstract}
 
-We report the discovery of a young ($\tau \sim \clage$), low-mass ($M \sim 1200~\msun$), metal-poor ($\feh \sim \clfeh$) stellar association in the Milky Way halo.
-From isochrone fitting to follow-up \decam\ imaging of the cluster, we also measure its distance, $D \approx \cldist$.
+We report the discovery of a young ($\tau \sim \clage$), low-mass ($M \sim 1200~\msun$), metal-poor ($\feh \sim \clfeh$) stellar association at a heliocentric distance $D \approx \cldist$, placing it far into the Milky Way halo.
 At its present Galactocentric position $(R, z) \sim (23, 15)~\textrm{kpc}$, the association is (on the sky) near the leading arm of the gas stream emanating from the Magellanic cloud system, but is located $\approx 60^\circ$ from the Large Magellanic Cloud (LMC) center on the other side of the Milky Way disk.
 If we assume that the cluster is co-located with \hi gas in the stream, we directly measure the distance to the leading arm of the Magellanic stream.
-At this location relative to the LMC, the measured distance is inconsistent with predictions from models of the LMC/SMC interaction and infall into the Milky Way that do not account for ram pressure and gas interaction with Milky Way disk.
-The estimated age of the cluster is consistent with the time of last passage of the leading arm gas through the Galactic midplane, and we therefore speculate that this star-formation event was triggered by the last disk midplane passage at a Galactocentric radius $R \approx 30~\kpc$.
-However, most details of this idea remain a mystery: the Magellanic stream has low column density, the Milky Way disk at this large radius has low gas density, and the relative velocity of the leading arm gas and Milky Way gas is large. However it formed, the discovery of a young stellar cluster in the Milky Way halo presents an interesting opportunity for study.
+The measured distance is inconsistent with stream predictions from models of the LMC/SMC interaction and infall into the Milky Way that do not account for ram pressure and gas interaction with Milky Way disk.
+The estimated age of the cluster is consistent with the time of last passage of the leading arm gas through the Galactic midplane, and we therefore speculate that this star-formation event was triggered by its the last disk midplane passage. % at a Galactocentric radius $R \approx 30~\kpc$.
+Most details of this idea remain a puzzle: the Magellanic stream has low column density, the Milky Way disk at this large radius has low gas density, and the relative velocity of the leading arm gas and Milky Way gas is large.
+However it formed, the discovery of a young stellar cluster in the Milky Way halo presents an interesting opportunity for study.
+This cluster was discovered with \gaia\ astrometry and photometry alone, but folow-up \decam\ photometry was crucial for measuring its properties.
 \end{abstract}
 
 \keywords{
@@ -150,8 +153,8 @@ However, most details of this idea remain a mystery: the Magellanic stream has l
 
 \section{Introduction} \label{sec:intro}
 
-The halo of the Milky Way is typically characterized by its old ($\gtrsim 10~\textrm{Gyr}$), metal-poor ($\feh \approx -1.5$) stellar population.
-This is understood as a signature of the dominant (in stellar mass) progenitor systems that were accreted early on in the formation of the Galaxy \citep[massive dwarf galaxies][]{Deason:2015, Fiorentino:2015}.
+The \changes{distant stellar} halo of the Milky Way is typically characterized by its old ($\gtrsim 10~\textrm{Gyr}$), metal-poor ($\feh \approx -1.5$) stellar population.
+\changes{While there is some evidence that the inner stellar halo (within $\lesssim 5~\kpc$ of the sun) could contain young, embedded clusters at high Galactic latitude (e.g., \cite{Camargo:2015, Camargo:2016}; however, these may not be real \cite{Turner:2017}), the typical old age of the stellar halo} is understood as a signature of the dominant (in stellar mass) progenitor systems that were accreted early on in the formation of the Galaxy \citep[massive dwarf galaxies][]{Deason:2015, Fiorentino:2015}.
 It is thought that these systems came in with significant gas reservoirs, but were quenched and stripped through collisional processes that heated and dispersed the gas \citep[e.g.,][]{Mayer:2006}, thus preventing immediate star formation in the deposited gas.
 The Milky Way, however, continues to accrete satellite galaxies, as is evidenced by the prominent stellar stream from the Sagittarius dwarf galaxy \citep{Ibata:1994, Majewski:2003}, the presence of the Large and Small Magellanic Clouds (LMC and SMC), and about 50 dwarf satellites within the Galactic halo.
 While Sagittarius was likely stripped of its neutral gas long ago \citep{Burton:1999, Tepper-Garcia:2018}, the \lmcsmc\ system is associated with $\approx 8\times 10^8~\msun$ of \hi gas \citep{Bruns:2005}, which extends into leading and trailing gas streams \citep{Mathewson:1974, Putman:1998, Bruns:2005, Nidever:2010}.
