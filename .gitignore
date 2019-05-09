@@ -6,7 +6,7 @@
 *.log
 *.out
 *.pdf
-*.synctex.gz
+*.synctex.gz*
 *Notes.bib
 *.png
 gitstuff.tex
