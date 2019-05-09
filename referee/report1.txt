@@ -1,0 +1,84 @@
+We thank the editor and referee for the constructive comments that have improved this manuscript. We have addressed both of your concerns: Responses to your points are below (under each "Response:" heading) and point to locations in the text that have changed, where relevant. Finally, we appreciate your patience as we have been busy with other efforts since the report was received.
+
+The most significant change to the text and analysis came from the realization that we were incorrectly using DECam bandpasses with the isochrones, whereas the photometry were calibrated to Pan-STARRS (PS1). We have re-done the analysis using PS1 bandpasses for the isochrones and feel that this has improved the quality of the fits. We now also include the u-band in the isochronal fits for individual stars when it is available, however only the brightest few stars have reliable u-band measurements. We have updated and added text throughout the paper to reflect these updates.
+
+
+Reviewer's Comments:
+
+>>> The topic presented in the present paper is interesting. The discovery of a young cluster in the leading arm of the Magellanic Stream, or a very unusual young metal poor halo cluster is, in principle, a relevant result. The detection of the cluster from the analysis of Gaia proper motions is convincing.  However the authors derived the main parameters of the cluster using an automatic, statistical procedure which does't give any indication on the reliability of the results neither how the degeneracies, for example the metallicity vs. reddening, are treated.
+
+>>> The isochrone fits, both on Gaia data (Fig. 1) and DECam (Fig. 6) show evidence of a systematic deviation with the isochrones, getting steeper than the data on the bright part of the cmds (at Go and g < 18) with a deviation up to almost 0.1 magnitude in the g-i color index. This is unexpected given that the photometry on the bright stars should be accurate within about 1%.
+
+Response:
+Double main sequences or apparent extra variance in the color distribution at the brightest end (i.e. for the most massive stars) of the color-magnitude distribution of young clusters is not a solved problem. We have added some text to the discussion to
+
+- is a possible manifestation of convective core overshooting...
+- see other discussion in intro of paper below
+- we assume single star forming event, but could be multiple
+- given that, could be unaccounted for systematic errors in derived cluster parameters
+
+See discussion here:
+https://iopscience.iop.org/article/10.3847/1538-4357/aa5b9d
+https://arxiv.org/pdf/1810.00780.pdf
+
+>>> It is not clear why the authors do not show isochrones complete above the turnoff extension, but they appear truncated at Go,g=16.5, The extension is crucial in order to understand the reliability of the age.
+
+Response:
+The isochrones were truncated to show only main sequence stars (there was no magnitude cut applied to the isochrones). We have updated the figure to include the turnoff and beyond.
+
+>>> In spite of the long discussion on the sophisticated statistical treatment of the fit it is not clear to the reader how the fit was weighted with the photometric errors along the cmd main sequence. It looks that too low weight has been given to the bright stars.
+
+Response:
+Could the referee please clarify this statement? There is no weighting applied to the stars. Stars are fit independently to determine posterior samplings in isochronal parameters using the photometry and photometric uncertainties. The individual samplings are then combined with equal weight into the hierarchical model described in the article.
+
+>>> The overall shape of the adopted isochrone looks different from the data.
+
+Response:
+TODO: could soften this and just say "before we plotted median, now we plot a bunch of samples"
+We are not sure what the referee is asking for with this comment: This is not a quantitative statement. Isochrone tracks are not perfect models, especially for massive stars. There will be systematic differences between the isochrone models and the data, conditional on the assumptions made when generating the isochrones (out of our control) and the assumptions made in modeling (which we explicitly state and discuss in the discussion). This is true for all stellar population modeling efforts.
+
+>>> The output parameter are presented without any discussion on uncertainties and errors.
+
+Response:
+TODO: where?
+
+>>> Some crucial results should be discussed more in detail. For example why the derived reddening is so high (Av=0.33 +/-0.02) while the "old" Schlegel values in this direction is Av=0.21 ? The most updated maps (Schafly, 2011) give an even lower value, around 0.18, almost half of the authors result. There is also an issue with the derived metallicity which is significantly lower than the average LMC one.
+
+With the correct isochrone bandpasses, we now independently recover the SFD value of Av~0.2 -- see Figure XX (red line shows SFD value). With the Schlafly+2011 update, we find a mean Av in this region of the sky of Av~0.21, not 0.18, assuming Rv=3.1.
+
+>>> Finally the accuracy of the photometry zero point is not discussed. The authors just say that it is calibrated on PanSTARRS, but no details are given. In a paper based on new photometry these details should be presented.
+
+We have updated Section XX to include a more thorough description of the photometric calibration procedure. TODO: make sure the new text is in there
+
+
+From the Editor:
+
+>>> 1) There has been already quite some work in the literature about recent star formation in the halo, which you seem to neglect. Here there are a few references:
+
+http://adsabs.harvard.edu/abs/2016A%26A...593A..95C
+
+http://adsabs.harvard.edu/abs/2015MNRAS.448.1930C
+
+http://adsabs.harvard.edu/abs/2017MNRAS.470..481T
+
+Response:
+We have noted these papers in the introduction.
+
+
+>>> 2) The first, as I already commented, is that Gaia reddening-corrected colors are redder than sloan reddening un-crorrected colors. This is slightly different from the plot you sent me, unless labels are wrong.
+>>> I found this suspicious, and then I looked more carefully at the isochrone solution in your g-r vs g diagram. Clearly, a good fit would require to shift upward your isochrone by 1 mag at least, and to blueshift it by 0.1-0.15. This is obvious, otherwise those 5 five stars on the blue would not have any explanation. But they indeed are MS stars, except maybe for the brighter one, which seems to be leaving the ZAMS.
+>>> With this metallicity you would then be in a nasty situation, beacuse reddening would be 0, or even negative. The only solution would be to decrease further the metallicity, but I guess you do not want it.
+>>> On the other hand, if you want to keep this solution, maybe the only alternative is to go for a much younger age, I guess 50 millions, or even younger. You might try it.
+
+Response:
+Two things could be to blame here. First, as demonstrated in Maiz-Apellaniz & Weiler (2018), differences in the assumed Gaia DR2 passbands can have a significant effect on the BP-RP color of very blue sources. Second, the iterative Gaia-dereddening procedure used here (and discussed in Babusiaux et al. 2018 and Danielski et al. 2018) will not be very accurate for very blue stars because the derived coefficients used in this procedure use an early version of the Gaia passbands. Because of these two issues, I wouldn't over-interpret any deviations between the isochrone we draw in Figure 1 and the data: this is really only meant to be qualitative. This is also why we don't use the Gaia photometry when doing the isochrone fits. We have added a sentence to the section "Inferring the stellar population parameters with DECam photometry" to explain this choice.
+
+
+>>> Something else that worries me is that aTO close to g-i =-0.6 - like yours- implies a very early spectral type, say O4-O5, which is worrisome since, and you may agree on that, it does not corresponds to 130 Myr !
+
+We disagree. See attached plot. A turnoff at g-i ~ -0.6 does not correspond to such early spectral types.
+
+
+>>> 3 ) I think that even a couple of magnitudes in u can help to settle the reddening, which is by far the most important parameter in the game, see the last of the 3 references I listed above. If you are not able to use u, please remove any word on it.
+
+We have included the u-band, when available, in doing the isochrone fits for individual sources. Thank you for the suggestion and the references.
