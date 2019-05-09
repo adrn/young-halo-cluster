@@ -261,7 +261,7 @@ exposures in $u-$, $g-$, and $i$-band.  The NOAO Community Pipeline (CP; \citeal
 
 \changes{The photometry was calibrated using Pan-STARRS1 \citep[PS1;][]{Chambers:2016} photometry for g- and i-band and
 with SkyMapper \citep{Wolf:2018} for the u-band observations.
-We use a robust linear fit to cross-matched sources (that appear in both PS1 and our observations) to obtain a zero-point and color-term (no color-term was needed for u-band) to calibrate the photometry.
+We use a robust linear fit to cross-matched sources (that appear in both PS1 and our observations) to obtain a zero-point and color-term (no color-term was needed for u-band) to calibrate the photometry (see \tablename~\ref{tbl:transphot} for the derived transformation coefficients).
 The robust RMS around the linear fit is 0.028 mag for g- and i-band and 0.164 mag for the u-band; We adopt these RMS values as systematic errors that are added in quadrature to the photometric uncertainties for individual sources in the modeling described below.
 The larger scatter in u-band---much larger than the uncertainty in the individual photometry---is due to the large differences in the DECam and SkyMapper u-band passbands.}
 
@@ -294,11 +294,10 @@ Later, we use photometry in the sub-region of the cluster fields identified by t
 }
 \startdata
 $u$  &  $g-i$ & 2.17820 $\pm$   0.016 &     \nodata  & 0.164 \\
-$g$  & $g-r$ & $-$0.052868 $\pm$  0.0068  &     $-$0.034937 $\pm$   0.0051  &  0.028 \\
-$i$   &  $i-z$ & $-$0.246645 $\pm$  0.0011 &     $-$ -0.07379 $\pm$   0.00069  &  0.028  \\
-
+$g$  & $g-r$ & $-0.052868 \pm  0.0068$  &     $-0.034937 \pm 0.0051$  &  0.028 \\
+$i$   &  $i-z$ & $-0.246645 \pm 0.0011$ &     $-0.07379 \pm 0.00069$  &  0.028
 \enddata
-\label{table_transphot}
+\label{tbl:transphot}
 \end{deluxetable}
 \end{center}
 
