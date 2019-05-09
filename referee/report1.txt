@@ -1,3 +1,5 @@
+TODO: update results section discussion and decam membership figure!
+
 We thank the editor and referee for the constructive comments that have improved this manuscript. We have addressed both of your concerns: Responses to your points are below (under each "Response:" heading) and point to locations in the text that have changed, where relevant. Finally, we appreciate your patience as we have been busy with other efforts since the report was received.
 
 The most significant change to the text and analysis came from the realization that we were incorrectly using DECam bandpasses with the isochrones, whereas the photometry were calibrated to Pan-STARRS (PS1). We have re-done the analysis using PS1 bandpasses for the isochrones and feel that this has improved the quality of the fits. We now also include the u-band in the isochronal fits for individual stars when it is available, however only the brightest few stars have reliable u-band measurements. We have updated and added text throughout the paper to reflect these updates.
@@ -10,16 +12,7 @@ Reviewer's Comments:
 >>> The isochrone fits, both on Gaia data (Fig. 1) and DECam (Fig. 6) show evidence of a systematic deviation with the isochrones, getting steeper than the data on the bright part of the cmds (at Go and g < 18) with a deviation up to almost 0.1 magnitude in the g-i color index. This is unexpected given that the photometry on the bright stars should be accurate within about 1%.
 
 Response:
-Double main sequences or apparent extra variance in the color distribution at the brightest end (i.e. for the most massive stars) of the color-magnitude distribution of young clusters is not a solved problem. We have added some text to the discussion to
-
-- is a possible manifestation of convective core overshooting...
-- see other discussion in intro of paper below
-- we assume single star forming event, but could be multiple
-- given that, could be unaccounted for systematic errors in derived cluster parameters
-
-See discussion here:
-https://iopscience.iop.org/article/10.3847/1538-4357/aa5b9d
-https://arxiv.org/pdf/1810.00780.pdf
+Double main sequences or apparent extra variance in the color distribution at the brightest end (i.e. for the most massive stars) of the color-magnitude distribution of young clusters is not a solved problem. Some of this could be due to binarity, but we have added some text to the results section "Stellar population and physical characteristics" to indicate other possible sources of this additional scatter.
 
 >>> It is not clear why the authors do not show isochrones complete above the turnoff extension, but they appear truncated at Go,g=16.5, The extension is crucial in order to understand the reliability of the age.
 
@@ -34,17 +27,16 @@ Could the referee please clarify this statement? There is no weighting applied t
 >>> The overall shape of the adopted isochrone looks different from the data.
 
 Response:
-TODO: could soften this and just say "before we plotted median, now we plot a bunch of samples"
-We are not sure what the referee is asking for with this comment: This is not a quantitative statement. Isochrone tracks are not perfect models, especially for massive stars. There will be systematic differences between the isochrone models and the data, conditional on the assumptions made when generating the isochrones (out of our control) and the assumptions made in modeling (which we explicitly state and discuss in the discussion). This is true for all stellar population modeling efforts.
+We do not understand the objection here, but as described above, we are now using the correct photometric bandpasses for our data and hope this has satisfied the referee.
 
 >>> The output parameter are presented without any discussion on uncertainties and errors.
 
 Response:
-TODO: where?
+The uncertainties were previously only shown in Table 3, but we now list them in the text as well.
 
 >>> Some crucial results should be discussed more in detail. For example why the derived reddening is so high (Av=0.33 +/-0.02) while the "old" Schlegel values in this direction is Av=0.21 ? The most updated maps (Schafly, 2011) give an even lower value, around 0.18, almost half of the authors result. There is also an issue with the derived metallicity which is significantly lower than the average LMC one.
 
-With the correct isochrone bandpasses, we now independently recover the SFD value of Av~0.2 -- see Figure XX (red line shows SFD value). With the Schlafly+2011 update, we find a mean Av in this region of the sky of Av~0.21, not 0.18, assuming Rv=3.1.
+With the correct isochrone bandpasses, we now independently recover the SFD value of Av~0.2 -- see Figure XX (red line shows SFD value). With the Schlafly+2011 update, we find a mean Av in this region of the sky of Av~0.21, not 0.18, assuming Rv=3.1. As discussed in the text, the metallicity is more consistent with the SMC, which has been suggested as the origin of the leading arm gas. We see no issue here.
 
 >>> Finally the accuracy of the photometry zero point is not discussed. The authors just say that it is calibrated on PanSTARRS, but no details are given. In a paper based on new photometry these details should be presented.
 
