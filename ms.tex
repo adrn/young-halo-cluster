@@ -80,7 +80,7 @@
 
 
 % Edits
-\newcommand{\changes}[1]{{\ \color{red}{\textbf{#1}\ }}}
+\newcommand{\changes}[1]{{\ \color{black}{\textbf{#1}\ }}}
 \newcommand{\yumi}[1]{{\ \color{purple}{\textbf{Yumi: #1}\ }}}
 
 %% Reintroduced the \received and \accepted commands from AASTeX v5.2
@@ -139,7 +139,7 @@ a recent star formation event in the leading arm of the Magellanic stream?}}
 
 \begin{abstract}
 
-We report the discovery of a young ($\tau \sim \clage$), low-mass ($M \sim 1200~\msun$), metal-poor ($\feh \sim \clfeh$) stellar association at a heliocentric distance $D \approx \cldist$, placing it far into the Milky Way halo.
+\changes{We report the discovery of a young ($\tau \sim \clage$), low-mass ($M \sim 1200~\msun$), metal-poor ($\feh \sim \clfeh$) stellar association at a heliocentric distance $D \approx \cldist$, placing it far into the Milky Way halo.}
 At its present Galactocentric position $(R, z) \sim (23, 15)~\textrm{kpc}$, the association is (on the sky) near the leading arm of the gas stream emanating from the Magellanic cloud system, but is located $\approx 60^\circ$ from the Large Magellanic Cloud (LMC) center on the other side of the Milky Way disk.
 If we assume that the cluster is co-located with \hi gas in the stream, we directly measure the distance to the leading arm of the Magellanic stream.
 The measured distance is inconsistent with stream predictions from models of the LMC/SMC interaction and infall into the Milky Way that do not account for ram pressure and gas interaction with Milky Way disk.
@@ -257,7 +257,13 @@ Red markers show sources in the \decam\ field used as control sources, and blue 
 \end{figure}
 
 We obtained \decam\ $u$-, $g$-, and $i$-band imaging of a single field centered on the ``a'' spatial component of the cluster (see \figurename~\ref{fig:cmds}) discovered using the \gaia\ data (see previous section).  Observations were obtained with the Dark Energy Camera (DECam) on the CTIO 4m Blanco telescope on UT 2018 May 20 with 3$\times$300s
-exposures in $u-$, $g-$, and $i$-band.  The NOAO Community Pipeline (CP; \citealt{Valdes:2014}; Valdes et al., in preparation) InstCal images, which have the instrumental signature removed, were downloaded from the NOAO Archive\footnote{\url{http://archive.noao.edu}} for further processing.  Forced PSF photometry was performed with the PHOTRED pipeline \citep{Nidever:2017} which uses the DAOPHOT ALLSTAR \citep{Stetson:1987} and ALLFRAME \citep{Stetson:1994} suite of programs.  The photometry was calibrated using Pan-STARRS1 \citep[PS1;][]{Chambers:2016} photometry for global zero-point and color-terms in each band.
+exposures in $u-$, $g-$, and $i$-band.  The NOAO Community Pipeline (CP; \citealt{Valdes:2014}; Valdes et al., in preparation) InstCal images, which have the instrumental signature removed, were downloaded from the NOAO Archive\footnote{\url{http://archive.noao.edu}} for further processing.  Forced PSF photometry was performed with the PHOTRED pipeline \citep{Nidever:2017} which uses the DAOPHOT ALLSTAR \citep{Stetson:1987} and ALLFRAME \citep{Stetson:1994} suite of programs.
+
+\changes{The photometry was calibrated using Pan-STARRS1 \citep[PS1;][]{Chambers:2016} photometry for g- and i-band and
+with SkyMapper \citep{Wolf:2018} for the u-band observations.
+We use a robust linear fit to cross-matched sources (that appear in both PS1 and our observations) to obtain a zero-point and color-term (no color-term was needed for u-band) to calibrate the photometry.
+The robust RMS around the linear fit is 0.028 mag for g- and i-band and 0.164 mag for the u-band; We adopt these RMS values as systematic errors that are added in quadrature to the photometric uncertainties for individual sources in the modeling described below.
+The larger scatter in u-band---much larger than the uncertainty in the individual photometry---is due to the large differences in the DECam and SkyMapper u-band passbands.}
 
 \figurename~\ref{fig:decam-field} shows the sky positions of the \gaia\ CMD-selected sources (black markers; see same in middle panel, \figurename~\ref{fig:cmds}), along with point sources identified in the $g$-band data obtained with \decam: sources in control fields are shown as red markers, and sources in cluster fields are shown as blue markers.
 We note that the smaller over-density located northeast of the \decam\ field, component b (see \figurename~\ref{fig:cmds}), was not followed up in this work.
@@ -277,6 +283,24 @@ The sources in the dashed (red) rectangle in the right panel are later used to m
 We find that the $u$-band data were too shallow to be useful for this work, so restrict the further analysis in this work to the $g$- and $i$-bands.
 The blue comoving group, \clustername, identified in \sectionname~\ref{sec:discovery} using \gaia\ data alone shows up as a clear young main sequence in the cluster fields (right panel of \figurename~\ref{fig:decam-cmd}).
 Later, we use photometry in the sub-region of the cluster fields identified by the dashed rectangle to infer the cluster parameters.
+
+\begin{center}
+\begin{deluxetable}{ccrrr}
+\tablecaption{DECam Photometric Transformation Equations}
+\tablecolumns{5}
+\tablewidth{400pt}
+\tablehead{
+\colhead{Band} & \colhead{Color} & \colhead{Zero-point term} & \colhead{Color term} & \colhead{RMS}
+}
+\startdata
+$u$  &  $g-i$ & 2.17820 $\pm$   0.016 &     \nodata  & 0.164 \\
+$g$  & $g-r$ & $-$0.052868 $\pm$  0.0068  &     $-$0.034937 $\pm$   0.0051  &  0.028 \\
+$i$   &  $i-z$ & $-$0.246645 $\pm$  0.0011 &     $-$ -0.07379 $\pm$   0.00069  &  0.028  \\
+
+\enddata
+\label{table_transphot}
+\end{deluxetable}
+\end{center}
 
 
 \section{Methods} \label{sec:methods}
