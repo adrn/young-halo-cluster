@@ -69,9 +69,14 @@
 \newcommand{\eep}{\ensuremath{\acronym{\textrm{EEP}}}}
 \newcommand{\Nisofit}{417}
 
-\newcommand{\clage}{\ensuremath{130~\textrm{Myr}}}
-\newcommand{\clfeh}{\ensuremath{-1.1}}
-\newcommand{\cldist}{\ensuremath{29~\textrm{kpc}}}
+\newcommand{\clage}{\ensuremath{116~\textrm{Myr}}}
+\newcommand{\clfeh}{\ensuremath{-1.14}}
+\newcommand{\cldist}{\ensuremath{28.7~\textrm{kpc}}}
+
+\newcommand{\clageerr}{\ensuremath{116 \pm 7~\textrm{Myr}}}
+\newcommand{\clfeherr}{\ensuremath{-1.14 \pm 0.05}}
+\newcommand{\cldisterr}{\ensuremath{28.7 \pm 0.4~\textrm{kpc}}}
+\newcommand{\claverr}{\ensuremath{0.21 \pm 0.02}}
 
 
 % Edits
@@ -482,8 +487,8 @@ The dashed line (green) shows the same isochrone, shifted $\approx 0.75$ magnitu
 We use the posterior samples from the hierarchical inference described in \sectionname~\ref{sec:popmodel} to compute the posterior probabilities that each source in the \decam\ CMD selection box (red box, \figurename~\ref{fig:decam-cmd}) is a member of the cluster.
 \figurename~\ref{fig:hierarch-iso} shows the \decam\ photometry for all sources with membership probability $> 0.5$ (circle markers).
 Over-plotted in \figurename~\ref{fig:hierarch-iso} (blue, solid line) is a \acronym{MIST} isochrone with the median posterior parameters derived from the hierarchical modeling, shifted to the median distance and extincted given the median $A_V$ value.
-We find that \clustername\ is indeed young, distant, and metal poor, with median posterior values of age $\tau \approx \clage$, distance $D \approx \cldist$, and metallicity $\feh \approx \clfeh$ (see also \tablename~\ref{tbl:clusterparams} for a summary).
-We find that the inferred extinction, $A_V \approx 0.33$, is somewhat larger than the value $A_{V, {\rm SFD}} \approx 0.2$ from the SFD dust map \citep{Schlegel:1998}.
+\changes{We find that \clustername\ is indeed young, distant, and metal poor, with median posterior values of age $\tau = \clageerr$, distance $D = \cldisterr$, and metallicity $\feh = \clfeherr$ (see also \tablename~\ref{tbl:clusterparams} for a summary).
+We find that the inferred extinction, $A_V = \claverr$, is consistent with the value $A_{V, {\rm SFD}} \approx 0.2$ from the (revised) SFD dust map \citep{Schlegel:1998, Schlafly:2011}.}
 We note again that, with the \decam\ photometry, we are limited to studying the subcomponent a of \clustername\ --- follow-up imaging of component b (see \figurename~\ref{fig:cmds}) would enable a similar analysis for the full cluster.
 
 Also plotted in \figurename~\ref{fig:hierarch-iso} is the equal-mass binary sequence (green, dashed line) computed from the median posterior sample: The abundance of sources between the nominal isochrone and the binary sequence highlights the fact that the cluster may contain a significant number of binary or multiple star systems, but we leave a detailed study of multiplicity to future work.
@@ -506,15 +511,15 @@ If \clustername\ formed unbound, but with an initial size comparable to the pres
         \tableline
         $\mean{\alpha}$ & $178.8^\circ$ & right ascension \\
         $\mean{\delta}$ & $-29.4^\circ$ & declination \\
-        $\mean{D}$ & $28.9 \pm 0.1~\kpc$ & Heliocentric distance \\
+        $\mean{D}$ & $28.7 \pm 0.4~\kpc$ & Heliocentric distance \\
         $\mean{\mu_\alpha}$ & $-0.56 \pm 0.04~\masyr$ & proper motion in RA\\
         $\mean{\mu_\delta}$ & $0.47 \pm 0.02~\masyr$ & proper motion in Dec\\
         \tableline
-        $\tau$ & $130 \pm 6~\textrm{Myr}$ & age \\
+        $\tau$ & $116 \pm 7~\textrm{Myr}$ & age \\
         $M$ & $1200~\msun$ & total stellar mass \\
-        $\feh$ & $-1.10 \pm 0.02$ & metallicity \\
+        $\feh$ & $-1.14 \pm 0.05$ & metallicity \\
         \tableline
-        $A_V$ & $0.33 \pm 0.02$ & extinction \\
+        $A_V$ & $0.21 \pm 0.02$ & extinction \\
         \toprule
     \end{tabular}
 \caption{This table summarizes the measured or inferred kinematic and stellar population parameters of the young halo stellar cluster \clustername.
