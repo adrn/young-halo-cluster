@@ -1,5 +1,3 @@
-TODO: update results section discussion and decam membership figure!
-
 We thank the editor and referee for comments that have improved this manuscript. We have addressed both of your concerns: Responses to your points are below (under each "Response:" heading) and point to locations in the text that have changed, which are bold-faced in the re-submitted manuscript. Finally, we appreciate your patience as we have been busy with other efforts since the report was received.
 
 The most significant change to the text and analysis came from the realization that we were incorrectly using DECam bandpasses with the isochrones, whereas the photometry were calibrated to Pan-STARRS (PS1). We have re-done the analysis using PS1 bandpasses for the isochrones and this has improved the quality of the fits. We now also include the u-band in the isochronal fits for individual stars when it is available, however only the brightest few stars have reliable u-band measurements. We have updated and added text throughout the paper to reflect these updates.
