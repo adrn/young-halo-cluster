@@ -286,7 +286,7 @@ Later, we use photometry in the sub-region of the cluster fields identified by t
 
 \begin{center}
 \begin{deluxetable}{ccrrr}
-\tablecaption{DECam Photometric Transformation Equations}
+\tablecaption{DECam Photometric Transformation Equations\label{tbl:transphot}}
 \tablecolumns{5}
 \tablewidth{400pt}
 \tablehead{
@@ -297,7 +297,6 @@ $u$  &  $g-i$ & 2.17820 $\pm$   0.016 &     \nodata  & 0.164 \\
 $g$  & $g-r$ & $-0.052868 \pm  0.0068$  &     $-0.034937 \pm 0.0051$  &  0.028 \\
 $i$   &  $i-z$ & $-0.246645 \pm 0.0011$ &     $-0.07379 \pm 0.00069$  &  0.028
 \enddata
-\label{tbl:transphot}
 \end{deluxetable}
 \end{center}
 
@@ -375,7 +374,7 @@ While the \gaia\ data provide exquisite astrometric data for the brightest membe
 To measure the cluster population parameters, we therefore use the deeper photometry from \decam, which provides a clear view of the main sequence of \clustername\ down to stellar masses $M \sim 0.9~\msun$.
 We note that this analysis and the subsequent discussion only considers subregion (a) of \clustername, which dominates the total mass and number of stars in the cluster.
 \figurename~\ref{fig:decam-cmd} shows the \decam\ $g$ and $i$ band color-magnitude diagrams for control fields (left) and cluster fields (right) selected from the \decam\ footprint, once again showing the young main sequence (coherent stellar population in right panel).
-We use the $g$- and $i$-band photometry for individual stars in a sub-section of the cluster field CMD (red dashed outlined region in \figurename~\ref{fig:decam-cmd}) to infer the stellar population parameters of \clustername.
+We use the $g$- and $i$-band photometry \changes{(and $u$-band, though only the brightest $\sim$15 cluster field members are robustly detected)} for individual stars in a sub-section of the cluster field CMD (red dashed outlined region in \figurename~\ref{fig:decam-cmd}) to infer the stellar population parameters of \clustername.
 To summarize our methodology, we first generate independent posterior samplings over the stellar parameters of each individual source under an interim prior (over age, stellar mass, distance, etc.), then use these individual samplings to construct a Bayesian hierarchical model for a two-component mixture model of the cluster and a background population.
 If you prefer to skip the details, the results of this modeling are presented in \sectionname~\ref{sec:popchars}.
 

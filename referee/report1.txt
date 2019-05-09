@@ -1,8 +1,8 @@
 TODO: update results section discussion and decam membership figure!
 
-We thank the editor and referee for the constructive comments that have improved this manuscript. We have addressed both of your concerns: Responses to your points are below (under each "Response:" heading) and point to locations in the text that have changed, which are bold-faced in the re-submitted manuscript. Finally, we appreciate your patience as we have been busy with other efforts since the report was received.
+We thank the editor and referee for comments that have improved this manuscript. We have addressed both of your concerns: Responses to your points are below (under each "Response:" heading) and point to locations in the text that have changed, which are bold-faced in the re-submitted manuscript. Finally, we appreciate your patience as we have been busy with other efforts since the report was received.
 
-The most significant change to the text and analysis came from the realization that we were incorrectly using DECam bandpasses with the isochrones, whereas the photometry were calibrated to Pan-STARRS (PS1). We have re-done the analysis using PS1 bandpasses for the isochrones and feel that this has improved the quality of the fits. We now also include the u-band in the isochronal fits for individual stars when it is available, however only the brightest few stars have reliable u-band measurements. We have updated and added text throughout the paper to reflect these updates.
+The most significant change to the text and analysis came from the realization that we were incorrectly using DECam bandpasses with the isochrones, whereas the photometry were calibrated to Pan-STARRS (PS1). We have re-done the analysis using PS1 bandpasses for the isochrones and this has improved the quality of the fits. We now also include the u-band in the isochronal fits for individual stars when it is available, however only the brightest few stars have reliable u-band measurements. We have updated and added text throughout the paper to reflect these updates.
 
 
 Reviewer's Comments:
@@ -27,7 +27,7 @@ Could the referee please clarify this statement? There is no weighting applied t
 >>> The overall shape of the adopted isochrone looks different from the data.
 
 Response:
-We do not understand the objection here, but as described above, we are now using the correct photometric bandpasses for our data and hope this has satisfied the referee.
+We do not understand the objection here, but as described above, we are now using the correct photometric bandpasses for our data and hope this satisfies the referee. We also now show a set of isochrones computed from a subset of the posterior samples generated from inferring the hierarchical (cluster) parameters, rather than just the median sample.
 
 >>> The output parameter are presented without any discussion on uncertainties and errors.
 
@@ -40,7 +40,7 @@ With the correct isochrone bandpasses, we now independently recover the SFD valu
 
 >>> Finally the accuracy of the photometry zero point is not discussed. The authors just say that it is calibrated on PanSTARRS, but no details are given. In a paper based on new photometry these details should be presented.
 
-We have updated Section XX to include a more thorough description of the photometric calibration procedure. TODO: make sure the new text is in there
+We have updated the data section "Follow-up with DECam" to include a more thorough description of the photometric calibration procedure, along with a quantification of the calibration and zero-point uncertainties.
 
 
 From the Editor:
