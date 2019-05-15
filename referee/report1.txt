@@ -15,26 +15,26 @@ Double main sequences or apparent extra variance in the color distribution at th
 >>> It is not clear why the authors do not show isochrones complete above the turnoff extension, but they appear truncated at Go,g=16.5, The extension is crucial in order to understand the reliability of the age.
 
 Response:
-The isochrones were truncated to show only main sequence stars (there was no magnitude cut applied to the isochrones). We have updated the figure to include the turnoff and beyond.
+The isochrones were truncated to show only main sequence stars (there was no magnitude cut applied to the isochrones). We have updated the figure to include the turnoff and beyond, however we do not see any members in this (short-lived) region of the CMD.
 
 >>> In spite of the long discussion on the sophisticated statistical treatment of the fit it is not clear to the reader how the fit was weighted with the photometric errors along the cmd main sequence. It looks that too low weight has been given to the bright stars.
 
 Response:
-Could the referee please clarify this statement? There is no weighting applied to the stars. Stars are fit independently to determine posterior samplings in isochronal parameters using the photometry and photometric uncertainties. The individual samplings are then combined with equal weight into the hierarchical model described in the article.
+Stars are fit independently to determine posterior samplings in isochronal parameters using the photometry and photometric uncertainties for each individual source. The individual samplings are then combined with equal weight into the hierarchical model described in the article. This procedure therefore incorporates the derived photometric uncertainties from each source.
 
 >>> The overall shape of the adopted isochrone looks different from the data.
 
 Response:
-We do not understand the objection here, but as described above, we are now using the correct photometric bandpasses for our data and hope this satisfies the referee. We also now show a set of isochrones computed from a subset of the posterior samples generated from inferring the hierarchical (cluster) parameters, rather than just the median sample.
+As described above, we are now using the correct photometric bandpasses for our data and hope this satisfies the referee (we feel the fit looks much better now). We also now show a set of isochrones computed from a subset of the posterior samples generated from inferring the hierarchical (cluster) parameters, rather than just the median sample.
 
 >>> The output parameter are presented without any discussion on uncertainties and errors.
 
 Response:
-The uncertainties were previously only shown in Table 3, but we now list them in the text as well.
+The uncertainties were previously only shown in Table 4 (formerly Table 3), but we now list them in the text as well.
 
 >>> Some crucial results should be discussed more in detail. For example why the derived reddening is so high (Av=0.33 +/-0.02) while the "old" Schlegel values in this direction is Av=0.21 ? The most updated maps (Schafly, 2011) give an even lower value, around 0.18, almost half of the authors result. There is also an issue with the derived metallicity which is significantly lower than the average LMC one.
 
-With the correct isochrone bandpasses, we now independently recover the SFD value of Av~0.2 -- see Figure XX (red line shows SFD value). With the Schlafly+2011 update, we find a mean Av in this region of the sky of Av~0.21, not 0.18, assuming Rv=3.1. As discussed in the text, the metallicity is more consistent with the SMC, which has been suggested as the origin of the leading arm gas. We see no issue here.
+With the correct isochrone bandpasses, we now independently recover the SFD value of Av~0.2 -- see Figure 5 (red line shows SFD value). With the Schlafly+2011 update, we find a mean Av in this region of the sky of Av~0.21, not 0.18, assuming Rv=3.1. As discussed in the text, the metallicity is more consistent with the SMC, which has been suggested as the origin of the leading arm gas. We see no issue here.
 
 >>> Finally the accuracy of the photometry zero point is not discussed. The authors just say that it is calibrated on PanSTARRS, but no details are given. In a paper based on new photometry these details should be presented.
 
