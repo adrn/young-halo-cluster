@@ -1,6 +1,6 @@
 We thank the editor and referee for comments that have improved this manuscript. We hope we have addressed both of your concerns: Responses to your points are below (under each "Response:" heading) and point to locations in the text that have changed, which are bold-faced in the re-submitted manuscript. Finally, we appreciate your patience as we have been busy with other efforts since the report was received.
 
-The most significant change to the text and analysis came from the realization that we were incorrectly using DECam bandpasses with the isochrones, whereas the photometry were calibrated to Pan-STARRS (PS1). We have re-done the analysis using PS1 bandpasses for the isochrones and this has improved the quality of the fits. We now also include the u-band in the isochronal fits for individual stars when it is available, however only the brightest few stars have reliable u-band measurements. We have updated and added text throughout the paper to reflect these updates.
+The most significant change to the text and analysis came from the realization that we were incorrectly using DECam bandpasses with the isochrones, whereas the g- and i-band magnitudes were calibrated to Pan-STARRS (PS1). We have re-done the analysis using PS1 bandpasses for the isochrones and this has improved the quality of the fits. We now also include the u-band in the isochronal fits for individual stars when it is available, however only the brightest few stars have reliable u-band measurements. We have updated and added text throughout the paper to reflect these updates.
 
 
 Reviewer's Comments:
@@ -72,7 +72,7 @@ Two things could be to blame here. First, as demonstrated in Maiz-Apellaniz & We
 
 >>> Something else that worries me is that aTO close to g-i =-0.6 - like yours- implies a very early spectral type, say O4-O5, which is worrisome since, and you may agree on that, it does not corresponds to 130 Myr !
 
-We disagree: Please see the attached plot. A turnoff at g-i ~ -0.6 does not correspond to such early spectral types.
+We disagree: Please see the attached plots showing isochrone points classified by spectral type (OBAFG) for an [Fe/H] = -1.1 isochrone with two ages. A turnoff at g-i ~ -0.6 does not correspond to such early spectral types. 
 
 
 >>> 3 ) I think that even a couple of magnitudes in u can help to settle the reddening, which is by far the most important parameter in the game, see the last of the 3 references I listed above. If you are not able to use u, please remove any word on it.
