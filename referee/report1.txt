@@ -1,4 +1,4 @@
-We thank the editor and referee for comments that have improved this manuscript. We have addressed both of your concerns: Responses to your points are below (under each "Response:" heading) and point to locations in the text that have changed, which are bold-faced in the re-submitted manuscript. Finally, we appreciate your patience as we have been busy with other efforts since the report was received.
+We thank the editor and referee for comments that have improved this manuscript. We hope we have addressed both of your concerns: Responses to your points are below (under each "Response:" heading) and point to locations in the text that have changed, which are bold-faced in the re-submitted manuscript. Finally, we appreciate your patience as we have been busy with other efforts since the report was received.
 
 The most significant change to the text and analysis came from the realization that we were incorrectly using DECam bandpasses with the isochrones, whereas the photometry were calibrated to Pan-STARRS (PS1). We have re-done the analysis using PS1 bandpasses for the isochrones and this has improved the quality of the fits. We now also include the u-band in the isochronal fits for individual stars when it is available, however only the brightest few stars have reliable u-band measurements. We have updated and added text throughout the paper to reflect these updates.
 
@@ -10,31 +10,37 @@ Reviewer's Comments:
 >>> The isochrone fits, both on Gaia data (Fig. 1) and DECam (Fig. 6) show evidence of a systematic deviation with the isochrones, getting steeper than the data on the bright part of the cmds (at Go and g < 18) with a deviation up to almost 0.1 magnitude in the g-i color index. This is unexpected given that the photometry on the bright stars should be accurate within about 1%.
 
 Response:
-Double main sequences or apparent extra variance in the color distribution at the brightest end (i.e. for the most massive stars) of the color-magnitude distribution of young clusters is not a solved problem. Some of this could be due to binarity, but we have added some text to the results section "Stellar population and physical characteristics" to indicate other possible sources of this additional scatter.
+The new fits with the correct passbands look better, but there does still seem to be appreciable variance in the data for the brightest/bluest stars. We have added some text to the results section "Stellar population and physical characteristics" to discuss possible sources of this additional scatter, given that it is significantly large than the photometric uncertainties.
+
 
 >>> It is not clear why the authors do not show isochrones complete above the turnoff extension, but they appear truncated at Go,g=16.5, The extension is crucial in order to understand the reliability of the age.
 
 Response:
-The isochrones were truncated to show only main sequence stars (there was no magnitude cut applied to the isochrones). We have updated the figure to include the turnoff and beyond, however we do not see any members in this (short-lived) region of the CMD.
+The isochrones were truncated to show only main sequence stars (there was no magnitude cut applied to the isochrones), but we have updated the figure to include the turnoff and beyond. However, we do not see any members in this (short-lived) region of the CMD.
+
 
 >>> In spite of the long discussion on the sophisticated statistical treatment of the fit it is not clear to the reader how the fit was weighted with the photometric errors along the cmd main sequence. It looks that too low weight has been given to the bright stars.
 
 Response:
 Stars are fit independently to determine posterior samplings in isochronal parameters using the photometry and photometric uncertainties for each individual source. The individual samplings are then combined with equal weight into the hierarchical model described in the article. This procedure therefore incorporates the derived photometric uncertainties from each source.
 
+
 >>> The overall shape of the adopted isochrone looks different from the data.
 
 Response:
 As described above, we are now using the correct photometric bandpasses for our data and hope this satisfies the referee (we feel the fit looks much better now). We also now show a set of isochrones computed from a subset of the posterior samples generated from inferring the hierarchical (cluster) parameters, rather than just the median sample.
+
 
 >>> The output parameter are presented without any discussion on uncertainties and errors.
 
 Response:
 The uncertainties were previously only shown in Table 4 (formerly Table 3), but we now list them in the text as well.
 
+
 >>> Some crucial results should be discussed more in detail. For example why the derived reddening is so high (Av=0.33 +/-0.02) while the "old" Schlegel values in this direction is Av=0.21 ? The most updated maps (Schafly, 2011) give an even lower value, around 0.18, almost half of the authors result. There is also an issue with the derived metallicity which is significantly lower than the average LMC one.
 
-With the correct isochrone bandpasses, we now independently recover the SFD value of Av~0.2 -- see Figure 5 (red line shows SFD value). With the Schlafly+2011 update, we find a mean Av in this region of the sky of Av~0.21, not 0.18, assuming Rv=3.1. As discussed in the text, the metallicity is more consistent with the SMC, which has been suggested as the origin of the leading arm gas. We see no issue here.
+With the correct isochrone bandpasses, we now independently recover the SFD value of Av~0.2 -- see Figure 5 (red line shows SFD value). With the Schlafly+2011 update, we find a mean Av in this region of the sky of Av~0.21, not 0.18, assuming Rv=3.1. As discussed in the text, the metallicity is more consistent with the SMC, which has been suggested as the origin of the leading arm gas.
+
 
 >>> Finally the accuracy of the photometry zero point is not discussed. The authors just say that it is calibrated on PanSTARRS, but no details are given. In a paper based on new photometry these details should be presented.
 
@@ -52,7 +58,7 @@ http://adsabs.harvard.edu/abs/2015MNRAS.448.1930C
 http://adsabs.harvard.edu/abs/2017MNRAS.470..481T
 
 Response:
-We have noted these papers in the introduction.
+We now note these papers in the introduction.
 
 
 >>> 2) The first, as I already commented, is that Gaia reddening-corrected colors are redder than sloan reddening un-crorrected colors. This is slightly different from the plot you sent me, unless labels are wrong.
@@ -61,14 +67,14 @@ We have noted these papers in the introduction.
 >>> On the other hand, if you want to keep this solution, maybe the only alternative is to go for a much younger age, I guess 50 millions, or even younger. You might try it.
 
 Response:
-Two things could be to blame here. First, as demonstrated in Maiz-Apellaniz & Weiler (2018), differences in the assumed Gaia DR2 passbands can have a significant effect on the BP-RP color of very blue sources. Second, the iterative Gaia-dereddening procedure used here (and discussed in Babusiaux et al. 2018 and Danielski et al. 2018) will not be very accurate for very blue stars because the derived coefficients used in this procedure use an early version of the Gaia passbands. Because of these two issues, I wouldn't over-interpret any deviations between the isochrone we draw in Figure 1 and the data: this is really only meant to be qualitative. This is also why we don't use the Gaia photometry when doing the isochrone fits. We have added a sentence to the section "Inferring the stellar population parameters with DECam photometry" to explain this choice.
+Two things could be to blame here. First, as demonstrated in Maiz-Apellaniz & Weiler (2018), differences in the assumed Gaia DR2 passbands can have a significant effect on the BP-RP color of very blue sources. Second, the iterative Gaia-dereddening procedure used here (and discussed in Babusiaux et al. 2018 and Danielski et al. 2018) will not be very accurate for very blue stars because the derived coefficients used in this procedure use an early version of the Gaia passbands. Because of these two issues, I wouldn't over-interpret any deviations between the isochrone we draw in Figure 1 and the data: this is really only meant to be qualitative. This is also why we don't use the Gaia photometry when doing the isochrone fits. We have added a sentence to the section "Inferring the stellar population parameters with DECam photometry" to explain this.
 
 
 >>> Something else that worries me is that aTO close to g-i =-0.6 - like yours- implies a very early spectral type, say O4-O5, which is worrisome since, and you may agree on that, it does not corresponds to 130 Myr !
 
-We disagree. See attached plot. A turnoff at g-i ~ -0.6 does not correspond to such early spectral types.
+We disagree: Please see the attached plot. A turnoff at g-i ~ -0.6 does not correspond to such early spectral types.
 
 
 >>> 3 ) I think that even a couple of magnitudes in u can help to settle the reddening, which is by far the most important parameter in the game, see the last of the 3 references I listed above. If you are not able to use u, please remove any word on it.
 
-We have included the u-band, when available, in doing the isochrone fits for individual sources. Thank you for the suggestion and the references.
+We have included the u-band, when available, in doing the isochrone fits for individual sources. Thank you for the suggestion and the reference.
