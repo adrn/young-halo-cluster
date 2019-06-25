@@ -80,7 +80,8 @@
 
 
 % Edits
-\newcommand{\changes}[1]{{\ \color{black}{\textbf{#1}\ }}}
+\newcommand{\changes}[1]{#1}
+\newcommand{\changestwo}[1]{{\ \color{black}{\textbf{#1}\ }}}
 \newcommand{\yumi}[1]{{\ \color{purple}{\textbf{Yumi: #1}\ }}}
 
 %% Reintroduced the \received and \accepted commands from AASTeX v5.2
@@ -141,7 +142,7 @@ a recent star formation event in the leading arm of the Magellanic stream?}}
 
 \changes{We report the discovery of a young ($\tau \sim \clage$), low-mass ($M \sim 1200~\msun$), metal-poor ($\feh \sim \clfeh$) stellar association at a heliocentric distance $D \approx \cldist$, placing it far into the Milky Way halo.}
 At its present Galactocentric position $(R, z) \sim (23, 15)~\textrm{kpc}$, the association is (on the sky) near the leading arm of the gas stream emanating from the Magellanic cloud system, but is located $\approx 60^\circ$ from the Large Magellanic Cloud (LMC) center on the other side of the Milky Way (MW) disk.
-If we assume that the cluster is co-located with \hi gas in the stream, we directly measure the distance to the leading arm of the Magellanic stream.
+If the cluster is co-located with \hi gas in the stream, we directly measure the distance to the leading arm of the Magellanic stream.
 The measured distance is inconsistent with Magellanic stream model predictions that do not account for ram pressure and gas interaction with the MW disk.
 The estimated age of the cluster is consistent with the time of last passage of the leading arm gas through the Galactic midplane; We therefore speculate that this star-formation event was triggered by its last disk midplane passage. % at a Galactocentric radius $R \approx 30~\kpc$.
 Most details of this idea remain a puzzle: the Magellanic stream has low column density, the MW disk at large radii has low gas density, and the relative velocity of the leading arm and MW gas is large.
@@ -361,7 +362,7 @@ We assume that the measurements for each star, $n$, are independent so that the 
 \end{align}
 
 We use an ensemble Markov chain Monte Carlo (MCMC) sampler \citep[\texttt{emcee};][]{emcee, Goodman:2010} to generate posterior samples over the parameters $(f, \bs{x}, s)$ using the likelihood defined above (\equationname~\ref{eq:likelihood}), and assuming the following prior probability distributions: uniform over the domain $(-5, 5)~\masyr$ for each component of $\bs{x}$, uniform in $f$, and uniform in log-$s$ over the domain $-6 < \ln s < 4$ (with $s$ in units of \masyr).
-We run the sampler with 32 walkers for 256 steps as burn-in, then reset the sampler and run for an additional 512 steps, after which the chains appear converged.
+We run the sampler with 32 walkers for 256 steps as burn-in, then reset the sampler and run for an additional 512 steps, after which the chains appear converged: \changestwo{We compute the Gelman-Rubin \citep{Gelman:1992} convergence diagnostic and find that all chains have $R < 1.1$.}
 We then downsample the resulting chains by taking every 16th sample to preserve closer-to-independent samples, leaving a total of 1024 samples; We use these samples to estimate the median posterior parameter values and uncertainties,
 For the young cluster, we find $\bs{x} = (-0.56,  0.47) \pm (0.04, 0.02)~\masyr$, $\ln s = -3.8 \pm 0.9$, and $f = 0.14 \pm 0.02$.
 The proper-motion dispersion is consistent with zero, and is likely unmeasured, because of the proper motion uncertainties; 95\% of the posterior samples have $s < 0.09~\masyr$.
@@ -376,7 +377,7 @@ While the \gaia\ data provide exquisite astrometric data for the brightest membe
 To measure the cluster population parameters, we therefore use the deeper photometry from \decam, which provides a clear view of the main sequence of \clustername\ down to stellar masses $M \sim 0.9~\msun$.
 We note that this analysis and the subsequent discussion only considers subregion (a) of \clustername, which dominates the total mass and number of stars in the cluster.
 \figurename~\ref{fig:decam-cmd} shows the \decam\ g- and i-band color-magnitude diagrams for control fields (left) and cluster fields (right) selected from the \decam\ footprint, once again showing the young main sequence (coherent stellar population in right panel).
-We use the g- and i-band photometry \changes{(and u-band, though only the brightest $\sim$15 cluster field members are robustly detected)} for individual stars in a sub-section of the cluster field CMD (red dashed outlined region in \figurename~\ref{fig:decam-cmd}) to infer the stellar population parameters of \clustername.
+We use the g- and i-band photometry---\changestwo{and u-band, though only the brightest $\sim$15 cluster field members are robustly detected, however for those sources, the u-band significantly helps to constrain the extinction for the cluster}---for individual stars in a sub-section of the cluster field CMD (red dashed outlined region in \figurename~\ref{fig:decam-cmd}) to infer the stellar population parameters of \clustername.
 To summarize our methodology, we first generate independent posterior samplings over the stellar parameters of each individual source under an interim prior (over age, stellar mass, distance, etc.), then use these individual samplings to construct a Bayesian hierarchical model for a two-component mixture model of the cluster and a background population.
 If you prefer to skip the details, the results of this modeling are presented in \sectionname~\ref{sec:popchars}.
 
@@ -462,6 +463,7 @@ We use \texttt{emcee} \citep{emcee, Goodman:2010} to sample from the posterior p
         \prod_n^N p(\bs{m}_n \given \bs{\alpha}, f) \quad.
 \end{equation}
 Here we use 64 walkers and run for an initial 128 steps to burn-in the sampler before running for a final 1024 steps.
+\changestwo{We again compute the Gelman-Rubin \citep{Gelman:1992} convergence diagnostic and find that all chains have $R < 1.1$ and are thus likely converged.}
 \figurename~\ref{fig:hierarch-corner} shows a corner plot with all 1D and 2D marginal posterior probability distributions estimated from the samples.
 
 \begin{table}[hbt]
@@ -645,6 +647,21 @@ We therefore posit that the orbit of \clustername\ can be explained as having or
 Precise radial velocity measurements of stars in \clustername\ will definitively rule on this scenario.
 For one, with a precision $\sigma_v \lesssim 2~\kms$, the internal kinematics of \clustername\ could be resolved, and in particular the expansion rate could be measured.
 But even low-precision velocity measurements would either confirm the association between \clustername\ and one of the three LA II-region gas filaments, or would challenge this scenario.
+
+
+\subsection{Other possible formation scenarios}
+\label{sec:otherformation}
+
+While the spatial proximity of \clustername\ to LA gas in the Magellanic Stream suggests a tentative connection, radial velocity data for the stars is required to confirm that the velocity of the cluster is consistent with the gas and thereby confirm the connection (Nidever et al., in prep.).
+However, even if the cluster can be confidently, kinematically associated with the LA gas, a number of mysteries would remain.
+First, it is not clear what could have triggered this star formation event, or why this appears to be the only young cluster associated with the LA gas.
+Second, the origin of the LA gas itself is not well understood, and some studies have questioned its connection to the Magellanic Clouds \citep{Tepper:2019}.
+
+Other possible formation scenarios for \clustername\ do not help to resolve these issues.
+One possible alternative scenario is that the \clustername\ birth cloud was unassociated with the MS and instead a lone HVC.
+However, this still raises questions about what triggered the star formation, given that other HVCs in the Milky Way are observed to be devoid of stars (e.g., \citalt{Stark:2015}).
+Another possible origin for \clustername\ is that it formed from gas stripped from a fully-destroyed dwarf galaxy (an unknown satellite of the Magellanic Clouds).
+However, the cluster appears to have a single, very young stellar population, and other, comoving, older stars have not been found associated with the LA in this region.
 
 
 \section{Summary} \label{sec:conclusion}
