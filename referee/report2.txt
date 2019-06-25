@@ -1,3 +1,6 @@
+We thank the referee for the second report. Below, the referee's comments are preceded be ">>>" and our responses follow. We have addressed some of the referee's comments, however, most of their objections pertain to the new statistical method used in this work to infer the cluster parameters, and we find their suggestions to use "more conventional solutions" questionable. If the referee is still unsatisfied with the statistical method used here, we strongly suggest that the editor and referee consult with a statistical editor or referee.
+
+
 >>> I agree with most of the answers of the authors.
 >>> The issue of the photometry has been correctly addressed by the authors and now the discussion on the data, and the data processing, is fixed.
 >>> However the automatic fitting procedure, starting from a wide input, with several free parameters, does not guarantee the reliability of the results, and the authors do not present a solid evidence excluding alternative, more "conventional" solutions.
