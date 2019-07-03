@@ -14,7 +14,7 @@ If the reliability of the results are still in question, we recommend that the r
 
 We appreciate the referee's time and effort for cross-checking our results.
 
-First, we do plan to include the photometry for this region, and would be happy to add a way to select out the cluster candidate members from the catalog.
+First, we do plan to include the photometry for this region, and would be happy to add a way to select out the cluster candidate members from the catalog. We have added the DECam photometry for the members to the response as "decam_members.fits"
 
 Second, unfortunately it is difficult to compare our results to those quoted above because the referee does not explain the fitting tests performed in a way we can reproduce. It sounds like isochrones are over-laid by eye on the photometry, which is not a robust or justified (in a statistical sense) method for doing model fitting or error analysis: drawing isochrones over photometric data and picking out "good fits" is not a robust fitting test. These are the main reasons we chose to develop the statistical methodology presented in this work: This procedure instead naturally adapts the parameters to account for the shape of the main sequence through specification of a likelihood function and statistical model. Despite these differences, it sounds like the referee generally agrees with our conclusions, albeit with slightly larger estimated error bars on the distance and age. However, this discrepancy in error bars, again, seems to be estimated by eye and thus we are not convinced that this is a robust methodology to compare to.
 
@@ -27,7 +27,7 @@ We have added a new subsection ("Other possible formation scenarios") in the dis
 >>> Further points:
 >>> -could the authors show to me the plot with the DECam photometry vs. PS1 ? I do not understand the RMS of the g, i and of the u bands (Sec. 2.2), and Table 1 uncertainty on the zero points. Obviously the zero point error could be lower, but here we have one order of magnitude difference. Is it correct ?
 
-We have included this plot in the response.
+We have included these plots in the response "lafcluster_calib.pdf".
 
 
 >>> -It is not completely clear to me how the authors used the u-band data. I see only a very short comment in Sec. 3.2, but I do not understand its contribution. Is it significant ? Is it in agreement with g and i analysis ? It would be interesting to see a plot including the u.
