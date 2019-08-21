@@ -1,0 +1,28 @@
+The discovery presented in the manuscript is very interesting, with potentially great consequences on our knowledge of the external Galaxy and, maybe, the interactions between the Milky Way and the Magellanic Clouds. My main concern with this document is that the entire work is based on one underlying, unverified hypothesis: the authors assume that the object is a mono-metallic, single-age, mono-everything stellar cluster, and all the results rely on it.
+In brief, the solution (in terms of parameters) and the interpretation presented by the authors are probably the best, at least in a statistical sense, *IF* the structure is such a stellar cluster, but this working hypothesis is unverified and never put into discussion.
+The discovery data, indeed, seem to suggest that this hypothesis might not be the best. Figure 1 shows an extremely large object, with a densest region nearly 1-kpc wide, and other structures that could extend up to 1.5-2 kpc from it. In addition, proper motions from the same Figure suggest a dispersion of ~1-1.5 mas/yr, likely larger than observational errors. The assumption of one single distance, in particular, might make littles sense, if we have no clear reasons to imagine a 2D structure very extended in the tangential plane but extremely narrow along the line of sight. But also, it is not unreasonable to imagine that such a large structure could present internal gradients or inhomogeneities in age and metallicity.
+When the results do not fix well in the scenario of a single-isochrone cluster, the authors present reasonable interpretations. They might be, of course, but they are only interpretations, not necessarily the correct ones. For example, the structure is huge, two order of magnitudes larger than a typical stellar cluster, but the authors interpret this as evidence of its disruption. When the isochrone fit in Figure 6 is not very satisfactory, the authors claim "a combination of many things, such as binarity, convective cores..." etc. A high spread in magnitudes in the same Figure, which could suggest a spread of distances of some kpc, is directly interpreted as binarity alone, although many stars are much brighter than the equal-mass sequence. All these arguments might be correct, of course, but all in all it seems that, while the observations call for a spread in parameters, the authors do not even consider the possibility, and their underlying assumption of a single-isochrone cluster is never put into discussion. I think that this approach harms any attempt to understand the nature and origin of this interesting feature.
+In conclusion, I think that the whole results cannot rely on one unproven hypothesis. Either the authors unequivocally argue that a single-isochrone is the only acceptable solution, or the possibility of a mix of sub-populations, or a spread in the parameters, should be considered and/or discussed. If this is not possible, the authors should at least clearly warn the reader that any result presented here depends on the unproven hypothesis that a single isochrone is an adequate representation of the structure under study, and if this hypotheses fails, the results could be misleading.
+
+TODO: add discussion section about possible multiple age/metallicity groups.
+
+
+
+>>> 1- Sect.3.1:
+>>> The analysis of proper motions is reasonable, but a comparison between the two "field" areas should be performed. In fact, the presence of any difference between them in proper motion distribution (e.g., a gradient in the E-W direction) would likely pass unnoticed in the present analysis, but of course the results would be affected.
+
+TODO: check this and send a plot to the referee
+
+>>> 2- Sect.3.1:
+>>> I am surprised by the fact that the machine returns an internal proper motion dispersion consistent with zero, while the scatter in Fig.1 is quite large (at least 1-1.5 mas/year in both directions).
+
+TODO: what are the uncertainties - report empirical scatter and typical uncertainties.
+
+>>> 3- Some times in the past, some authors claimed that the discovery of young stars at large Galactic heights were only evidence of a deformed Galactic disk (warp and flare, mainly). The manuscript should seriously discuss this interpretation and, if possible, convincingly argue against it.
+
+TODO: The disk is nowhere near here!!!
+
+>>> 4- Last sentence of Sect.4: "the cluster appears to have a single, very young stellar population, and other coming older stars have not been found".
+>>> I think this sentences is largely unfair. I see no evidence that the cluster has a single population. This is assumed since the beginning and I see no attempt to try a different approach. In addition, the whole work starts with the selection of stars with g-i<0.35, hence I would rather write that "an attempt to find older stars have not been performed".
+
+TODO: wat.
