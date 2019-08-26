@@ -76,7 +76,8 @@
 
 % Edits
 \newcommand{\changes}[1]{#1}
-\newcommand{\changestwo}[1]{{\ \color{black}{\textbf{#1}\ }}}
+\newcommand{\changestwo}[1]{#1}
+\newcommand{\changesthr}[1]{{\ \color{black}{\textbf{#1}\ }}}
 \newcommand{\yumi}[1]{{\ \color{purple}{\textbf{Yumi: #1}\ }}}
 
 %% Reintroduced the \received and \accepted commands from AASTeX v5.2
@@ -154,8 +155,9 @@ This cluster was discovered with \gaia\ astrometry and photometry alone, but fol
 
 \section{Introduction} \label{sec:intro}
 
-The \changes{distant stellar} halo of the Milky Way is typically characterized by its old ($\gtrsim 10~\textrm{Gyr}$), metal-poor ($\feh \approx -1.5$) stellar population.
-\changes{While there is some evidence that the inner stellar halo (within $\lesssim 5~\kpc$ of the sun) could contain young, embedded clusters at high Galactic latitude (e.g., \cite{Camargo:2015, Camargo:2016}; however, these may not be real \cite{Turner:2017}), the typical old age of the stellar halo} is understood as a signature of the dominant (in stellar mass) progenitor systems that were accreted early on in the formation of the Galaxy \citep[massive dwarf galaxies][]{Deason:2015, Fiorentino:2015}.
+The \changes{distant stellar} halo of the Milky Way (i.e. far from the disk midplane, $|z| \gtrsim 5~\kpc$) is typically characterized by its old ($\gtrsim 10~\textrm{Gyr}$), metal-poor ($\feh \approx -1.5$) stellar population.
+% \changes{While there is some evidence that the inner stellar halo (within $\lesssim 5~\kpc$ of the sun) could contain young, embedded clusters at high Galactic latitude (e.g., \cite{Camargo:2015, Camargo:2016}; however, these may not be real \cite{Turner:2017}), t
+The typical old age of the stellar halo is understood as a signature of the dominant (in stellar mass) progenitor systems that were accreted early on in the formation of the Galaxy \citep[massive dwarf galaxies][]{Deason:2015, Fiorentino:2015}.
 It is thought that these systems came in with significant gas reservoirs, but were quenched and stripped through collisional processes that heated and dispersed the gas \citep[e.g.,][]{Mayer:2006}, thus preventing immediate star formation in the deposited gas.
 The Milky Way, however, continues to accrete satellite galaxies, as is evidenced by the prominent stellar stream from the Sagittarius dwarf galaxy \citep{Ibata:1994, Majewski:2003}, the presence of the Large and Small Magellanic Clouds (LMC and SMC), and about 50 dwarf satellites within the Galactic halo.
 While Sagittarius was likely stripped of its neutral gas long ago \citep{Burton:1999, Tepper-Garcia:2018}, the \lmcsmc\ system is associated with $\approx 8\times 10^8~\msun$ of \hi gas \citep{Bruns:2005}, which extends into leading and trailing gas streams \citep{Mathewson:1974, Putman:1998, Bruns:2005, Nidever:2010}.
@@ -328,7 +330,7 @@ We start by selecting all stars with $(\bprp)_0 < 0.35$ to remove low-mass and o
 \figurename~\ref{fig:pm-members}, left (grey points), shows the sky positions of stars that pass this blue cut in the region around the young cluster.
 The larger solid-line circle indicates the region we define as the cluster area, and the two smaller dashed-line circles indicate control fields that are combined and used for modeling the background distribution of proper motions.
 The control fields are designed to, together, have the same total area as the cluster field, and were chosen to have similar latitudes as the cluster field in the Magellanic stream coordinate system \citep{Nidever:2008}.
-We assume that the background density in the cluster field is equivalent to the average background density of the joint control fields.
+We assume that the background density in the cluster field is equivalent to the average background density of the joint control fields: \changesthr{We do not see any gradients or significant differences in the proper motion distribution between these two control fields.}
 From visual inspection of the CMDs of the control fields, we do not see any significant clustered over-density and therefore assume that these fields are dominated by the background stellar density.
 The right panel of \figurename~\ref{fig:pm-members} shows the difference of the 2D proper motion distributions in the cluster and summed control fields.
 The distinct over-density of stars near $(\mu_\alpha, \mu_\delta) \approx (-0.5, 0.5)~\masyr$ is the identified comoving association of blue stars.\footnote{Throughout this article, we use $\mu_\alpha$ to refer to the proper motion value provided by \gaia, which includes the $\cos\delta$ term.}
@@ -360,7 +362,7 @@ We use an ensemble Markov chain Monte Carlo (MCMC) sampler \citep[\texttt{emcee}
 We run the sampler with 32 walkers for 256 steps as burn-in, then reset the sampler and run for an additional 512 steps, after which the chains appear converged: \changestwo{We compute the Gelman-Rubin \citep{Gelman:1992} convergence diagnostic and find that all chains have $R < 1.1$.}
 We then downsample the resulting chains by taking every 16th sample to preserve closer-to-independent samples, leaving a total of 1024 samples; We use these samples to estimate the median posterior parameter values and uncertainties,
 For the young cluster, we find $\bs{x} = (-0.56,  0.47) \pm (0.04, 0.02)~\masyr$, $\ln s = -3.8 \pm 0.9$, and $f = 0.14 \pm 0.02$.
-The proper-motion dispersion is consistent with zero, and is likely unmeasured, because of the proper motion uncertainties; 95\% of the posterior samples have $s < 0.09~\masyr$.
+\changesthr{The proper-motion dispersion is consistent with zero, but is unmeasured: 95\% of the posterior samples have $s < 0.09~\masyr$, indicating that the observed proper motion dispersion is consistent with the proper motion \gaia\ uncertainties, which have minimum and median values of $\sim 0.09~\masyr$ and $\sim 0.4~\masyr$, respectively.}
 \tablename~\ref{tbl:gaiadata} contains a subset of the \gaia\ \DR{2} data for stars in the cluster field, with kinematic membership probabilities determined from this modeling procedure.
 
 
@@ -431,7 +433,9 @@ We generate posterior samplings over the parameters $(\bs{\theta}, q)$ for each 
 We then use these samples and interim prior values to construct our hierarchical model, as described below.
 
 In the hierarchical model, we assume that the stellar parameters of each primary star in the selected region are either drawn from the cluster, or a background (stellar halo) population.
-For the cluster, we assume that the values are drawn from delta functions in age, metallicity, distance, and extinction, with the centroids of the delta functions $\bs{\alpha} = (\tau^*, \feh^*, D^*, A_V^*)$ as hyperparameters of the hierarchical inference.
+For the cluster, we assume that the values are drawn from delta functions in age, metallicity, distance, and extinction, with the centroids of the delta functions $\bs{\alpha} = (\tau^*, \feh^*, D^*, A_V^*)$ as hyperparameters of the hierarchical inference---\changesthr{that is, we assume that the cluster is a single stellar population (SSP).
+We note that we have run the same hierarchical model allowing for Gaussian spreads in age, metallicity, and distance where we simultaneously infer the variances in each cluster parameter, but we have found that the variances are unconstrained, and we therefore instead treat the cluster as an SSP.}
+
 For the background model, we assume the same priors as specified in \tablename~\ref{tbl:priors}.
 The one additional parameter that must be included in this hierarchical model is the mixture weight: The global fraction of sources that are likely cluster members, $f$.
 To compute the likelihood for the hierarchical model, we use the individual posterior samplings to marginalize over the per-source stellar parameters $\bs{\theta}_n$ to compute the marginal likelihood $p(\bs{m}_n \given \bs{\alpha}, f)$, where $\bs{m}_n = (g, i)_n$ is the vector of photometric data for source $n$;
@@ -509,8 +513,8 @@ The dashed line (green) shows the same isochrone, shifted $\approx 0.75$ magnitu
 We use the posterior samples from the hierarchical inference described in \sectionname~\ref{sec:popmodel} to compute the posterior probabilities that each source in the \decam\ CMD selection box (red box, \figurename~\ref{fig:decam-cmd}) is a member of the cluster.
 \figurename~\ref{fig:hierarch-iso} shows the \decam\ photometry for all sources with membership probability $> 0.5$ (circle markers).
 Over-plotted in \figurename~\ref{fig:hierarch-iso} (blue, solid line) is a \acronym{MIST} isochrone with the median posterior parameters derived from the hierarchical modeling, shifted to the median distance and extincted given the median $A_V$ value.
-\changes{We find that \clustername\ is indeed young, distant, and metal poor, with median posterior values and standard deviations of age $\tau = \clageerr$, distance $D = \cldisterr$, and metallicity $\feh = \clfeherr$ (see also \tablename~\ref{tbl:clusterparams} for a summary).
-We find that the inferred extinction, $A_V = \claverr$, is consistent with the value $A_{V, {\rm SFD}} \approx 0.2$ from the (recalibrated) SFD dust map \citep{Schlegel:1998, Schlafly:2011}.}
+\changesthr{Under the assumption that \clustername\ has a single stellar population,} we find that \clustername\ is indeed young, distant, and metal poor, with median posterior values and standard deviations of age $\tau = \clageerr$, distance $D = \cldisterr$, and metallicity $\feh = \clfeherr$ (see also \tablename~\ref{tbl:clusterparams} for a summary).
+We find that the inferred extinction, $A_V = \claverr$, is consistent with the value $A_{V, {\rm SFD}} \approx 0.2$ from the (recalibrated) SFD dust map \citep{Schlegel:1998, Schlafly:2011}.
 We note again that, with the \decam\ photometry, we are limited to studying the subcomponent a of \clustername\ --- follow-up imaging of component b (see \figurename~\ref{fig:cmds}) would enable a similar analysis for the full cluster.
 
 Also plotted in \figurename~\ref{fig:hierarch-iso} is the equal-mass binary sequence (green, dashed line) computed from the median posterior sample: The abundance of sources between the nominal isochrone and the binary sequence highlights the fact that the cluster may contain a significant number of binary or multiple star systems, but we leave a detailed study of multiplicity to future work.
@@ -657,7 +661,13 @@ Other possible formation scenarios for \clustername\ do not help to resolve thes
 One possible alternative scenario is that the \clustername\ birth cloud was unassociated with the MS and instead a lone HVC.
 However, this still raises questions about what triggered the star formation, given that other HVCs in the Milky Way are observed to be devoid of stars (e.g., \citealt{Stark:2015}).
 Another possible origin for \clustername\ is that it formed from gas stripped from a fully-destroyed dwarf galaxy (an unknown satellite of the Magellanic Clouds).
-However, the cluster appears to have a single, very young stellar population, and other, comoving, older stars have not been found associated with the LA in this region.
+\changesthr{However, we have not found a significant over-density of comoving older stars associated with the LA in this region.}
+% However, the cluster appears to have a single, very young stellar population, and other, comoving, older stars have not been found associated with the LA in this region.
+
+\changesthr{One final possibility is that these stars were formed in or associated with the Galactic disk.
+While there have been some claimed discoveries of young, embedded clusters at high Galactic latitude (within $\lesssim 5~\kpc$ of the sun, e.g., \citealt{Camargo:2015, Camargo:2016}, these may not be real \citep{Turner:2017}.
+Still, stars formed in the Galactic disk have been observed far from the disk midplane with heights up to $|z| \sim 10~\kpc$ \citep[e.g., the TriAnd over-density;][]{Price-Whelan:2015, Bergemann:2018}).
+However, TriAnd has an old stellar population, and no young disk stars have been since found associated with this or other features in the outer Galactic disk \citep{Deason:2018, Laporte:2019}.}
 
 
 \section{Summary} \label{sec:conclusion}
